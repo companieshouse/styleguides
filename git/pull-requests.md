@@ -42,6 +42,7 @@ SCRS-402, SCRS-405, SCRS-407
 Checklist
 ---------
 
+When creating a pull request run through this checklist to make sure you are not missing anything:
 1. The correct branch to merge changes into has been specified
     * Look out for a large number of files being listed as having changed. It could be that you are comparing to the incorrect base branch.
 2. There are no merge conflicts
@@ -56,6 +57,13 @@ Checklist
     * Make the life of your reviewer easier by adding links to any related pull requests, then they won't get missed.
 7. Is pull request labelled correctly
 8. Clearly note whats supposed to be in the pull request
-    * When creating the pull request, always add a list of what change/feature is in there.
-9. Link to the definition of done for this feature in the description if appropriate
-10. Ensure your code adhere to all other relevant standards in this repo
+    * When creating the pull request, always add a list of the changes or features that are included.
+9. Ensure your code adheres to all other relevant standards in this repo
+
+Pull requests into develop
+--------------------------
+
+There are some additional points to consider before peer reviewing a pull request into develop (the integration/staging branch):
+1. **Do not approve work done within your own team** - You are always encouraged to review and comment on your own teams work, but the final approval should be by someone outside your team.
+2. **Do you have a high level of expertise in the area of the PR?** - Again, you are always encouraged to review and comment on any pull requests, but before approving a pull request into develop consider whether you have a high enough level of competence and expertise in the area of the pull request.
+3. **Condider the impact of this pull request on other work streams** - Will this pull request block or otherwise negatively impact any other ongoing work?
