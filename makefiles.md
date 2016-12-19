@@ -118,8 +118,8 @@ source_env := for chs_env in $(chs_envs); do test -f $$chs_env && . $$chs_env; d
 tmp_dir    := $(shell mktemp -d build-XXXXXXXXXX)
 
 commit     := $(shell git rev-parse --short HEAD)
-tag        := $(shell tag=$$(git tag -l 'v*-rc*' --points-at HEAD); echo $${tag\#v*})
-version    := $(shell if [[ -n "$(tag)" ]]; then echo $(tag); else echo $(commit); fi)
+tag        := $(shell git tag -l 'v*-rc*' --points-at HEAD)
+version    := $(shell if [[ -n "$(tag)" ]]; then echo $(tag) | sed 's/^v//'; else echo $(commit); fi)
 
 .PHONY: all
 all: clean build
