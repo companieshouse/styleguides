@@ -17,8 +17,8 @@ General GFM style pointers
 * Use sub README's where required i.e. if the repo has a "scripts" directory then it should have an accompanying README to describe what the scripts do, how to use them, etc.
 * Always link to sub README's from the main/top level README
 
-README template
----------------
+Template
+--------
 
 ```
 Repo Title
@@ -47,4 +47,46 @@ Mongo requirement
 Details of the example mongo requirement i.e. a certain collection needs to exist
 ```
 
-A example of this can be found [here](https://github.com/companieshouse/transactions.ch.gov.uk).
+Example
+-------
+
+> Penguin Producer
+> ================
+>
+> A service to produce penguins to populate antarctica.
+>
+> Requirements
+> ------------
+>
+> In order to build this service you need:
+> * [Snow](https://en.wikipedia.org/wiki/Snow)
+> * [Git](https://www.git-scm.com/downloads)
+>
+> In order to run this service you need:
+> * [Instance of Antarctica](https://github.com/companieshouse/antarctica)
+> * [Mongo DB](#setting-up-mongo-db)
+>
+> Getting started
+> ---------------
+>
+> 1. [Configure your service](#configuration) if you wish to override any of the defaults
+> 2. Run `make`
+> 3. Run `./start.sh`
+>
+> Setting up Mongo DB
+> -------------------
+>
+> 1. [Install Mongo DB](https://docs.mongodb.com/manual/administration/install-community/)
+> 2. Run `./setupMongo.sh` to setup the collections
+>
+> Configuration
+> -------------
+>
+> The default configuration can be overridden by either exporting the following enviornment variables
+> at command line or within `~/.penguin`:
+>
+> Variable            | Default                 |Description
+> --------------------|-------------------------|--------------
+> ANTARCTICA_LOCATION |`http://south-pole:2222` |The location at which to find your instance of antarctica
+> PENGUIN_TYPE        |`"Emperor"`              |The type of penguin to produce (e.g. `"Adélie"`, `"Emperor"`, `"Gentoo"`)
+>
