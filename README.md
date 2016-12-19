@@ -15,6 +15,7 @@ Tools
 -----
 * [Git](git.md)
 * [Perl POD](perlpod.md)
+* [Makefiles](makefiles.md)
 
 Other
 -----
