@@ -111,6 +111,7 @@ Example
 
 ```
 CHS_ENV_HOME ?= $(HOME)/.chs_env
+TESTS        ?= ./...
 
 bin        := chs-monitor-notification-matcher
 chs_envs   := $(CHS_ENV_HOME)/global_env $(CHS_ENV_HOME)/chs-monitor-notification-matcher/env
@@ -126,7 +127,7 @@ all: clean build
 
 .PHONY: fmt
 fmt:
-	go fmt
+	go fmt ./...
 
 .PHONY: deps
 deps:
@@ -147,11 +148,11 @@ test: test-unit test-integration
 
 .PHONY: test-unit
 test-unit: test-deps
-	@set -a; go test -run 'Unit'
+	@set -a; go test $(TESTS) -run 'Unit'
 
 .PHONY: test-integration
 test-integration: test-deps
-	$(source_env); go test -run 'Integration'
+	$(source_env); go test $(TESTS) -run 'Integration'
 
 .PHONY: clean
 clean:
