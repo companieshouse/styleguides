@@ -123,7 +123,7 @@ tag        := $(shell git tag -l 'v*-rc*' --points-at HEAD)
 version    := $(shell if [[ -n "$(tag)" ]]; then echo $(tag) | sed 's/^v//'; else echo $(commit); fi)
 
 .PHONY: all
-all: clean build
+all: build
 
 .PHONY: fmt
 fmt:
@@ -160,13 +160,11 @@ clean:
 
 .PHONY: package
 package:
-	-rm -rf ./.dist-build
-	mkdir ./.dist-build
-	cp ./$(bin) ./.dist-build/$(bin)
-	cp ./start.sh ./.dist-build/start.sh
-	cd ./.dist-build && zip $(bin).zip $(bin) start.sh
-	mv ./.dist-build/$(bin).zip $(bin)-$(version).zip
-	rm -rf ./.dist-build
+	$(eval tmpdir:=$(shell mktemp -d build-XXXXXXXXXX))
+	cp ./$(bin) $(tmpdir)/$(bin)
+	cp ./start.sh $(tmpdir)/start.sh
+	cd $(tmpdir) && zip ../$(bin)-$(version).zip $(bin) start.sh
+	rm -rf $(tmpdir)
 
 .PHONY: dist
 dist: clean build package
