@@ -7,14 +7,14 @@ Title
 * Should be a short description of the what the purpose of the pull request is
 * Keep it to around 50 characters
 * Capitalise the first character
-* If we look at the titles of all the pull requests between to points in time e.g. 2 releases, it should give us a clear idea of what has changed
+* If we look at the titles of all the pull requests between two points in time e.g. 2 releases, it should give us a clear idea of what has changed
 
 Body
 ----
 
 * Here you need to provide the detail of what it is you're trying to do, if the pull request is small then the title maybe enough
 * Wrap each line at around 72 characters (github won't do this for you)
-* Add any relevant links i.e. other related pull requests, do not rely on the fact that there are links to the stories, there should be enough detail in the description to gives us the context
+* Add any relevant links i.e. other related pull requests, do not rely on the fact that there are links to the stories, there should be enough detail in the description to give us the context
 * Add any related JIRA stories at the bottom under a "Resolves" section
 * `@mention` anyone you to specifically look at it
 * Don't assume reviewer familiarity with your pull request
