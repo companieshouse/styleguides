@@ -43,6 +43,7 @@ Checklist
 ---------
 
 When creating a pull request run through this checklist to make sure you are not missing anything:
+
 1. The correct branch to merge changes into has been specified
     * Look out for a large number of files being listed as having changed. It could be that you are comparing to the incorrect base branch.
 2. There are no merge conflicts
@@ -64,6 +65,7 @@ Pull requests into develop
 --------------------------
 
 There are some additional points to consider before peer reviewing a pull request into develop (the integration/staging branch):
+
 1. **Do not approve work done within your own team** - You are always encouraged to review and comment on your own teams work, but the final approval should be by someone outside your team.
 2. **Do you have a high level of expertise in the area of the PR?** - Again, you are always encouraged to review and comment on any pull requests, but before approving a pull request into develop consider whether you have a high enough level of competence and expertise in the area of the pull request.
 3. **Condider the impact of this pull request on other work streams** - Will this pull request block or otherwise negatively impact any other ongoing work?
