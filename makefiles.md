@@ -68,8 +68,8 @@ Target            |Purpose
 ------------------|-------
 `all`<sup>1</sup> |Calls methods required to build a locally runnable version, typically the build target
 `clean`           |Reset repo to pre-build state (i.e. a clean checkout state)
-`build`           |Pull down any dependencies and compile code
-`package`         |Create a single versioned deployable package (i.e. jar, zip, tar, etc.)
+`build`           |Pull down any dependencies and compile code into an executable if required
+`package`         |Create a single versioned deployable package (i.e. jar, zip, tar, etc.). May be dependent on the `build` target being run before `package`
 `dist`            |Invoke the `clean`, `build` and `package` targets
 
 <sup>1</sup> Should be the first/default target
