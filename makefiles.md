@@ -86,6 +86,8 @@ Target             |Purpose
 `test-component`   |Run component tests
 `test-compile`     |Run compilation tests for dynamic languages
 `publish`          |Publish a library artefact to an artefact store (e.g. Artifactory)
+`xunit-tests`      |Run unit tests and format output for parsing as xunit (for golang repo jenkins integration)
+`lint`             |Run lint checks
 
 **Additional targets**
 
@@ -168,4 +170,15 @@ package:
 
 .PHONY: dist
 dist: clean build package
+
+.PHONY: xunit-tests
+xunit-tests: test-deps
+	go get github.com/tebeka/go2xunit
+	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' > test.output
+	cat test.output | go2xunit -output test.xml
+
+.PHONY: lint
+lint:
+	go get github.com/golang/lint/golint
+	golint ./... > lint.txt
 ```
