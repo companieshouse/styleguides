@@ -115,14 +115,16 @@ Example
 CHS_ENV_HOME ?= $(HOME)/.chs_env
 TESTS        ?= ./...
 
-bin        := chs-monitor-notification-matcher
-chs_envs   := $(CHS_ENV_HOME)/global_env $(CHS_ENV_HOME)/chs-monitor-notification-matcher/env
-source_env := for chs_env in $(chs_envs); do test -f $$chs_env && . $$chs_env; done
-tmp_dir    := $(shell mktemp -d build-XXXXXXXXXX)
+bin          := chs-monitor-notification-matcher
+chs_envs     := $(CHS_ENV_HOME)/global_env $(CHS_ENV_HOME)/chs-monitor-notification-matcher/env
+source_env   := for chs_env in $(chs_envs); do test -f $$chs_env && . $$chs_env; done
+tmp_dir      := $(shell mktemp -d build-XXXXXXXXXX)
+xunit_output := test.xml
+lint_output  := lint.txt
 
-commit     := $(shell git rev-parse --short HEAD)
-tag        := $(shell git tag -l 'v*-rc*' --points-at HEAD)
-version    := $(shell if [[ -n "$(tag)" ]]; then echo $(tag) | sed 's/^v//'; else echo $(commit); fi)
+commit       := $(shell git rev-parse --short HEAD)
+tag          := $(shell git tag -l 'v*-rc*' --points-at HEAD)
+version      := $(shell if [[ -n "$(tag)" ]]; then echo $(tag) | sed 's/^v//'; else echo $(commit); fi)
 
 .PHONY: all
 all: build
@@ -158,7 +160,7 @@ test-integration: test-deps
 
 .PHONY: clean
 clean:
-	rm -f ./$(bin)
+	rm -f ./$(bin) ./$(bin)-*.zip $(test_path) build.log
 
 .PHONY: package
 package:
@@ -174,11 +176,11 @@ dist: clean build package
 .PHONY: xunit-tests
 xunit-tests: test-deps
 	go get github.com/tebeka/go2xunit
-	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' > test.output
-	cat test.output | go2xunit -output test.xml
+	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
 
 .PHONY: lint
 lint:
 	go get github.com/golang/lint/golint
-	golint ./... > lint.txt
+	golint ./... > $(lint_output)
 ```
+
