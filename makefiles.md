@@ -118,7 +118,6 @@ TESTS        ?= ./...
 bin          := chs-monitor-notification-matcher
 chs_envs     := $(CHS_ENV_HOME)/global_env $(CHS_ENV_HOME)/chs-monitor-notification-matcher/env
 source_env   := for chs_env in $(chs_envs); do test -f $$chs_env && . $$chs_env; done
-tmp_dir      := $(shell mktemp -d build-XXXXXXXXXX)
 xunit_output := test.xml
 lint_output  := lint.txt
 
@@ -141,7 +140,7 @@ deps:
 build: deps fmt $(bin)
 
 $(bin):
-    go build -o ./$(bin)
+	go build -o ./$(bin)
 
 .PHONY: test-deps
 test-deps: deps
@@ -152,7 +151,7 @@ test: test-unit test-integration
 
 .PHONY: test-unit
 test-unit: test-deps
-	@set -a; go test $(TESTS) -run 'Unit'
+	set -a; go test $(TESTS) -run 'Unit'
 
 .PHONY: test-integration
 test-integration: test-deps
@@ -164,7 +163,7 @@ clean:
 
 .PHONY: package
 package:
-	$(eval tmpdir:=$(shell mktemp -d build-XXXXXXXXXX))
+	$(eval tmpdir := $(shell mktemp -d build-XXXXXXXXXX))
 	cp ./$(bin) $(tmpdir)/$(bin)
 	cp ./start.sh $(tmpdir)/start.sh
 	cd $(tmpdir) && zip ../$(bin)-$(version).zip $(bin) start.sh
