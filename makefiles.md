@@ -130,52 +130,52 @@ all: build
 
 .PHONY: fmt
 fmt:
-	go fmt ./...
+    go fmt ./...
 
 .PHONY: deps
 deps:
-	go get github.com/companieshouse/$(bin)
+    go get github.com/companieshouse/$(bin)
 
 .PHONY: build
 build: deps fmt $(bin)
 
 $(bin):
-	go build -o ./$(bin)
+    go build -o ./$(bin)
 
 .PHONY: test-deps
 test-deps: deps
-	go get github.com/smartystreets/goconvey
+    go get github.com/smartystreets/goconvey
 
 .PHONY: test
 test: test-unit test-integration
 
 .PHONY: test-unit
 test-unit: test-deps
-	set -a; go test $(TESTS) -run 'Unit'
+    set -a; go test $(TESTS) -run 'Unit'
 
 .PHONY: test-integration
 test-integration: test-deps
-	$(source_env); go test $(TESTS) -run 'Integration'
+    $(source_env); go test $(TESTS) -run 'Integration'
 
 .PHONY: clean
 clean:
-	rm -f ./$(bin) ./$(bin)-*.zip $(test_path) build.log
+    rm -f ./$(bin) ./$(bin)-*.zip $(test_path) build.log
 
 .PHONY: package
 package:
-	$(eval tmpdir := $(shell mktemp -d build-XXXXXXXXXX))
-	cp ./$(bin) $(tmpdir)/$(bin)
-	cp ./start.sh $(tmpdir)/start.sh
-	cd $(tmpdir) && zip ../$(bin)-$(version).zip $(bin) start.sh
-	rm -rf $(tmpdir)
+    $(eval tmpdir := $(shell mktemp -d build-XXXXXXXXXX))
+    cp ./$(bin) $(tmpdir)/$(bin)
+    cp ./start.sh $(tmpdir)/start.sh
+    cd $(tmpdir) && zip ../$(bin)-$(version).zip $(bin) start.sh
+    rm -rf $(tmpdir)
 
 .PHONY: dist
 dist: clean build package
 
 .PHONY: xunit-tests
 xunit-tests: test-deps
-	go get github.com/tebeka/go2xunit
-	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
+    go get github.com/tebeka/go2xunit
+    @set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
 
 .PHONY: lint
 lint:
