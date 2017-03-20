@@ -179,7 +179,7 @@ xunit-tests: test-deps
 
 .PHONY: lint
 lint:
-	go get -u github.com/alecthomas/gometalinter
+    go get -u github.com/alecthomas/gometalinter
     gometalinter --install
     gometalinter ./... --deadline=30s > $(lint_output); true
 ```
