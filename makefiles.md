@@ -181,6 +181,6 @@ xunit-tests: test-deps
 lint:
 	go get -u github.com/alecthomas/gometalinter
 	gometalinter --install
-	gometalinter ./... --deadline=30s > $(lint_output); true
+	gometalinter ./... > $(lint_output); true
 ```
 
