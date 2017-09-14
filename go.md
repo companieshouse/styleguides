@@ -10,6 +10,7 @@ Dev environments
 
 * Go forces your directory structure under your GOPATH, don’t break that, but put your GOPATH wherever is convenient!
 * We tend to use Atom, with go-plus: brings in gofmt, go imports, go vet, golint https://atom.io/packages/go-plus
+* There is now a `Go` IDE by JetBrains that is an extension from IntelliJ, although it's in the early stages of development it is still a solid IDE for what we need. It also supports remote debugging. https://www.jetbrains.com/go/
 * If you’re not using Atom, you should be running all of go-plus’ checks regularly.
 * If using vim, the vim-go plugin is recommended.
 * It’s a tricky one to have a policy for. It’s not realistic to say never commit code that golint or vet are complaining about, because sometimes they have false positives. But the majority of issues it flags up are important for maintaining code quality. Things like you MUST comment anything that is exported are very important to us.
