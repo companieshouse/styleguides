@@ -27,6 +27,8 @@ Developer actions prior to code commit/review started
 * Commit to source control with standard message
  
 Code Review Severity
+--------------------
+
 1. Naming Conventions and Coding style = Low
 2. Control Structures and Logical issues = Medium or High
 3. Redundant Code = High
@@ -85,6 +87,7 @@ __Thread Safety__
 * Locks must be acquired and released in the right order to prevent deadlocks, even in error handling code.
 
 __Performance__
+
 * Objects are duplicated only when necessary. If you must duplicate objects, consider implementing Clone and decide if deep cloning is necessary.
 * No busy-wait loops instead of proper thread synchronization methods. For example, avoid while(true){ ... sleep(10);...}
 * Avoid large objects in memory, or using String to hold large documents which should be handled with better tools. For example, don't read a large XML document into a String, or DOM.
