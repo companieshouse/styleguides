@@ -55,6 +55,7 @@ __General__
 * The functionality fits the current design/architecture
 * Frameworks have been used appropriately – methods have all been defined appropriately
 * The code complies with coding standards
+* Avoid changing the contents of Objects that are not passed back through the method call, unless there is a good reason for doing so.
 
 __Testing__
 
