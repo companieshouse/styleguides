@@ -27,5 +27,6 @@ reports/
 .idea/
 *.iml
 
-# Finder Files
+# Mac files
 .DS_Store
+._*
