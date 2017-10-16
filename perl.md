@@ -38,6 +38,10 @@ Don't use when evaluating more than one piece of logic (e.g. `unless $something 
 Structure
 ---------
 
+### Spaces over Tabs
+
+Don't use tabs. Use 4 spaces for indentation. You can set your IDE to insert 4 spaces when hitting tab if this makes it simpler. 
+
 ### Methods
 
 Open on the curly braces on the same line as the method declaration and close vertically in line the sub.
