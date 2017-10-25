@@ -1,0 +1,31 @@
+# Compiled classes
+**/classes
+
+# Ivy libraries
+*/ivylib
+
+# Log files
+**/*.log
+**/*.log.*
+
+# Sonar directories
+**/.sonar
+
+# Distribution directories
+dist/
+
+# Reports
+reports/
+
+# Eclipse files
+.classpath
+.project
+.settings
+
+# IntelliJ files
+.idea/
+*.iml
+
+# Mac files
+.DS_Store
+._*

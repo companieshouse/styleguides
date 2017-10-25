@@ -1,0 +1,14 @@
+# Build artifacts
+dist/
+
+# Dependencies
+.gopancache
+local/
+
+# Vi files
+*.swp
+*.tmp
+
+# Mac files
+.DS_Store
+._*
