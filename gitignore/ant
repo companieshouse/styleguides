@@ -9,7 +9,6 @@
 **/*.log.*
 
 # Sonar directories
-.sonar
 **/.sonar
 
 # Distribution directories
