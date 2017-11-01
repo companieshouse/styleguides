@@ -1,5 +1,7 @@
 # Build artifacts
 target/
+*.jar
+*.zip
 
 # Eclipse files
 .classpath
