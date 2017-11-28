@@ -82,7 +82,7 @@ Example
 > Configuration
 > -------------
 >
-> The default configuration can be overridden by either exporting the following enviornment variables
+> The default configuration can be overridden by either exporting the following environment variables
 > at command line or within `~/.penguin`:
 >
 > Variable            | Default                 |Description
