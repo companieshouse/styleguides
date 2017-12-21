@@ -179,8 +179,7 @@ xunit-tests: test-deps
 
 .PHONY: lint
 lint:
-	go get -u github.com/alecthomas/gometalinter
-	gometalinter --install
+	go get -u gopkg.in/alecthomas/gometalinter.v2
 	gometalinter ./... > $(lint_output); true
 ```
 
