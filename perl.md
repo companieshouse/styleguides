@@ -53,7 +53,7 @@ sub my_method {
 
 ### Separators
 
-Subs should be separated by dashed lines (hash, space, 78xdash)
+Subs should be separated by dashed lines (hash, space, 77xdash)
 ```
 # ------------------------------------------------------------------------------
 ```
