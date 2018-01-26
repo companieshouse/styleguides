@@ -58,4 +58,4 @@ Subs should be separated by dashed lines (hash, space, 78xdash)
 # ------------------------------------------------------------------------------
 ```
 
-Here's a vi key sequence for this → `(i)#(space)(esc)78(a)-(esc)` (easier than it looks :P)
+Here's a vi key sequence for this → `(i)#(space)(esc)77(a)-(esc)`
