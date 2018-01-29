@@ -180,6 +180,6 @@ xunit-tests: test-deps
 .PHONY: lint
 lint:
 	go get -u gopkg.in/alecthomas/gometalinter.v2
-	gometalinter ./... > $(lint_output); true
+	gometalinter.v2 ./... > $(lint_output); true
 ```
 
