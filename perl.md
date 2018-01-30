@@ -20,7 +20,7 @@ Thing                |Convention                                    |Examples
 Methods / functions  |snake_case                                    |`buy_cats()`, `to_string()`
 Variables            |snake_case                                    |`$her_name`, `%shopping_list`, `@team_sheet`
 Booleans             |snake_case with prefix (e.g. is_, can_, has_) |`$is_ready`, `$can_file`, `$has_multiple_entries`
-Classes and packages |Camel case                                    |`StatementOfConsentToAct::editStatementOfConsentToAct`
+Classes and packages |Pascal Case                                   |`Animal::Mammal::ScaryLion`
 
 Control Structures
 ------------------
