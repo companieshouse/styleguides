@@ -52,15 +52,16 @@ All Maven project files should use the following as a template with you needing 
         </dependency>
     </dependencies>
 
-    <!-- When required... -->
     <repositories>
         <repository>
-            <id>release-id</id>
-            <url>${MAVEN_REPOSITORY_HOST_URL}/release</url>
+            <id>libs-release</id>
+            <url>${MAVEN_REPOSITORY_HOST_URL}/libs-release-local</url>
+        </repository>
+        <repository>
+            <id>libs-snapshot</id>
+            <url>${MAVEN_REPOSITORY_HOST_URL}/libs-snapshot-local</url>
         </repository>
     </repositories>
-
-    ...
 
 </project>
 
