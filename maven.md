@@ -55,11 +55,11 @@ All Maven project files should use the following as a template with you needing 
     <repositories>
         <repository>
             <id>libs-release</id>
-            <url>${MAVEN_REPOSITORY_HOST_URL}/libs-release-local</url>
+            <url>${MAVEN_REPOSITORY_URL}/libs-release-local</url>
         </repository>
         <repository>
             <id>libs-snapshot</id>
-            <url>${MAVEN_REPOSITORY_HOST_URL}/libs-snapshot-local</url>
+            <url>${MAVEN_REPOSITORY_URL}/libs-snapshot-local</url>
         </repository>
     </repositories>
 
@@ -70,5 +70,9 @@ All Maven project files should use the following as a template with you needing 
 Depending upon your requirements you may need to ensure your environment contains the necessary variables. For example:
 
 ```bash
-export MAVEN_REPOSITORY_HOST_URL=http://sample/repository:8080
+export MAVEN_REPOSITORY_SCHEME=http
+export MAVEN_REPOSITORY_HOST=example.repository.gov.uk
+export MAVEN_REPOSITORY_PORT=8081
+export MAVEN_REPOSITORY_PATH=/artifactory
+export MAVEN_REPOSITORY_URL=${MAVEN_REPOSITORY_SCHEME}://${MAVEN_REPOSITORY_HOST}:${MAVEN_REPOSITORY_PORT}${MAVEN_REPOSITORY_PATH}
 ```
