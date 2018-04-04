@@ -10,6 +10,7 @@ Languages
 * [Perl](perl.md)
 * [JavaScript](javascript.md)
 * [Bash](bash.md)
+* [Java Server Pages (JSP)](jsp.md)
 
 Tools
 -----
