@@ -144,7 +144,7 @@ $(bin):
 
 .PHONY: test-deps
 test-deps: deps
-	go get github.com/smartystreets/goconvey
+	go get -t ./...
 
 .PHONY: test
 test: test-unit test-integration
@@ -183,4 +183,3 @@ lint:
 	gometalinter --install
 	gometalinter ./... > $(lint_output); true
 ```
-
