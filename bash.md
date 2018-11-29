@@ -11,11 +11,13 @@ For the most part, follow [Googles shell coding standards](https://google.github
 The preferred option is to omit file extensions such as `.sh`
 
 **Good**
+
 ```sh
 my_script
 ```
 
 **Bad**
+
 ```sh
 my_script.sh
 ```
@@ -24,6 +26,7 @@ my_script.sh
 All scripts should start with a hash bang declaration and the absolute path to the interpreter. We do this to avoid path issues with the interpreter.
 
 **Good**
+
 ```sh
 #!/bin/bash
 
@@ -31,6 +34,7 @@ All scripts should start with a hash bang declaration and the absolute path to t
 ```
 
 **Bad**
+
 ```sh
 #!/usr/bin/env bash
 
@@ -43,6 +47,7 @@ All scripts should start with a hash bang declaration and the absolute path to t
 The preferred option is to use snake case and omit the function keyword
 
 **Good**
+
 ```sh
 my_function {
     ...
@@ -50,6 +55,7 @@ my_function {
 ```
 
 **Bad**
+
 ```sh
 function myFunction {
     ...
@@ -62,6 +68,7 @@ function myFunction {
 In the context of functions always use the local modifier. This avoids accidental name collisions and the associated consequences.
 
 **Good**
+
 ```sh
 function my_function {
     local my_variable="blah"
@@ -69,6 +76,7 @@ function my_function {
 ```
 
 **Bad**
+
 ```sh
 function my_function {
     my_variable="blah"
@@ -79,6 +87,7 @@ function my_function {
 Due to variables being scoped to a function, no initialisation is required. So for instance statements such as the following are not required:
 
 **Not required**
+
 ```sh
 get_configuration() {
     # This initialisation is not required
@@ -139,11 +148,13 @@ cat /non-existing-file
 The preferred option for outputting new lines with echo is to use the `-e` option combined with the `\n` escape sequence. This is more concise than empty `echo` calls.
 
 **Good**
+
 ```sh
 echo -e 'Comment\n'
 ```
 
 **Bad**
+
 ```sh
 echo 'Comment'
 echo
