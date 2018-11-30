@@ -49,7 +49,7 @@ The preferred option is to use snake case and omit the function keyword
 **Good**
 
 ```sh
-my_function {
+my_function () {
     ...
 }
 ```
@@ -70,7 +70,7 @@ In the context of functions always use the local modifier. This avoids accidenta
 **Good**
 
 ```sh
-function my_function {
+my_function () {
     local my_variable="blah"
 }
 ```
@@ -78,7 +78,7 @@ function my_function {
 **Bad**
 
 ```sh
-function my_function {
+my_function () {
     my_variable="blah"
 }
 ```
@@ -89,7 +89,7 @@ Due to variables being scoped to a function, no initialisation is required. So f
 **Not required**
 
 ```sh
-function get_configuration {
+get_configuration () {
     # This initialisation is not required
     configuration=""
 
