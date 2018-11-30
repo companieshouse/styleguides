@@ -89,7 +89,7 @@ Due to variables being scoped to a function, no initialisation is required. So f
 **Not required**
 
 ```sh
-get_configuration() {
+function get_configuration {
     # This initialisation is not required
     configuration=""
 
