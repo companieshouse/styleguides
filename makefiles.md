@@ -143,7 +143,7 @@ $(bin):
 	go build -o ./$(bin)
 
 .PHONY: test-deps
-test-deps: deps
+test-deps:
 	go get -t ./...
 
 .PHONY: test
