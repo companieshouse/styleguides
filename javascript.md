@@ -29,9 +29,13 @@ Simulate “static” (class) variables and methods by assigning them to the con
 
 ``
 Table.findRelativeRow = function(row) { ... };
-Calendar.MONTH_MODE = 1;
+Calendar.MONTH_MODE = 1;   
 Calendar.YEAR_MODE = 2;
+``
+
 To use these “static” methods the containing object must always be specified, even within methods belonging to the containing objects. For example:
+
+``
 if(Calendar.MONTH_DATE == 1) ...
 ``
 
