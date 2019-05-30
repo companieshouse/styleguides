@@ -134,7 +134,7 @@ fmt:
 
 .PHONY: deps
 deps:
-	go get github.com/companieshouse/$(bin)
+	go get -u github.com/companieshouse/$(bin)
 
 .PHONY: build
 build: deps fmt $(bin)
