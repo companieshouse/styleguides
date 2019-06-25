@@ -6,14 +6,14 @@ In the main java code should follow [Google's Java coding standards](https://goo
 Readability
 -----------
 
-Takes precedence over blindly following rules
+Takes precedence over blindly following rules.
 
 Indentation
 -----------
 
 Code blocks should be indented by **four spaces** rather than [two as Google specifies](https://google.github.io/styleguide/javaguide.html#s4.2-block-indentation).  Note that four spaces also apply for [indentation within a switch statement](https://google.github.io/styleguide/javaguide.html#s4.8.4.1-switch-indentation).
 
-When line wrapping, the continuation lines should be indented by by eight spaces rather than [four as Google specifies](https://google.github.io/styleguide/javaguide.html#s4.5.2-line-wrapping-indent).
+When line wrapping, the continuation lines should be indented by eight spaces rather than [four as Google specifies](https://google.github.io/styleguide/javaguide.html#s4.5.2-line-wrapping-indent).
 
 Javadoc
 -------
