@@ -68,14 +68,9 @@ Target            |Purpose
 ------------------|-------
 `all`<sup>1</sup> |Calls methods required to build a locally runnable version, typically the build target
 `clean`           |Reset repo to pre-build state (i.e. a clean checkout state)
+`build`           |Pull down any dependencies and compile code into an executable if required
 `test`            |Run all `test-*` targets (convenience method for developers)
 `test-unit`       |Run unit tests
-
-The following targets are mandatory for any repos which result in a built artifact, e.g. JAR or Go executable.
-
-Target            |Purpose
-------------------|-------
-`build`           |Pull down any dependencies and compile code into an executable if required
 `package`         |Create a single versioned deployable package (i.e. jar, zip, tar, etc.). May be dependent on the `build` target being run before `package`
 `dist`            |Invoke the `clean`, `build` and `package` targets
 
@@ -87,12 +82,7 @@ The following targets should be included where appropriate:
 
 Target             |Purpose
 -------------------|-------
-`deps`             |Pull the required dependencies
-`fmt`              |Format the code
-`test-deps`        |Pull the required dependencies for tests
 `test-integration` |Run integration tests
-`test-component`   |Run component tests
-`test-compile`     |Run compilation tests for dynamic languages
 `publish`          |Publish a library artefact to an artefact store (e.g. Artifactory)
 `xunit-tests`      |Run unit tests and format output for parsing as xunit (for golang repo jenkins integration)
 `lint`             |Run lint checks
@@ -118,29 +108,64 @@ dist: clean build package
 
 Example
 -------
+Replace [repo name] with the name of the repo.
 
 ```
-tests := ./...
+artifact_name := [repo name]
 
 .PHONY: all
-all: fmt test
+all: build
 
-.PHONY: fmt
-fmt:
-	  go fmt ./...
+.PHONY: clean
+clean:
+	mvn clean
+	rm -f ./$(artifact_name).jar
+	rm -f ./$(artifact_name)-*.zip
+	rm -rf ./build-*
+	rm -f ./build.log
 
-.PHONY: deps
-deps:
-	  go get ./...
-
-.PHONY: test-deps
-test-deps: deps
-	  go get -t ./...
+.PHONY: build
+build:
+	mvn compile
 
 .PHONY: test
-test: test-unit
+test: clean
+	mvn verify
 
 .PHONY: test-unit
-test-unit: test-deps
-	  @set -a; go test $(tests) -run 'Unit'
+test-unit: clean
+	mvn test
+
+
+.PHONY: dev
+dev: clean
+	mvn package -DskipTests=true
+	cp target/$(artifact_name)-unversioned.jar $(artifact_name).jar
+
+.PHONY: package
+package:
+ifndef version
+	$(error No version given. Aborting)
+endif
+	$(info Packaging version: $(version))
+	mvn versions:set -DnewVersion=$(version) -DgenerateBackupPoms=false
+	mvn package -DskipTests=true
+	$(eval tmpdir:=$(shell mktemp -d build-XXXXXXXXXX))
+	cp ./start.sh $(tmpdir)
+	cp ./routes.yaml $(tmpdir)
+	cp ./target/$(artifact_name)-$(version).jar $(tmpdir)/$(artifact_name).jar
+	cd $(tmpdir); zip -r ../$(artifact_name)-$(version).zip *
+	rm -rf $(tmpdir)
+
+.PHONY: dist
+dist: clean build package
+
+
+.PHONY: sonar
+sonar:
+	mvn sonar:sonar
+
+.PHONY: sonar-pr-analysis
+sonar-pr-analysis:
+	mvn sonar:sonar	-P sonar-pr-analysis
 ```
