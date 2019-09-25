@@ -28,8 +28,6 @@ Target             |Purpose
 -------------------|-------
 `test-integration` |Run integration tests
 `publish`          |Publish a library artefact to an artefact store (e.g. Artifactory)
-`xunit-tests`      |Run unit tests and format output for parsing as xunit (for golang repo jenkins integration)
-`lint`             |Run lint checks
 
 **Additional targets**
 
