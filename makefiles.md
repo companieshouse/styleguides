@@ -68,7 +68,7 @@ Target            |Purpose
 ------------------|-------
 `all`<sup>1</sup> |Calls methods required to build a locally runnable version, typically the build target
 `clean`           |Reset repo to pre-build state (i.e. a clean checkout state)
-`test`            |Run all `test-*` targets (convienence method for developers)
+`test`            |Run all `test-*` targets (convenience method for developers)
 `test-unit`       |Run unit tests
 
 The following targets are mandatory for any repos which result in a built artifact, e.g. JAR or Go executable.
