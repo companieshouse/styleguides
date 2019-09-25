@@ -93,12 +93,12 @@ get_configuration () {
     # This initialisation is not required
     configuration=""
 
-    for definition in $(find $PIPELINE_DEFINITIONS -type f -name $pipeline); do
-        local configuration=$definition
+    for definition in $(find ${PIPELINE_DEFINITIONS} -type f -name ${pipeline}); do
+        local configuration=${definition}
     done
 
     # This can still be referenced despite being defined within the loop above
-    echo $configuration
+    echo ${configuration}
 }
 ```
 
@@ -127,7 +127,7 @@ Any includes or references should then be made relative to this directory:
 #!/bin/bash
 
 # This will now function independent of the invocation directory
-source $SCRIPT_DIRECTORY/common
+source ${SCRIPT_DIRECTORY}/common
 ```
 
 ## Builtins
