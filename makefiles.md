@@ -68,6 +68,13 @@ Target            |Purpose
 ------------------|-------
 `all`<sup>1</sup> |Calls methods required to build a locally runnable version, typically the build target
 `clean`           |Reset repo to pre-build state (i.e. a clean checkout state)
+`test`            |Run all `test-*` targets (convenience method for developers)
+`test-unit`       |Run unit tests
+
+The following targets are mandatory for any repos which result in a built artifact, e.g. JAR or Go executable.
+
+Target            |Purpose
+------------------|-------
 `build`           |Pull down any dependencies and compile code into an executable if required
 `package`         |Create a single versioned deployable package (i.e. jar, zip, tar, etc.). May be dependent on the `build` target being run before `package`
 `dist`            |Invoke the `clean`, `build` and `package` targets
@@ -80,8 +87,9 @@ The following targets should be included where appropriate:
 
 Target             |Purpose
 -------------------|-------
-`test`             |Run all `test-*` targets (convienence method for developers)
-`test-unit`        |Run unit tests
+`deps`             |Pull the required dependencies
+`fmt`              |Format the code
+`test-deps`        |Pull the required dependencies for tests
 `test-integration` |Run integration tests
 `test-component`   |Run component tests
 `test-compile`     |Run compilation tests for dynamic languages
@@ -112,74 +120,27 @@ Example
 -------
 
 ```
-CHS_ENV_HOME ?= $(HOME)/.chs_env
-TESTS        ?= ./...
-
-bin          := chs-monitor-notification-matcher
-chs_envs     := $(CHS_ENV_HOME)/global_env $(CHS_ENV_HOME)/chs-monitor-notification-matcher/env
-source_env   := for chs_env in $(chs_envs); do test -f $$chs_env && . $$chs_env; done
-xunit_output := test.xml
-lint_output  := lint.txt
-
-commit       := $(shell git rev-parse --short HEAD)
-tag          := $(shell git tag -l 'v*-rc*' --points-at HEAD)
-version      := $(shell if [[ -n "$(tag)" ]]; then echo $(tag) | sed 's/^v//'; else echo $(commit); fi)
+tests := ./...
 
 .PHONY: all
-all: build
+all: fmt test
 
 .PHONY: fmt
 fmt:
-	go fmt ./...
+	  go fmt ./...
 
 .PHONY: deps
 deps:
-	go get -u github.com/companieshouse/$(bin)
-
-.PHONY: build
-build: deps fmt $(bin)
-
-$(bin):
-	go build -o ./$(bin)
+	  go get ./...
 
 .PHONY: test-deps
 test-deps: deps
-	go get -t ./...
+	  go get -t ./...
 
 .PHONY: test
-test: test-unit test-integration
+test: test-unit
 
 .PHONY: test-unit
 test-unit: test-deps
-	set -a; go test $(TESTS) -run 'Unit'
-
-.PHONY: test-integration
-test-integration: test-deps
-	$(source_env); go test $(TESTS) -run 'Integration'
-
-.PHONY: clean
-clean:
-	rm -f ./$(bin) ./$(bin)-*.zip $(test_path) build.log
-
-.PHONY: package
-package:
-	$(eval tmpdir := $(shell mktemp -d build-XXXXXXXXXX))
-	cp ./$(bin) $(tmpdir)/$(bin)
-	cp ./start.sh $(tmpdir)/start.sh
-	cd $(tmpdir) && zip ../$(bin)-$(version).zip $(bin) start.sh
-	rm -rf $(tmpdir)
-
-.PHONY: dist
-dist: clean build package
-
-.PHONY: xunit-tests
-xunit-tests: test-deps
-	go get github.com/tebeka/go2xunit
-	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
-
-.PHONY: lint
-lint:
-	go get -u github.com/alecthomas/gometalinter
-	gometalinter --install
-	gometalinter ./... > $(lint_output); true
+	  @set -a; go test $(tests) -run 'Unit'
 ```
