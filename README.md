@@ -4,22 +4,23 @@ A collection of standards for development at Companies House.
 
 ## Languages
 
+-   [Bash](bash.md)
 -   [Go](go.md)
 -   [Java](java.md)
--   [Perl](perl.md)
 -   [JavaScript](javascript.md)
--   [Bash](bash.md)
 -   [Java Server Pages (JSP)](jsp.md)
+-   [Perl](perl.md)
+-   [Terraform](terraform.md)
 
 ## Tools
 
 -   [Git](git.md)
--   [Perl POD](perlpod.md)
 -   [Makefiles](makefiles.md)
 -   [Maven](maven.md)
+-   [Perl POD](perlpod.md)
 
 ## Other
 
--   [READMEs](READMEs.md)
 -   [.gitignore](gitignore.md)
 -   [accessibility](accessibility.md)
+-   [READMEs](READMEs.md)
