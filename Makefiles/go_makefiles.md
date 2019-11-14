@@ -11,10 +11,8 @@ The following targets must be included in all Go Makefiles:
 Target            |Purpose
 ------------------|-------
 `all`<sup>1</sup> |Calls methods required to build a locally runnable version, typically the build target
-`deps`            |Pull the required dependencies
 `fmt`             |Format the code
 `test`            |Run all `test-*` targets (convenience method for developers)
-`test-deps`       |Pull the required dependencies for tests
 `test-unit`       |Run unit tests
 
 The following targets are also mandatory for Go services:
@@ -50,7 +48,10 @@ Examples
 **Go library**
 
 ```
-tests := ./...
+TESTS ?= ./...
+
+.EXPORT_ALL_VARIABLES:
+GO111MODULE = on
 
 .PHONY: all
 all: fmt test
@@ -59,20 +60,12 @@ all: fmt test
 fmt:
 	  go fmt ./...
 
-.PHONY: deps
-deps:
-	  go get ./...
-
-.PHONY: test-deps
-test-deps: deps
-	  go get -t ./...
-
 .PHONY: test
 test: test-unit
 
 .PHONY: test-unit
-test-unit: test-deps
-	  @set -a; go test $(tests) -run 'Unit'
+test-unit:
+	  go test $(TESTS) -run 'Unit'
 ```
 
 **Go service**
@@ -92,6 +85,9 @@ commit       := $(shell git rev-parse --short HEAD)
 tag          := $(shell git tag -l 'v*-rc*' --points-at HEAD)
 version      := $(shell if [[ -n "$(tag)" ]]; then echo $(tag) | sed 's/^v//'; else echo $(commit); fi)
 
+.EXPORT_ALL_VARIABLES:
+GO111MODULE = on
+
 .PHONY: all
 all: build
 
@@ -99,33 +95,25 @@ all: build
 fmt:
 	go fmt ./...
 
-.PHONY: deps
-deps:
-	go get ./...
-
 .PHONY: build
 build: deps fmt $(bin)
 
 $(bin):
-	go build -o ./$(bin)
-
-.PHONY: test-deps
-test-deps: deps
-	go get -t ./...
+	go build
 
 .PHONY: test
 test: test-unit test-integration
 
 .PHONY: test-unit
-test-unit: test-deps
-	set -a; go test $(TESTS) -run 'Unit'
+test-unit:
+	go test $(TESTS) -run 'Unit'
 
 .PHONY: test-util
 test-util:
-	set -a; go test $(TESTS) -run 'Util'
+	go test $(TESTS) -run 'Util'
 
 .PHONY: test-integration
-test-integration: test-deps
+test-integration:
 	$(source_env); go test $(TESTS) -run 'Integration'
 
 .PHONY: clean
@@ -144,7 +132,7 @@ package:
 dist: clean build package
 
 .PHONY: unit-tests
-xunit-tests: test-deps
+xunit-tests:
 	go get github.com/tebeka/go2xunit
 	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
 
