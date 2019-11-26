@@ -25,7 +25,8 @@ Comments should be kept to a minimum. Ideally your code should be well enough st
 
 ### Naming
 
-All elements should be named using underscores. E.g. `my_resource` not `my-resource`. While the latter will still function Terraform will output warnings
+All elements should be named with lower-case text and use underscores. E.g. `my_resource` not `my-resource`. While the latter will still function Terraform will output warnings.  
+Avoid using resources created in one repo from a separate and unrelated repo. This can cause issues when trying to update or destroy the original repo, if a dependant resource has been created elsewhere.
 
 ## Variables
 
