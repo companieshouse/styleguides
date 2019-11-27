@@ -1,6 +1,6 @@
 # Ansible
 
-Terraform is the default tool used for configuring cloud infrastructure
+Ansible is the default tool used for configuring cloud infrastructure
 
 ## Directories
 Avoid leaving empty folders or files in the playbook. For example, if a role has no handlers or a group has no speific group variables then do not include empty files. These can be created in future if there is a requirement.
