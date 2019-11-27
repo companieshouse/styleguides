@@ -14,10 +14,10 @@ Always include names for tasks.
 Don’t include reference to the conditions of a task in the task name. Limit the description to the action being taken, not extra detail such as why it’s being done.
 ```yaml
 # Do
-- name: “Install nginx”
+- name: Install nginx
 
 # Don't:
-- name: “Install nginx if not already installed”
+- name: Install nginx if not already installed
 ```
 
 Split lines in tasks to make the playbook more readable.  
