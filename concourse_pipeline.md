@@ -34,7 +34,7 @@ Resource Icons
 ----------------
 - Only use an approved icon for your `Resources`.  Currently, these are:
   - ![bitbucket](concourse_icons/bitbucket.png) **bitbucket** - used for S3 release buckets (the name is misleading but it's the only bucket icon available)
-  - ![docker](concourse_icons/docker.png) **docker** - used for Docker images
+  - ![docker](concourse_icons/docker_dark.png) **docker** - used for Docker images
   - ![folder-zip](concourse_icons/folder-zip.png) **folder-zip** - used for `maven-repository`
   - ![github-circle](concourse_icons/github-circle.png) **github-circle** - used for GitHub repos
   - ![human](concourse_icons/human.png) **human** - used for accessibility testing
