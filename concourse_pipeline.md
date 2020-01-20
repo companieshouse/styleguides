@@ -5,7 +5,7 @@ When creating a new Concourse pipeline, it's best practice to start by using an 
 
 Pipeline Name
 ----------------
--  Should be the same name as the GitHub repo containing the source code that it is building
+-  Should be the same name as the GitHub repo containing the source code that it's building
 -  Although the pipeline is a YAML file, it should not have a `.yml` file extension
 
 Job and Resource Names
@@ -28,7 +28,7 @@ Pipeline Structure
 Tasks
 ----------------
 - No inline comments
-- Try to avoid bespoke `config` and `run` commands in your tasks where possible.  The preferred option is to put it in a task [Concourse Resource](https://github.com/companieshouse/ci-concourse-resources) and call it using `file`.  This means it can be reused in other pipelines and makes your pipeline cleaner and easier to read and maintain.
+- Try to avoid bespoke `config` and `run` commands in your tasks where possible.  The preferred option is to put it in a task in [Concourse Resource](https://github.com/companieshouse/ci-concourse-resources) and call it using `file`.  This means it can be reused in other pipelines and makes your pipeline cleaner and easier to read and maintain.
 
 Resource Icons
 ----------------
