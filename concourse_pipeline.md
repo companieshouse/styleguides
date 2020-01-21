@@ -11,10 +11,9 @@ Pipeline Name
 Job and Resource Names
 ----------------
 - All lowercase
-- No underscores.... use hyphens
+- No underscores or spaces.... use hyphens
 - No ampersands
 - Try to keep names short
-
 
 Pipeline Structure
 ----------------
