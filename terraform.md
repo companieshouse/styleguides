@@ -71,6 +71,20 @@ Allows you to use the shortened form of `local.vpn_cidrs` throughout the module 
 
 Thought should be given to any variable values that are committed. While it's still unlikely things like network infrastructure or passwords could be taken advantage of it's still best practice not to commit them anyway. Particularly with more and more repositories being made public
 
+### Grouping
+Group common variable definitions together with a comment to describe the group, for example:
+```
+# DNS
+variable "zone_id" {
+  [ type, description and default value here ]
+}
+
+# EC2
+variable "ec2_instance_type" {
+  [ type, description and default value here ]
+}
+```
+
 ## READMEs
 
 All scripts should be supplied with a populated README outlining the function of the script and also any variables used along with a description. If modules are used then an accompanying README should be present within each module. This keeps the root README manageable while still allowing sufficient depth to explain each module in detail. The root README should link to the module READMEs
