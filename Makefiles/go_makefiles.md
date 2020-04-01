@@ -19,7 +19,7 @@ The following targets are also mandatory for Go services:
 
 Target            |Purpose
 ------------------|-------
-`clean`           |Reset repo to pre-build state (i.e. a clean checkout state)
+`clean`           |Clean up unused dependencies from module and Resets repo to pre-build state (i.e. a clean checkout state)
 `build`           |Pull down any dependencies and compile code into an executable if required
 `package`         |Create a single versioned deployable package (i.e. jar, zip, tar, etc.). May be dependent on the `build` target being run before `package`
 `dist`            |Invoke the `clean`, `build` and `package` targets
@@ -142,6 +142,7 @@ test-verify:
 
 .PHONY: clean
 clean:
+	go mod tidy
 	rm -f ./$(bin) ./$(bin)-*.zip $(test_path) build.log
 
 .PHONY: package
