@@ -5,7 +5,7 @@ When creating a new application a health check endpoint should be created as sta
 
 End point Url
 -------------
-This should be `/health` .
+This should be `/healthcheck` .
 
 Minimum implementation
 ----------------------
