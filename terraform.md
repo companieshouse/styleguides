@@ -50,13 +50,40 @@ variable "web_cidrs" {
 }
 ```
 
-### Defaults
-
+### Value Assignment
+Values can be assigned to variables in Environment 'vars' files, variable block 'defaults' or 'locals' blocks. Ensure the most appropriate method is used for each definition to aid readability and avoid duplication.  
+Some guidance:
+#### Defaults
 If it makes sense to do so then default values should be provided. Defaults are definitely preferable to duplicated values between environments
+#### Environment vars
+Set values here only for variables that will change per environment.
+#### Local vars
+Set values here to avoid repeating constants inside a module, and where the context is local to the module. Usually there will be just one locals block in a module, but you can add more to separate variable definitions if this aides the readability of your code (e.g. a large number of local variables or a few distinct groups).  
+A local variable can also aide readability when using remote state files, for example:
+```
+locals {
+  vpn_cidrs = values(data.terraform_remote_state.network_common_infra.outputs.vpn_cidrs)
+}
+```
+This allows you to use a shorter and more contextual form of `local.vpn_cidrs` throughout the module instead of `values(data.terraform_re...`.
 
 ### Security
 
 Thought should be given to any variable values that are committed. While it's still unlikely things like network infrastructure or passwords could be taken advantage of it's still best practice not to commit them anyway. Particularly with more and more repositories being made public
+
+### Grouping
+Group common variable definitions together with a comment to describe the group, for example:
+```
+# DNS
+variable "zone_id" {
+  [ type, description and default value here ]
+}
+
+# EC2
+variable "ec2_instance_type" {
+  [ type, description and default value here ]
+}
+```
 
 ## READMEs
 
