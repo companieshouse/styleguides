@@ -1,4 +1,4 @@
-# Logging coding standards
+# Logging standards
 
 **It is advisable to set up a session with the support team to agree what’s required in log events and dashboards before building the applications.**
 
