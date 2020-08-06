@@ -12,6 +12,7 @@ A collection of standards for development at Companies House.
 -   [Java Server Pages (JSP)](jsp.md)
 -   [Perl](perl.md)
 -   [Terraform](terraform.md)
+-   [Common standards](language_common.md)
 
 ## Tools
 
