@@ -2,9 +2,6 @@
 
 Ansible is the default tool used for configuring cloud infrastructure
 
-## Directories
-Avoid leaving empty folders or files in the playbook. For example, if a role has no handlers or a group has no speific group variables then do not include empty files. These can be created in future if there is a requirement.
-
 ## Roles
 Roles names should be distribution agnostic.
 
@@ -57,3 +54,41 @@ Make use of set_fact to create variables to use in future tasks.
 
 ## Scripts
 Stick with common scripts from other repos for consistency. Encrypt / decrypt etc.
+
+## Directories
+Avoid leaving empty folders or files in the playbook. For example, if a role has no handlers or a group has no speific group variables then do not include empty files. These can be created in future if there is a requirement.
+
+### Structure
+```
+ansible/                             - Top level folder can be omitted for repos that contain only Ansible.
+  ├── group_vars/                    - Variables to be assigned to groups
+  |      ├── all/
+  |      |     └── vars              - Variables specific to all environments
+  |      └── tag_Name_Value          - Group vars used with Dynamic Inventory
+  |            └── vars              - Variables specific to tagged instances
+  ├── host_vars/                     - Variables to be assigned to hosts (not recommended - use groups wherever possible)
+  ├── inventory/                     - Use dynamic inventory / AWS tags where possible
+  |      └── ec2.py                  - EC2 dynamic inventory script.    
+  ├── roles/                         - Roles defined in this playbook.
+  |      ├── example_role1
+  |      |      ├── defaults
+  |      |      |      └── main.yml  - Default variable values that can be overridden
+  |      |      ├── files
+  |      |      |      └── main.yml  - Files used with Copy resources.
+  |      |      ├── handlers
+  |      |      |      └── main.yml  - Handlers definition.
+  |      |      ├── meta
+  |      |      |      └── main.yml  - Dependencies.
+  |      |      ├── tasks
+  |      |      |      └── main.yml  - Task definition.
+  |      |      ├── templates
+  |      |      |      └── main.yml  - Files used with Template resources.
+  |      |      └── vars
+  |      |             └── main.yml  - Variables specific to this role.
+  |      └── role2
+  |             └── ...
+  └── galaxy_roles/                  - Generated from requirements.   * Not committed to source control.
+         ├── galaxy_role1
+         └── galaxy_role2
+
+```
