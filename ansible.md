@@ -11,10 +11,10 @@ Always include names for tasks.
 Don’t include reference to the conditions of a task in the task name. Limit the description to the action being taken, not extra detail such as why it’s being done.
 ```yaml
 # Do
-- name: Install nginx
+- name: install nginx
 
 # Don't:
-- name: Install nginx if not already installed
+- name: install nginx if not already installed
 ```
 
 Split lines in tasks to make the playbook more readable.  
@@ -33,7 +33,7 @@ template: src=etc/nginx/conf.d/release-server.conf.j2 dest=/etc/nginx/conf.d/rel
 Ensure no-logging is set for sensitive variables.
 ```yaml
 # Do
-- name: Do that secret thing.
+- name: do that secret thing.
   ...
   no_log: true
 ```
