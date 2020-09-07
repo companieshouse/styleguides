@@ -8,8 +8,7 @@ Keep role names short - one word if possible or otherwise with a dash as a separ
 Roles names should be distribution agnostic.
 
 ## Tasks
-Always include names for tasks.
-
+Always include names for tasks in lower case.  
 Don’t include reference to the conditions of a task in the task name. Limit the description to the action being taken, not extra detail such as why it’s being done.
 ```yaml
 # Do
