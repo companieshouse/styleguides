@@ -51,7 +51,8 @@ Only use templates where there is a requirement for embedded variables. If the f
 Where using templates (or files) for installing packages via yum, ensure encryption is used by setting gpgcheck=1 and referencing the location of the gpgkey. For example:
 
 ## Variables
-Ensure variable names are represented in snake_case.
+Ensure variable names are represented in snake_case.  
+Always use jinja variable syntax such as {{ var_name }}
 #### Facts
 Always make use of existing Ansible facts (e.g. “ansible_os_family” or “ansible_distribution”) rather than running shell commands to determine this information.
 Make use of set_fact to create variables to use in future tasks.
