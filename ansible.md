@@ -3,6 +3,8 @@
 Ansible is the default tool used for configuring cloud infrastructure
 
 ## Roles
+Keep role names short - one word if possible or otherwise with a dash as a separator.
+
 Roles names should be distribution agnostic.
 
 ## Tasks
