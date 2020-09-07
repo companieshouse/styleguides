@@ -39,6 +39,9 @@ Ensure no-logging is set for sensitive variables.
   no_log: true
 ```
 
+## Inventory
+Always use dynamic inventory scripts - for example, for [EC2](https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/).
+
 ## Handlers
 Ensure handlers are named consistently and are unique (globally name-spaced).
 
