@@ -73,7 +73,7 @@ Testing
 
 ```
 test-unit:
-    go test $(TESTS) -run 'Unit'
+    go test $(TESTS) -run 'Unit' -coverprofile=coverage.out
 
 test-integration:
     go test $(TESTS) -run 'Integration'
