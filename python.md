@@ -12,9 +12,9 @@ Quick setup for working with Python
 
 Linting installation
 --------------------
-* You should have as a minimum [pylint]{https://pylint.org/#install} installed in order to quality check code before merging any Pull Requests. You can find install instructions on the linked homepage.
+* You should have as a minimum [pylint](https://pylint.org/#install) installed in order to quality check code before merging any Pull Requests. You can find install instructions on the linked homepage and further setup instructions on their [github page](https://github.com/PyCQA/pylint). Here is a [nice tutorial](http://pylint.pycqa.org/en/latest/tutorial.html) should its usage not be clear.
 * You should add the following [.pylintrc](.pylintrc) file to any of your python projects' root directories - it is a highly customisable configuration file that enables code scoring.
-* With pylint installed, simply use it as shown below and reduce the errors in your files until you exceed a score of 9.5/10.
+* With pylint installed, simply use it as shown below and reduce the errors in your files until you exceed a score of 9/10.
 
 Usage
 -----
