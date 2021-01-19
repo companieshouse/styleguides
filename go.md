@@ -15,7 +15,7 @@ Dev environments
 * If using vim, the vim-go plugin is recommended.
 * It’s a tricky one to have a policy for. It’s not realistic to say never commit code that golint or vet are complaining about, because sometimes they have false positives. But the majority of issues it flags up are important for maintaining code quality. Things like you MUST comment anything that is exported are very important to us.
 * Some source on the joys of go-fmt https://blog.golang.org/go-fmt-your-code
-* If you are a pedant, gometalinter is useful.
+* [golangci-lint](https://github.com/golangci/golangci-lint) is a useful tool for local linting.
 
 Method names
 ------------

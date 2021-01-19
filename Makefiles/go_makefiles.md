@@ -34,7 +34,6 @@ Target             |Purpose
 -------------------|-------
 `test-integration` |Run integration tests
 `xunit-tests`      |Run unit tests and format output for parsing as xunit (for golang repo jenkins integration)
-`lint`             |Run lint checks
 
 **Additional targets**
 
@@ -160,10 +159,4 @@ dist: clean build package
 xunit-tests:
 	go get github.com/tebeka/go2xunit
 	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
-
-.PHONY: lint
-lint:
-	go get -u github.com/alecthomas/gometalinter
-	gometalinter --install
-	gometalinter ./... > $(lint_output); true
 ```
