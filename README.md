@@ -27,4 +27,6 @@ A collection of standards for development at Companies House.
 
 -   [.gitignore](gitignore.md)
 -   [accessibility](accessibility.md)
+-   [Health checks](health_check.md)
+-   [Feature flags](feature_flag.md)
 -   [READMEs](READMEs.md)
