@@ -1,16 +1,16 @@
-#CHS Service Naming
+# CHS Service Naming
 
 This page defines the naming standards for services being deployed to CHS and their github repositories.
 
 **This standard is applicable to new projects only. There is no requirement to rename existing projects.**
 
-##Background
+## Background
 
 The standard is required because current naming standards are not uniform and are not always expressive enough to fully describe what a
 service is responsible for. e.g. Data Sync has a design for an insolvency-api to manage insolvency data in MongoDB, but there is already an
 insolvency-api which handles the submission of insolvencies.
 
-##The Standard
+## The Standard
 The naming standard for CHS projects can be expressed as
 
 `[data_type]?-[discriminator]?-[service_type]`
@@ -21,7 +21,7 @@ where:
 - `discriminator` describes what this service does for the data type. Optional.
 - `service_type` describes the type of service e.g. web, api.
 
-###Data Type
+### Data Type
 The names of the data being processed should be consistent. Here is a list of common data types based on the on the public CHS API. NB This
 list is not definitive - other data types are acceptable.
 
@@ -39,7 +39,7 @@ list is not definitive - other data types are acceptable.
 
 Services that do not process a single data type can drop the data_type.
 
-###Service type
+### Service type
 The service type may be used to influence the build process. Common service types include the following:
 - web - web app
 - api - a service that provides access to data via APIs
@@ -50,11 +50,11 @@ The service type may be used to influence the build process. Common service type
 
 **This list is not definitive.**
 
-###Discriminators
+### Discriminators
 The discriminator is optional but is intended to provide a bit more detail when there may be more then one data-service combination e.g.
 insolvency-*data*-api, insolvency-*submission*-api, both provide APIs for Insolvency but for different purposes.
 
-##Examples
+## Examples
 A list of some existing/proposed services and their suggested names under this standard. **(NB We will not be renaming existing services).**
 
 | Existing/Proposed | These Guidelines | 
