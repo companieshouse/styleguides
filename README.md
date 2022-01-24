@@ -2,6 +2,10 @@
 
 A collection of standards for development at Companies House.
 
+## General
+
+- [Service Naming](service_naming.md)
+
 ## Languages
 
 -   [Bash](bash.md)
