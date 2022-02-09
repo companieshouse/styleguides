@@ -25,43 +25,6 @@
 
 ### Techniques
 
-Prefer abstraction over if...else... statements
+Prefer abstraction over if...then...else... statements
 
-(For more information on abstraction vs if statements see the "Implementation" section [here](https://trunkbaseddevelopment.com/feature-flags/)) 
-
-Selecting an implementation of an abstraction at application start-up (preferably dependency injection) instead of cluttering the code with if...else... statements would be preferential because:
-
-* Easier to debug (Seeing code with multiple if...else... blocks is going to be more difficult to figure out the flow). Feature flag values and implementations could be logged at app start-up.
-* More chance of bugs with if...else...statements throughout the code.
-* Separates the code logic from feature flag handling.
-* Easier to unit test the abstraction by mocking the interface than having to test every possible combination with if statements.
-* The service would fail to start if flags or implementations are missing which gives early failure.
-* Harder to remove if...else... statements cluttered around the code.
-* If multiple feature flags are used, there could be multiple if statements within one block of code checking different flags which is more complex for debugging.
-
-#### Example:
-
-Having feature flags being checked with if...else... statements could mean multiple branches (routes through the code) are present within a single flow making debugging more difficult:
-
-```java
-public void runFeature() {
-   if (FeatureFlags.FEATURE_1.isEnabled()) {
-      new OldFeature().run();
-   } else {
-      new NewFeature().run();
-   }
-}
-```
-A simpler option separating the feature flag handling and logic would be by abstraction:
-
-```java
-public void runFeature() {
-   feature.run();
-}
-
-public void setFeature(Feature feature) {
-   this.feature = feature;
-}
-```
-
-
+For more information on abstraction vs conditional statements see the "Implementation" sections [here](https://trunkbaseddevelopment.com/feature-flags/#implementation) and [here](https://martinfowler.com/articles/feature-toggles.html#ImplementationTechniques). 
