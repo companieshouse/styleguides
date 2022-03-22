@@ -3,10 +3,6 @@ Java Coding Standards
 
 In the main java code should follow [Google's Java coding standards](https://google.github.io/styleguide/javaguide.html) with the **exceptions outlined below**.
 
-Readability
------------
-
-Takes precedence over blindly following rules.
 
 Indentation
 -----------
