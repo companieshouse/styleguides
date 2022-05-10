@@ -15,3 +15,7 @@ Javadoc
 -------
 
 In addition to the [Google standards on javadoc](https://google.github.io/styleguide/javaguide.html#s7-javadoc) **do not** use the `@author` tag as this is unwanted noise that provides no advantage over version control history.
+
+Checkstyle
+----------
+[Checkstyle README](https://github.com/companieshouse/java-checkstyle-config)
