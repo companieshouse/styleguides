@@ -18,4 +18,4 @@ In addition to the [Google standards on javadoc](https://google.github.io/styleg
 
 Checkstyle
 ----------
-[CheckStyle README](https://github.com/companieshouse/java-checkstyle-config)
+[Checkstyle README](https://github.com/companieshouse/java-checkstyle-config)
