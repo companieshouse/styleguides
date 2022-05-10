@@ -18,4 +18,4 @@ In addition to the [Google standards on javadoc](https://google.github.io/styleg
 
 Checkstyle
 ----------
-You can download the [CheckStyle configuration](http://repository.aws.chdev.org:8081/artifactory/libs-snapshot-local/uk/gov/companieshouse/java-checkstyle-config/) for Companies House developments.
+[CheckStyle README](https://github.com/companieshouse/java-checkstyle-config)
