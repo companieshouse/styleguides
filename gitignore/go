@@ -5,6 +5,7 @@ build.log
 
 # Test output
 test.xml
+coverage.*
 
 # Lint output
 lint.txt
