@@ -27,6 +27,18 @@ Comments should be kept to a minimum. Ideally your code should be well enough st
 
 All elements should be named using underscores. E.g. `my_resource` not `my-resource`. While the latter will still function Terraform will output warnings
 
+## Data Sources
+
+Data sources should be used to lookup data that is defined outside of Terraform or that is defined by another separate Terraform configuration. This could include, but not be limited to, data held in Hashicorp Vault or infrastructure resources such as subnet CIDRs or VPC IDs.
+
+### Naming
+
+All elements should be named using underscores. E.g. `my_data` not `my-data`. While the latter will still function Terraform will output warnings
+
+### Remote State
+
+Terraform Remote States should not be used for looking up data within Terraform. Any instances of the `terraform_remote_state` data source should be reviewed and removed.
+
 ## Variables
 
 ### Naming
@@ -59,13 +71,13 @@ If it makes sense to do so then default values should be provided. Defaults are 
 Set values here only for variables that will change per environment.
 #### Local vars
 Set values here to avoid repeating constants inside a module, and where the context is local to the module. Usually there will be just one locals block in a module, but you can add more to separate variable definitions if this aides the readability of your code (e.g. a large number of local variables or a few distinct groups).  
-A local variable can also aide readability when using remote state files, for example:
+A local variable can also aid readability when using vault-sourced secrets, for example:
 ```
 locals {
-  vpn_cidrs = values(data.terraform_remote_state.network_common_infra.outputs.vpn_cidrs)
+  internal_cidrs = values(data.vault_generic_secret.internal_cidrs.data)
 }
 ```
-This allows you to use a shorter and more contextual form of `local.vpn_cidrs` throughout the module instead of `values(data.terraform_re...`.
+This allows you to use a shorter and more contextual form of `local.internal_cidrs` throughout the module instead of `values(data.vault_generic_secret...`.
 
 ### Security
 
