@@ -71,7 +71,7 @@ If it makes sense to do so then default values should be provided. Defaults are 
 Set values here only for variables that will change per environment.
 #### Local vars
 Set values here to avoid repeating constants inside a module, and where the context is local to the module. Usually there will be just one locals block in a module, but you can add more to separate variable definitions if this aides the readability of your code (e.g. a large number of local variables or a few distinct groups).  
-A local variable can also aide readability when using vault-sourced secrets, for example:
+A local variable can also aid readability when using vault-sourced secrets, for example:
 ```
 locals {
   internal_cidrs = values(data.vault_generic_secret.internal_cidrs.data)
