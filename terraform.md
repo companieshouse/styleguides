@@ -29,7 +29,7 @@ All elements should be named using underscores. E.g. `my_resource` not `my-resou
 
 ## Data Sources
 
-Data sources should be used to lookup data that is defined outside of Terraform or that is defined by another separate Terraform configuration. This could include, but not be limited to, data held in Hashicorp Vault or IDs for infrastructure resources such as subnet CIDRs or VPC IDs.
+Data sources should be used to lookup data that is defined outside of Terraform or that is defined by another separate Terraform configuration. This could include, but not be limited to, data held in Hashicorp Vault or infrastructure resources such as subnet CIDRs or VPC IDs.
 
 ### Naming
 
