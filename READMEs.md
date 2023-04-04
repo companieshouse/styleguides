@@ -20,11 +20,11 @@ General GFM style pointers
 
 To help with support in service repos there should be subordinate READMEs linked to the main README as follows
 
-|File name|Content|
+|File name|Expected Content|
 |---------|-------|
-|DB.md    |Data base links|
-|Kafka.md |Kafka topics |
-|CURL.md | CURL commands for health checks|
+|DB.md    |DB related info, ex: <ul><li>Oracle Table (read/write)</li><li>Mongo Collection (read/write)</li></ul> |
+|KAFKA.md |Kafka relevant info, ex: <ul><li>Kafka topics (read/write)</li><li>Consumer Group</li></ul>|
+|CURL.md | examples of which `curl` might be used (i.e. which required Keys/tokens, or other special Headers) to test all the endpoints a service is publishing and listening on. ex: <ul><li>`curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`</li></ul>|
 
 Template
 --------
