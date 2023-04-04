@@ -9,6 +9,7 @@ There are a number of things that people immediately want/need to know when they
 This information should be available in the REAMDE, following the standard GFM (github flavoured markdown) template below.
 Its worth noting that this is the basic information that needs to be available, but there will quite likely be more useful information that is required per repo so make sure you add that too.
 
+
 General GFM style pointers
 --------------------------
 
@@ -16,6 +17,14 @@ General GFM style pointers
 * If a section goes off the page, then link to it from the top of the page (see #mongo-requirement in the template below - by default section headings automatically become anchors with the lowercased wording of the title and spaces changed to dashes - so "Mongo Requirement" becomes #mongo-requirement)
 * Use sub README's where required i.e. if the repo has a "scripts" directory then it should have an accompanying README to describe what the scripts do, how to use them, etc.
 * Always link to sub README's from the main/top level README
+
+To help with support in service repos there should be subordinate READMEs linked to the main README as follows
+
+|File name|Content|
+|---------|-------|
+|DB.md    |Data base links|
+|Kafka.md |Kafka topics |
+|CURL.md | CURL commands for health checks|
 
 Template
 --------
@@ -90,3 +99,4 @@ Example
 > ANTARCTICA_LOCATION |`http://south-pole:2222` |The location at which to find your instance of antarctica
 > PENGUIN_TYPE        |`"Emperor"`              |The type of penguin to produce (e.g. `"Adélie"`, `"Emperor"`, `"Gentoo"`)
 >
+
