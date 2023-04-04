@@ -6,7 +6,7 @@ There are a number of things that people immediately want/need to know when they
 * How do I build it?
 * How do I run it?
 
-This information should be available in the REAMDE, following the standard GFM (github flavoured markdown) template below.
+This information should be available in the README, following the standard GFM (github flavoured markdown) template below.
 Its worth noting that this is the basic information that needs to be available, but there will quite likely be more useful information that is required per repo so make sure you add that too.
 
 
