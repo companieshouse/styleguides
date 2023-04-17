@@ -18,7 +18,7 @@ General GFM style pointers
 * Use sub README's where required i.e. if the repo has a "scripts" directory then it should have an accompanying README to describe what the scripts do, how to use them, etc.
 * Always link to sub README's from the main/top level README
 
-To help with support in service repos there should be subordinate READMEs linked to the main README as follows
+To help with support in service repos there should be subordinate READMEs where appropriate linked to the main README as follows
 
 |File name|Expected Content|
 |---------|-------|
@@ -26,6 +26,7 @@ To help with support in service repos there should be subordinate READMEs linked
 |KAFKA.md |Kafka relevant info, ex: <ul><li>Kafka topics (read/write)</li><li>Consumer Group</li></ul>|
 |CURL.md | examples of which `curl` might be used (i.e. which required Keys/tokens, or other special Headers) to test all the endpoints a service is publishing and listening on. ex: <ul><li>`curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`</li></ul>|
 
+**Note:** A separate CURL.md should be provided even if there is only one URL available. This is to assist support to locate the checks quickly.
 Template
 --------
 
