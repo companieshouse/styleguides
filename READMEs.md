@@ -26,7 +26,9 @@ To help with support in service repos there should be subordinate READMEs where 
 |KAFKA.md |Kafka relevant info, ex: <ul><li>Kafka topics (read/write)</li><li>Consumer Group</li></ul>|
 |CURL.md | examples of which `curl` might be used (i.e. which required Keys/tokens, or other special Headers) to test all the endpoints a service is publishing and listening on. ex: <ul><li>`curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`</li></ul>|
 
-**Note:** A separate CURL.md should be provided even if there is only one URL available. This is to assist support to locate the checks quickly.
+**Note:** A separate CURL.md should be provided even if there is no URL available. This is to assist support to locate the checks quickly. In this case the file should contain "This service doesn't have HTTP endpoints to interact with, so this file is empty"
+
+
 Template
 --------
 
