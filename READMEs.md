@@ -6,8 +6,9 @@ There are a number of things that people immediately want/need to know when they
 * How do I build it?
 * How do I run it?
 
-This information should be available in the REAMDE, following the standard GFM (github flavoured markdown) template below.
+This information should be available in the README, following the standard GFM (github flavoured markdown) template below.
 Its worth noting that this is the basic information that needs to be available, but there will quite likely be more useful information that is required per repo so make sure you add that too.
+
 
 General GFM style pointers
 --------------------------
@@ -16,6 +17,17 @@ General GFM style pointers
 * If a section goes off the page, then link to it from the top of the page (see #mongo-requirement in the template below - by default section headings automatically become anchors with the lowercased wording of the title and spaces changed to dashes - so "Mongo Requirement" becomes #mongo-requirement)
 * Use sub README's where required i.e. if the repo has a "scripts" directory then it should have an accompanying README to describe what the scripts do, how to use them, etc.
 * Always link to sub README's from the main/top level README
+
+To help with support in service repos there should be subordinate READMEs where appropriate linked to the main README as follows
+
+|File name|Expected Content|
+|---------|-------|
+|DB.md    |DB related info, ex: <ul><li>Oracle Table (read/write)</li><li>Mongo Collection (read/write)</li></ul> |
+|KAFKA.md |Kafka relevant info, ex: <ul><li>Kafka topics (read/write)</li><li>Consumer Group</li></ul>|
+|CURL.md | examples of which `curl` might be used (i.e. which required Keys/tokens, or other special Headers) to test all the endpoints a service is publishing and listening on. ex: <ul><li>`curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`</li></ul>|
+
+**Note:** A separate CURL.md should be provided even if there is no URL available. This is to assist support to locate the checks quickly. In this case the file should contain "This service doesn't have HTTP endpoints to interact with, so this file is empty"
+
 
 Template
 --------
@@ -90,3 +102,4 @@ Example
 > ANTARCTICA_LOCATION |`http://south-pole:2222` |The location at which to find your instance of antarctica
 > PENGUIN_TYPE        |`"Emperor"`              |The type of penguin to produce (e.g. `"Adélie"`, `"Emperor"`, `"Gentoo"`)
 >
+
