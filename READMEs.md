@@ -1,105 +1,70 @@
-README standards
-================
+# ReadMe Standards
+For every repo, the ReadMe should include:
+* what does it do
+* how do I build it
+* how do I run it
+* links to further information like Confluence pages for architecture or HLD
+* other useful information, for example Troubleshooting
+  
+Use [github flavored markdown (GFM)](https://github.github.com/gfm/).  
+  
+Use ReadMes in sub-directories where required. Always link any sub-ReadMes from the top-level ReadMe. <br>
+**Example:**  if the repo has a "scripts" directory then it should have an accompanying ReadMe to describe what the scripts do, how to use them, and there should be a link to the scripts directory ReadMe from the top level ReadMe.
 
-There are a number of things that people immediately want/need to know when they look at a repo:
-* What does it do?
-* How do I build it?
-* How do I run it?
-
-This information should be available in the README, following the standard GFM (github flavoured markdown) template below.
-Its worth noting that this is the basic information that needs to be available, but there will quite likely be more useful information that is required per repo so make sure you add that too.
-
-
-General GFM style pointers
---------------------------
-
-* Use code blocks where necessary
-* If a section goes off the page, then link to it from the top of the page (see #mongo-requirement in the template below - by default section headings automatically become anchors with the lowercased wording of the title and spaces changed to dashes - so "Mongo Requirement" becomes #mongo-requirement)
-* Use sub README's where required i.e. if the repo has a "scripts" directory then it should have an accompanying README to describe what the scripts do, how to use them, etc.
-* Always link to sub README's from the main/top level README
-
-To help with support in service repos there should be subordinate READMEs where appropriate linked to the main README as follows
+ 
+## In Service repos:
+To help with support in service repos there should be subordinate READMEs where appropriate linked to the main README as follows:
 
 |File name|Expected Content|
 |---------|-------|
-|DB.md    |DB related info, ex: <ul><li>Oracle Table (read/write)</li><li>Mongo Collection (read/write)</li></ul> |
-|KAFKA.md |Kafka relevant info, ex: <ul><li>Kafka topics (read/write)</li><li>Consumer Group</li></ul>|
-|CURL.md | examples of which `curl` might be used (i.e. which required Keys/tokens, or other special Headers) to test all the endpoints a service is publishing and listening on. ex: <ul><li>`curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`</li></ul>|
+|DB.md    |DB related info, for example: <ul><li>Oracle Table (read/write)</li><li>Mongo Collection (read/write)</li></ul> |
+|KAFKA.md |Kafka relevant info, for example: <ul><li>Kafka topics (read/write)</li><li>Consumer Group</li></ul>|
+|CURL.md | examples of `curl` commands to use (i.e. which required Keys/tokens, or other special Headers) to test all the endpoints a service is publishing and listening on, for example: <ul><li>`curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`</li></ul>|
 
 **Note:** A separate CURL.md should be provided even if there is no URL available. This is to assist support to locate the checks quickly. In this case the file should contain "This service doesn't have HTTP endpoints to interact with, so this file is empty"
+  
+## GFM styleguide
+* use code blocks where appropriate
+* if the ReadMe is more than one screen long, split into sections and use headers, so that readers can use the Outline/table of contents.
 
 
-Template
---------
+## Template
+You can copy the markdown below to create your ReadMe. Remove any text that does not apply.
 
 ```
-Repo Title
-==========
+# Repo Title
 
-what is this "thing"?, what does it do?
+<Description: what is this "thing"? what does it do?>
 
-Requirements
-------------
-what is required to be able to build/run this application
+## Requirements
+
+<what is required to build/run this application
 i.e.
 - [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Maven](https://maven.apache.org/download.cgi)
-- [Git](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads)>
 
-Are there things that are required to be able to run the application correctly i.e. data in mongo db, environment variables, add links to the relevant section of the page:
-  - [mongo example requirement 1](#mongo-requirement)
+<Are there things that are required to run the application correctly i.e. data in mongo db, environment variables>
 
-Getting started
----------------
-how do you build and run this application, if there are multiple steps then use a numbered list to describe them
 
-Mongo requirement
------------------
+## Getting started
 
-Details of the example mongo requirement i.e. a certain collection needs to exist
+### How to Build
+<How do you build this application? If there are multiple steps then use a numbered list to describe them.>
+
+### How to Run
+<How do you run this application? If there are multiple steps then use a numbered list to describe them.>
+
+## Other useful Information
+<include links to Confluence for more information, for example Architecture, HLD>
+<include any other useful information, for example Troubleshooting>
+
+## For Service Repos
+|File name|Expected Content|
+|---------|-------|
+|DB.md    |<DB related info, for example: Oracle Table (read/write), Mongo Collection (read/write)>|
+|KAFKA.md |<Kafka relevant info, for example: Kafka topics (read/write),Consumer Group>|
+|CURL.md | <examples of `curl` commands to use to test all the endpoints a service is publishing and listening on, for example: `curl -H "Authorization: $KEY" "${BASE_URL}/alphabetical-search/companies/q=lloyds`>|
+
+**Note:** A separate CURL.md should be provided even if there is no URL available. This is to assist support to locate the checks quickly. In this case the file should contain "This service doesn't have HTTP endpoints to interact with, so this file is empty"
 ```
-
-Example
--------
-
-> Penguin Producer
-> ================
->
-> A service to produce penguins to populate antarctica.
->
-> Requirements
-> ------------
->
-> In order to build this service you need:
-> * [Snow](https://en.wikipedia.org/wiki/Snow)
-> * [Git](https://www.git-scm.com/downloads)
->
-> In order to run this service you need:
-> * [Instance of Antarctica](https://github.com/companieshouse/antarctica)
-> * [Mongo DB](#setting-up-mongo-db)
->
-> Getting started
-> ---------------
->
-> 1. [Configure your service](#configuration) if you wish to override any of the defaults
-> 2. Run `make`
-> 3. Run `./start.sh`
->
-> Setting up Mongo DB
-> -------------------
->
-> 1. [Install Mongo DB](https://docs.mongodb.com/manual/administration/install-community/)
-> 2. Run `./setupMongo.sh` to setup the collections
->
-> Configuration
-> -------------
->
-> The default configuration can be overridden by either exporting the following environment variables
-> at command line or within `~/.penguin`:
->
-> Variable            | Default                 |Description
-> --------------------|-------------------------|--------------
-> ANTARCTICA_LOCATION |`http://south-pole:2222` |The location at which to find your instance of antarctica
-> PENGUIN_TYPE        |`"Emperor"`              |The type of penguin to produce (e.g. `"Adélie"`, `"Emperor"`, `"Gentoo"`)
->
-
