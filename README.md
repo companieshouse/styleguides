@@ -4,13 +4,21 @@ A collection of standards for development at Companies House.
 
 ## General
 
-- [Service Naming](service_naming.md)
+-   [Service Naming](service_naming.md)
+-   [.gitignore](gitignore.md)
+-   [accessibility](accessibility.md)
+-   [Health checks](health_check.md)
+-   [Feature flags](feature_flag.md)
+-   [READMEs](READMEs.md)
+-   [Environment variables](environment_variables.md)
+-   [Logging](logging.md)
 
 ## Languages
 
 -   [Bash](bash.md)
 -   [Go](go.md)
 -   [Java](java.md)
+-   [Java Review](java_review.md)
 -   [JavaScript (Node)](javascript_node.md)
 -   [JavaScript (Chips)](javascript_chips.md)
 -   [Java Server Pages (JSP)](jsp.md)
@@ -26,11 +34,5 @@ A collection of standards for development at Companies House.
 -   [Maven](maven.md)
 -   [Perl POD](perlpod.md)
 
-## Other
 
--   [.gitignore](gitignore.md)
--   [accessibility](accessibility.md)
--   [Health checks](health_check.md)
--   [Feature flags](feature_flag.md)
--   [READMEs](READMEs.md)
--   [Environment variables](environment_variables.md)
+
