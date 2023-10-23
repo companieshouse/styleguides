@@ -1,5 +1,6 @@
 # ReadMe Standards
 For every repo, the ReadMe should include:
+* name of service it relates to (if applicable)
 * what does it do
 * how do I build it
 * how do I run it
@@ -10,9 +11,7 @@ Use [github flavored markdown (GFM)](https://github.github.com/gfm/).
   
 Use ReadMes in sub-directories where required. Always link any sub-ReadMes from the top-level ReadMe. <br>
 **Example:**  if the repo has a "scripts" directory then it should have an accompanying ReadMe to describe what the scripts do, how to use them, and there should be a link to the scripts directory ReadMe from the top level ReadMe.
-
  
-## In Service repos:
 To help with support in service repos there should be subordinate READMEs where appropriate linked to the main README as follows:
 
 |File name|Expected Content|
@@ -35,6 +34,8 @@ You can copy the markdown below to create your ReadMe. Remove any text that does
 # Repo Title
 
 <Description: what is this "thing"? what does it do?>
+
+<Name of Service it relates to (if applicable)>
 
 ## Requirements
 
@@ -59,7 +60,7 @@ i.e.
 <include links to Confluence for more information, for example Architecture, HLD>
 <include any other useful information, for example Troubleshooting>
 
-## For Service Repos
+<To help with support in service repos there should be subordinate READMEs where appropriate linked to the main README as follows:>
 |File name|Expected Content|
 |---------|-------|
 |DB.md    |<DB related info, for example: Oracle Table (read/write), Mongo Collection (read/write)>|
