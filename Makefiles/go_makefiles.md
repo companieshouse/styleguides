@@ -45,7 +45,7 @@ name does not collide with those listed above or with any of the
 
 ### Go library
 
-<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD010 MD013 -->
 ```makefile
 TESTS ?= ./...
 
@@ -161,4 +161,4 @@ xunit-tests:
 	go get github.com/tebeka/go2xunit
 	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
 ```
-<!-- markdownlint-enable MD013 -->
+<!-- markdownlint-enable MD010 MD013 -->

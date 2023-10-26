@@ -39,6 +39,7 @@ name does not collide with those listed above or with any of the
 
 Replace [repo name] with the name of the repo.
 
+<!-- markdownlint-disable MD010 -->
 ```makefile
 artifact_name := [repo name]
 
@@ -98,3 +99,4 @@ sonar:
 sonar-pr-analysis:
 	mvn sonar:sonar	-P sonar-pr-analysis
 ```
+<!-- markdownlint-enable MD010 -->

@@ -66,19 +66,19 @@ Disqualification provides metadata and details for a Disqualification document. 
 ```go
 goodStuff, err := callAThing()
 if err != nil {
-	panic(err)
+    panic(err)
 }
 ```
 
 ```go
 if err := thingReturnsAnError(); err != nil {
-	panic(err)
+    panic(err)
 }
 ```
 
 ```go
 if _, err := callDifferentThing(); err != nil {
-	panic(err)
+    panic(err)
 }
 ```
 
