@@ -34,5 +34,28 @@ A collection of standards for development at Companies House.
 -   [Maven](maven.md)
 -   [Perl POD](perlpod.md)
 
+## Linting
 
+This repository is linted using
+[Markdownlint](https://github.com/markdownlint/markdownlint). If you have
+docker installed and logged into the shared services ECR repository you can run
+these checks locally:
 
+```sh
+make markdownlint
+```
+
+OR
+
+```sh
+make markdownlint_file MARKDOWN_FILE=<...>.md
+```
+
+(Where <...> is the name of the file to be linted.)
+
+Running the following will attempt to fix any of the markdownlint failures
+for you. (You may still have some like long lines to fix manually.)
+
+```sh
+FIX_MARKDOWN=true make markdownlint
+```
