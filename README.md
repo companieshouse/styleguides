@@ -16,6 +16,7 @@ A collection of standards for development at Companies House.
 ## Languages
 
 -   [Bash](bash.md)
+-   [Python](python.md)
 -   [Go](go.md)
 -   [Java](java.md)
 -   [Java Review](java_review.md)
