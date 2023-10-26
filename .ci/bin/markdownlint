@@ -69,11 +69,11 @@ trap 'rm "${markdownlint_exec_script}"' EXIT
       "${CI_AWS_REGION}"
   fi
 
+  printf -- "markdownlint-cli2 "
+
   if [[ -n "${FIX_MARKDOWN}" ]]; then
     printf -- '%s ' '--fix'
   fi
-
-  printf -- "markdownlint-cli2 "
 
   if [[ -z "${markdown_file}" ]]; then
     markdown_globs=("./**/*.md" './*.md' '.ci/**/*.md')
