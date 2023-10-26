@@ -1,0 +1,93 @@
+#!/bin/bash
+
+# This script runs markdownlint against all markdown files contained in the
+# repository. If markdownlint-cli2 is not installed (via npm) then attempts
+# to use the CI container image from AWS Shared Services ECR repository.
+# Therefore ensure you have logged your docker in to use it.
+#
+# When the environment variable `FIX_MARKDOWN` environment variable is present
+# it will fix trivial issues (such as missing whitespace) in the files in place.
+#
+# Exit codes:
+#  0 - Markdown meets the linting rules as specified by markdownlint
+# !0 - The markdown does not meet the rules as specified by markdownlint
+
+# Sets vars THIS_SCRIPT_FULL_PATH, CH_INSTALLER_HOME
+function infer_ch_installer_home_path() {
+  local levels_below_home_dir=$1 target dir
+  THIS_SCRIPT_FULL_PATH=${BASH_SOURCE[0]}
+  while [[ -L "${THIS_SCRIPT_FULL_PATH}" ]]; do
+    target="$(readlink "${THIS_SCRIPT_FULL_PATH}")"
+    if [[ "${target}" == /* ]]; then
+      THIS_SCRIPT_FULL_PATH="${target}"
+    else
+      dir="$(dirname "${THIS_SCRIPT_FULL_PATH}")"
+      THIS_SCRIPT_FULL_PATH="${dir}/${target}"
+    fi
+  done
+  dir="$(cd -P "$(dirname "${THIS_SCRIPT_FULL_PATH}")" >/dev/null 2>&1 && pwd)"
+  for ((i = 0; i < levels_below_home_dir; i++)); do
+    dir="$(cd -P "$(dirname "${dir}")" >/dev/null 2>&1 && pwd)"
+  done
+  # shellcheck disable=SC2034 # Ignore unused var
+  CH_INSTALLER_HOME="${dir}"
+}
+
+infer_ch_installer_home_path 2
+
+markdown_file="${1}"
+
+SHARED_SERVICES_ACCOUNT_ID='416670754337'
+CI_AWS_REGION='eu-west-2'
+
+# Checks whether the supplied program name is installed
+#
+# Returns
+#  0 - is installed
+# !0 - is not installed
+function is_installed() {
+  program=${1:?program name required}
+
+  command -v "${program}" >/dev/null 2>&1
+}
+
+if ! is_installed markdownlint-cli2 && ! is_installed docker; then
+  printf -- 'markdownlint-cli2 nor docker installed. Cannot continue, install one of these then retry.\n' >&2
+  exit 1
+fi
+
+markdownlint_exec_script=$(mktemp)
+trap 'rm "${markdownlint_exec_script}"' EXIT
+
+{
+  printf -- '#!/bin/bash\n'
+
+  if [[ -n "${USE_DOCKER}" ]] || ! is_installed markdownlint-cli2; then
+    printf -- 'docker run -w="/app/" -it --rm -v "%s":/app %s.dkr.ecr.%s.amazonaws.com/ci-markdownlint-task:latest -ec \"' \
+      "${CH_INSTALLER_HOME}" \
+      "${SHARED_SERVICES_ACCOUNT_ID}" \
+      "${CI_AWS_REGION}"
+  fi
+
+  if [[ -n "${FIX_MARKDOWN}" ]]; then
+    printf -- '%s ' '--fix'
+  fi
+
+  printf -- "markdownlint-cli2 "
+
+  if [[ -z "${markdown_file}" ]]; then
+    markdown_globs=("./**/*.md" './*.md' '.ci/**/*.md')
+
+    printf -- '\"%s\" ' "${markdown_globs[@]}"
+  else
+    printf -- '\"%s\"' "${markdown_file}"
+  fi
+
+  if [[ -n "${USE_DOCKER}" ]] || ! is_installed markdownlint-cli2; then
+    printf -- '\"'
+  fi
+
+  printf -- '\n'
+} >"${markdownlint_exec_script}"
+
+bash -e "${markdownlint_exec_script}"
