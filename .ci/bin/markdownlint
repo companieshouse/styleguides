@@ -41,53 +41,53 @@ SHARED_SERVICES_ACCOUNT_ID='416670754337'
 CI_AWS_REGION='eu-west-2'
 
 # Checks whether the supplied program name is installed
-# 
+#
 # Returns
 #  0 - is installed
 # !0 - is not installed
 function is_installed() {
-    program=${1:?program name required}
+  program=${1:?program name required}
 
-    command -v "${program}" > /dev/null 2>&1
+  command -v "${program}" >/dev/null 2>&1
 }
 
 if ! is_installed markdownlint-cli2 && ! is_installed docker; then
-    printf -- 'markdownlint-cli2 nor docker installed. Cannot continue, install one of these then retry.\n' >&2
-    exit 1
+  printf -- 'markdownlint-cli2 nor docker installed. Cannot continue, install one of these then retry.\n' >&2
+  exit 1
 fi
 
 markdownlint_exec_script=$(mktemp)
 trap 'rm "${markdownlint_exec_script}"' EXIT
 
 {
-    printf -- '#!/bin/bash\n'
+  printf -- '#!/bin/bash\n'
 
-    if [[ -n "${USE_DOCKER}" ]] || ! is_installed markdownlint-cli2; then
-        printf -- 'docker run -w="/app/" -it --rm -v "%s":/app %s.dkr.ecr.%s.amazonaws.com/ci-markdownlint-task:latest -ec \"' \
-            "${CH_INSTALLER_HOME}" \
-            "${SHARED_SERVICES_ACCOUNT_ID}" \
-            "${CI_AWS_REGION}"
-    fi
+  if [[ -n "${USE_DOCKER}" ]] || ! is_installed markdownlint-cli2; then
+    printf -- 'docker run -w="/app/" -it --rm -v "%s":/app %s.dkr.ecr.%s.amazonaws.com/ci-markdownlint-task:latest -ec \"' \
+      "${CH_INSTALLER_HOME}" \
+      "${SHARED_SERVICES_ACCOUNT_ID}" \
+      "${CI_AWS_REGION}"
+  fi
 
-    if [[ -n "${FIX_MARKDOWN}" ]]; then
-        printf -- '%s ' '--fix'
-    fi
+  if [[ -n "${FIX_MARKDOWN}" ]]; then
+    printf -- '%s ' '--fix'
+  fi
 
-    printf -- "markdownlint-cli2 "
-    
-    if [[ -z "${markdown_file}" ]]; then
-        markdown_globs=("./**/*.md" './*.md' '.ci/**/*.md')
+  printf -- "markdownlint-cli2 "
 
-        printf -- '\"%s\" ' "${markdown_globs[@]}"
-    else
-        printf -- '\"%s\"' "${markdown_file}"
-    fi
+  if [[ -z "${markdown_file}" ]]; then
+    markdown_globs=("./**/*.md" './*.md' '.ci/**/*.md')
 
-    if [[ -n "${USE_DOCKER}" ]] || ! is_installed markdownlint-cli2; then
-        printf -- '\"'
-    fi
+    printf -- '\"%s\" ' "${markdown_globs[@]}"
+  else
+    printf -- '\"%s\"' "${markdown_file}"
+  fi
 
-    printf -- '\n'
-} > "${markdownlint_exec_script}"
+  if [[ -n "${USE_DOCKER}" ]] || ! is_installed markdownlint-cli2; then
+    printf -- '\"'
+  fi
+
+  printf -- '\n'
+} >"${markdownlint_exec_script}"
 
 bash -e "${markdownlint_exec_script}"
