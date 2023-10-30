@@ -33,7 +33,7 @@ managed.
 
 ### Usage
 
-#### For work relating to features under development/milestone dates
+#### For work relating to features under development/to be enabled on a date
 
 * The feature flag **must** be removed once the behaviour becomes accepted.
 * You should create a story to remove the feature flag at some point in the
@@ -45,7 +45,7 @@ managed.
   (previously known as the
   [scouting rule](https://auth0.com/blog/a-scout-approach-to-software-development/)).
 
-#### Feature flags not bound to features under development/milestone dates
+#### Feature flags not bound to features under development (i.e. semi-permanent flags)
 
 * Note that some feature flags may not only be used for 'under construction'
   work and have a much longer shelf-life (e.g. those to control access to logic
