@@ -1,42 +1,55 @@
-Perl POD Documentation Standards
-================================
+# Perl POD Documentation Standards
 
 **What is it?**
 
-Basically it's just perl pod. If you run it through a vanilla `pod-2<output>` formatter you'll get perfectly valid and readable output.
+Basically it's just perl pod. If you run it through a vanilla `pod-2<output>`
+formatter you'll get perfectly valid and readable output.
 
-The difference is that we define a few "special" syntaxes that will be parsed into certain formats in the output.
+The difference is that we define a few "special" syntaxes that will be parsed
+into certain formats in the output.
 
 **Why pod?**
 
-Because it's the standard way of documenting perl code and new developers coming on stream should already be familiar with how it works.
+Because it's the standard way of documenting perl code and new developers
+coming on stream should already be familiar with how it works.
 
 **How does it get generated?**
 
-For CHS the pod is translated to HTML via a plugin to the mojolicious based CH site. It is generated on the fly and rendered as the files are accessed (so don't try to find the rendered files on disk as they don't exist!).
+For CHS the pod is translated to HTML via a plugin to the mojolicious based
+CH site. It is generated on the fly and rendered as the files are accessed (so
+don't try to find the rendered files on disk as they don't exist!).
 
-The plugin is based on the standard [Mojolicious::Plugin::PODRenderer](http://search.cpan.org/~sri/Mojolicious-4.16/lib/Mojolicious/Plugin/PODRenderer.pm) module but has been amended to tweak the styling and add things like the ability to view source code and browse an index.
+The plugin is based on the standard
+[Mojolicious::Plugin::PODRenderer](http://search.cpan.org/~sri/Mojolicious-4.16/lib/Mojolicious/Plugin/PODRenderer.pm)
+module but has been amended to tweak the styling and add things like the
+ability to view source code and browse an index.
 
 **This is awesome, but I'm new to POD, where can I read more?**
 
-Calm my young Padawan. A good place to start if you're new to pod is the official [perl pod documentation](http://perldoc.perl.org/perlpod.html).
+Calm my young Padawan. A good place to start if you're new to pod is the
+official
+[perl pod documentation](http://perldoc.perl.org/perlpod.html).
 
-POD in source files - Basic layout
-----------------------------------
+## POD in source files - Basic layout
 
 Your pod should be placed at the end of your source file and structured thus:
+
 * [NAME](#name)
 * [SYNOPSIS](#synopsis)
 * [DESCRIPTION](#description)
 * [ATTRIBUTES](#attributes)
 * [METHODS](#methods)
 
-Each of these should be defined using the =head1 directive and included where appropriate (i.e. if there aren't any methods then you don't need a METHODS section).
+Each of these should be defined using the =head1 directive and included where
+appropriate (i.e. if there aren't any methods then you don't need a METHODS
+section).
 
 ### NAME
 
-This section should contain the name of the module and optionally a brief sentence about what it is.
-```
+This section should contain the name of the module and optionally a brief
+sentence about what it is.
+
+```perl
 =head1 NAME
 
 CH::UI::Page - basic page class
@@ -44,8 +57,10 @@ CH::UI::Page - basic page class
 
 ### SYNOPSIS
 
-This section should contain examples of basic usage of the class. It should be written using a verbatim paragraph.
-```
+This section should contain examples of basic usage of the class. It should be
+written using a verbatim paragraph.
+
+```perl
 =head1 SYNOPSIS
 
     use Mojo::Base 'Mojolicious::Controller';
@@ -65,35 +80,44 @@ This section should contain examples of basic usage of the class. It should be w
 
 ### DESCRIPTION
 
-This section should contain a more complete description of what the class is and what it does.
-```
+This section should contain a more complete description of what the class is
+and what it does.
+
+```perl
 =head1 DESCRIPTION
 
-This class defines a base class for all pages. It enforces authentication rules and ensures the user isn't a zebra.
+This class defines a base class for all pages. It enforces authentication 
+rules and ensures the user isn't a zebra.
 ```
 
 ### ATTRIBUTES
 
-If you want to include a list of attributes in your docs you can do so easily with:
-```
+If you want to include a list of attributes in your docs you can do so easily
+with:
+
+```perl
 =head1 ATTRIBUTES
 
 [[ATTRIBUTES]]
 ```
+
 This will cause them to be auto-populated when the doc is viewed.
 
 ### METHODS
 
 This section should contain the public method definitions.
-```
+
+```perl
 =head1 METHODS
 ```
 
-Method Docs
------------
+## Method Docs
 
-Note, this applies to public methods. [Private methods](#private-methods) should be documented with normal perl comments as they don't form part of the public api.
-```
+Note, this applies to public methods. [Private methods](#private-methods)
+should be documented with normal perl comments as they don't form part of the
+public api.
+
+```perl
 =head2 nameOfMethod ( $param1, $param2 ) [return-type]
 
 Description of what the method does
@@ -107,6 +131,7 @@ Description of what the method does
 ```
 
 Most of this is just standard pod. The only bits to take note of are:
+
 * [Method signatures](#method-signatures)
 * [Parameters, return values, etc.](#parameters-return-values-etc)
 * [Named args](#named-args)
@@ -114,29 +139,39 @@ Most of this is just standard pod. The only bits to take note of are:
 
 ### Method signatures
 
-This should be in a head2 and feature parenthesis (even if there are no params - don't add $self as this is implicit)
-```
+This should be in a head2 and feature parenthesis (even if there are no
+params - don't add $self as this is implicit)
+
+```perl
 =head2 myMethodWithNoParams()
 =head2 myMethodWithAParam($param1)
 ```
 
-### Parameters, return values, etc.
+### Parameters, return values, etc
 
-Just like in [javadoc](https://en.wikipedia.org/wiki/Javadoc) you can specify a set of parameters and return values et al. using a special syntax. These have been chosen and structured the way they are so that if the code is run through a standard pod generator the output will still make sense.
+Just like in [javadoc](https://en.wikipedia.org/wiki/Javadoc) you can specify a
+set of parameters and return values et al. using a special syntax. These have
+been chosen and structured the way they are so that if the code is run through
+a standard pod generator the output will still make sense.
 
-Currently defined tags (each must be prefixed by a tab or spaces on the line to make them [pod verbatim text](http://perldoc.perl.org/perlpod.html#Verbatim-Paragraph)):
+Currently defined tags (each must be prefixed by a tab or spaces on the line to
+make them
+[pod verbatim text](http://perldoc.perl.org/perlpod.html#Verbatim-Paragraph)):
 
+<!-- markdownlint-disable MD013 MD033 -->
 Tag        |Description                                                                       |Format                                       |Example
 -----------|----------------------------------------------------------------------------------|---------------------------------------------|----------
 `@param`   |Defines a parameter passed to the <method>                                        |`@param{tab}name{tab}{type]{tab}description` |`@param age [number] the age of the director`
 `@named`   |Defines a named parameter passed as part of a hash                                |`@named{tab}name{tab}[type]{tab}desciption`  |`@named age [number] the age of the director`
 `@returns` |Defines the return value from a method (may be omitted if the method is ''void'') |`@returns{tab}description`                   |`@returns true or false depending on if the day has a y in it`
 `@throws`  |Defines an exception that may be thrown by the method                             |`@throws{tab}exception type`                 |`@throws Framework::exception`
+<!-- markdownlint-disable MD013 MD033 -->
 
 ### Named args
 
 As you can see, positional args/params are easy to handle - you can simply list them thus:
-```
+
+```perl
 =head2 [void] myMethod( $age, $height, $name )
 
 description ...
@@ -147,8 +182,10 @@ description ...
 
 =cut
 ```
+
 but what about the name args? use `@named` thus:
-```
+
+```perl
 =head2 [void] myMethod( %arg )
 
 description ...
@@ -174,12 +211,12 @@ hash        |A plain hash
 hashref     |A hash reference
 object      |An object reference
 
-Private methods
----------------
+## Private methods
 
 So what about private methods then?
 “You said 'use normal comments' but surely there's some guidance?” Why yes, there is.
-```
+
+```perl
 ## [void] _myPrivateMethod($param1)
 #
 #   @param  param1   [string]   something we're passing in
@@ -189,11 +226,14 @@ sub _myPrivateMethod
 ...
 }
 ```
-Yup, it's still got the `@param` tags et al. but they don't get parsed by the generator. So why have them? Because it makes it more consistent when you're reading the source and ensures things are still documented.
 
-Example
--------
-```
+Yup, it's still got the `@param` tags et al. but they don't get parsed by the
+generator. So why have them? Because it makes it more consistent when you're
+reading the source and ensures things are still documented.
+
+## Example
+
+```perl
 package Animal::Mammal::Panda;
 
 sub eat {

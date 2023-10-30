@@ -1,13 +1,15 @@
-Maven Standards
-==
+# Maven Standards
 
-### Project files (**pom.xml**)
-All Maven project files should use the following as a template with you needing to substitute the following values:
+## Project files (**pom.xml**)
+
+All Maven project files should use the following as a template with you needing
+to substitute the following values:
+
 - ARTIFACT_ID - This should match the repository name. *E.g. accounts.api.ch.gov.uk*
 - NAME - This should be a 'hyphenated' version of your repository name. *E.g. accounts-api*
 - PROJECT_DESCRIPTION - A brief description of your project
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project    xmlns="http://maven.apache.org/POM/4.0.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -67,7 +69,8 @@ All Maven project files should use the following as a template with you needing 
 
 ```
 
-Depending upon your requirements you may need to ensure your environment contains the necessary variables. For example:
+Depending upon your requirements you may need to ensure your environment
+contains the necessary variables. For example:
 
 ```bash
 export MAVEN_REPOSITORY_SCHEME=http
