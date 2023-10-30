@@ -13,8 +13,9 @@
 * It should include a prefix that is both searchable and relevant. The shorter
   the prefix the harder this will be to search for in our code base. i.e. `FF`
   is a poor prefix as it is the hexadecimal for 255 a common number in
-  development. Recommendation is to use `FEATURE_FLAG_` which is already used
-  by a number of our code repositories.
+  development.
+* Feature flags **must** be prefixed with `FEATURE_FLAG_` which is already
+  used by a number of our code repositories.
 * The feature flag should contain a creation date in the following format
   `ddmmyy` as a suffix.
 * Avoid using dots in the name where possible as they cause problems on
@@ -27,15 +28,16 @@
 
 ### Usage
 
-* Always remove a feature flag once it becomes redundant, together with the
-  code that uses it. It is recommended to create a story to remove the
-  feature flag at some point in the future when it is introduced.
+* The feature flag **must** be removed once the behaviour becomes accepted.
+* You should create a story to remove the eature flag at some point in the
+  future when it is introduced. This ensures the work is visible and is
+  not forgotten about.
 * Note that some feature flags may not only be used for 'under construction'
   work and have a much longer shelf-life (e.g. those to control access to logic
   implemented for Covid-19) or indeed be permanent.
 * Liaise with support about how the flag should be used.
 * Values for LIVE environments should be specified in Release Notes. Values for
-  other environments should be set in Vagrant and Docker config files.
+  other environments should be set in Docker config files.
 
 ### Techniques
 
