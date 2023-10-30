@@ -7,8 +7,7 @@
 At Companies House we use feature flagging to enable us to deliver features
 without modifying the current behaviours of the system. This may be because
 the features are still being developed or the functionality
-may only become active at a certain date. Some feature flags relate to features
-which are being worked on and may be activated at a later date others may be
+may only become active at a certain date. Other flags may be
 semi-permanent and my be used to toggle functionality on/off as needed (e.g. in
 response to a live support issue.)
 
