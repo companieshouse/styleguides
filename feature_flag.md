@@ -10,12 +10,7 @@
 
 * The feature flag name should be descriptive and tell people what the flag
   does before they look for it in the code.
-* It should include a prefix that is both searchable and relevant. The shorter
-  the prefix the harder this will be to search for in our code base. i.e. `FF`
-  is a poor prefix as it is the hexadecimal for 255 a common number in
-  development.
-* Feature flags **must** be prefixed with `FEATURE_FLAG_` which is already
-  used by a number of our code repositories.
+* Feature flags **must** be prefixed with `FEATURE_FLAG_`.
 * The feature flag should contain a creation date in the following format
   `ddmmyy` as a suffix.
 * Avoid using dots in the name where possible as they cause problems on
