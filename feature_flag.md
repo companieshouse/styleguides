@@ -4,6 +4,17 @@
 **[this](https://martinfowler.com/articles/feature-toggles.html)**
 **helpful article on the topic.**
 
+At Companies House we use feature flagging to enable us to deliver features
+without modifying the current behaviours of the system. This may be because
+the features are still being developed or the functionality
+may only become active at a certain date. Some feature flags relate to features
+which are being worked on and may be activated at a later date others may be
+semi-permanent and my be used to toggle functionality on/off as needed (e.g. in
+response to a live support issue.)
+
+The following documentation details how feature flags should be used and
+managed.
+
 ## Best practises
 
 ### Naming
@@ -18,15 +29,25 @@
 
 #### Examples
 
-* `FEATURE_FLAG_FIVE_OR_LESS_OFFICERS_JOURNEY_21102021`
-* `FEATURE_FLAG_COMPANY_STILL_REQUIRED_11032021`
+* `FEATURE_FLAG_FIVE_OR_LESS_OFFICERS_JOURNEY_211021`
+* `FEATURE_FLAG_COMPANY_STILL_REQUIRED_110321`
 
 ### Usage
+
+#### For work relating to features under development/milestone dates
 
 * The feature flag **must** be removed once the behaviour becomes accepted.
 * You should create a story to remove the feature flag at some point in the
   future when it is introduced. This ensures the work is visible and is
   not forgotten about.
+* When adding a new feature flag to an application which already has
+  feature flags, consider whether you can remove the old feature flags
+  applying the principle of leaving things tidier than when you found them
+  (previously known as the
+  [scouting rule](https://auth0.com/blog/a-scout-approach-to-software-development/)).
+
+#### Feature flags not bound to features under development/milestone dates
+
 * Note that some feature flags may not only be used for 'under construction'
   work and have a much longer shelf-life (e.g. those to control access to logic
   implemented for Covid-19) or indeed be permanent.
