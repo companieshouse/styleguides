@@ -29,7 +29,7 @@
 ### Usage
 
 * The feature flag **must** be removed once the behaviour becomes accepted.
-* You should create a story to remove the eature flag at some point in the
+* You should create a story to remove the feature flag at some point in the
   future when it is introduced. This ensures the work is visible and is
   not forgotten about.
 * Note that some feature flags may not only be used for 'under construction'
