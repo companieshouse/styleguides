@@ -42,7 +42,7 @@ managed.
 * When adding a new feature flag to an application which already has
   feature flags, consider whether you can remove the old feature flags
   applying the principle of leaving things tidier than when you found them
-  (previously known as the
+  (known as the
   [scouting rule](https://auth0.com/blog/a-scout-approach-to-software-development/)).
 
 #### Feature flags not bound to features under development (i.e. semi-permanent flags)
