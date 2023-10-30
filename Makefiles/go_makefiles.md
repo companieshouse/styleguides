@@ -1,13 +1,12 @@
-Go Makefile Standards
-==================
+# Go Makefile Standards
 
-Targets
--------
+## Targets
 
-**Mandatory targets**
+### Mandatory targets
 
 The following targets must be included in all Go Makefiles:
 
+<!-- markdownlint-disable MD013 MD033 -->
 Target            |Purpose
 ------------------|-------
 `all`<sup>1</sup> |Calls methods required to build a locally runnable version, typically the build target
@@ -26,7 +25,7 @@ Target            |Purpose
 
 <sup>1</sup> Should be the first/default target
 
-**Optional targets**
+### Optional targets
 
 The following targets should be included where appropriate:
 
@@ -34,19 +33,20 @@ Target             |Purpose
 -------------------|-------
 `test-integration` |Run integration tests
 `xunit-tests`      |Run unit tests and format output for parsing as xunit (for golang repo jenkins integration)
+<!-- markdownlint-enable MD013 MD033 -->
 
-**Additional targets**
+### Additional targets
 
 Makefiles can contain any additional targets you require, so long as your target
 name does not collide with those listed above or with any of the
 [GNU make standard targets](https://www.gnu.org/software/make/manual/make.html#Standard-Targets).
 
-Examples
--------
+## Examples
 
-**Go library**
+### Go library
 
-```
+<!-- markdownlint-disable MD010 MD013 -->
+```makefile
 TESTS ?= ./...
 
 .EXPORT_ALL_VARIABLES:
@@ -81,10 +81,11 @@ test-verify:
     fi
 ```
 
-**Go service**
+### Go service
+
 Replace [repo name] with the name of the repo.
 
-```
+```makefile
 CHS_ENV_HOME ?= $(HOME)/.chs_env
 TESTS        ?= ./...
 
@@ -160,3 +161,4 @@ xunit-tests:
 	go get github.com/tebeka/go2xunit
 	@set -a; $(test_unit_env); go test -v $(TESTS) -run 'Unit' | go2xunit -output $(xunit_output)
 ```
+<!-- markdownlint-enable MD010 MD013 -->
