@@ -14,7 +14,7 @@ response to a live support issue.)
 The following documentation details how feature flags should be used and
 managed.
 
-## Best practises
+## Best practices
 
 ### Naming
 
