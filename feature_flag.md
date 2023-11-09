@@ -7,9 +7,12 @@
 At Companies House we use feature flagging to enable us to deliver features
 without modifying the current behaviours of the system. This may be because
 the features are still being developed or the functionality
-may only become active at a certain date. Other flags may be
-semi-permanent and my be used to toggle functionality on/off as needed (e.g. in
-response to a live support issue.)
+may only become active at a certain date. Feature flags support our development
+practice of trunk-based development, where features are built up on the main
+branch over time as opposed to larger feature branches which result in harder
+code reviews and more maintenance. Other flags may be semi-permanent and may be
+used to toggle functionality on/off as
+needed (e.g. in response to a live support issue.)
 
 The following documentation details how feature flags should be used and
 managed.
@@ -23,8 +26,7 @@ managed.
 * Feature flags **must** be prefixed with `FEATURE_FLAG_`.
 * The feature flag should contain a creation date in the following format
   `ddmmyy` as a suffix.
-* Avoid using dots in the name where possible as they cause problems on
-  Windows based machines.
+* Do not use dots in the name as they cause problems on Windows based machines.
 
 #### Examples
 
@@ -35,7 +37,16 @@ managed.
 
 #### For work relating to features under development/to be enabled on a date
 
-* The feature flag **must** be removed once the behaviour becomes accepted.
+* The feature flag **must** be removed once the feature be deemed to be
+  working.
+
+  For example, it may be necessary to leave the feature in LIVE for a few
+  weeks and observe whether the feature has been triggered and to assess the
+  outcome.
+
+  The flag **must** be removed prior to the team down tools on the project.
+  Leaving feature flags around increases risk, increases the maintenance
+  burden and increases the work for others to maintain the application.
 * You should create a story to remove the feature flag at some point in the
   future when it is introduced. This ensures the work is visible and is
   not forgotten about.
@@ -51,7 +62,8 @@ managed.
   work and have a much longer shelf-life (e.g. those to control access to logic
   implemented for Covid-19) or indeed be permanent.
 * Liaise with support about how the flag should be used.
-* Values for LIVE environments should be specified in Release Notes. Values for
+* Values for LIVE environments should be specified in Release Notes. Values or
+  the Terraform configuration within the project repository for
   other environments should be set in Docker config files.
 
 ### Techniques
