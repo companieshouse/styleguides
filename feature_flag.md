@@ -35,6 +35,12 @@ managed.
 
 ### Usage
 
+#### For work in CHIPS
+
+CHIPS has its own guidance in
+[Confluence](https://companieshouse.atlassian.net/wiki/spaces/DEV/pages/100238110/CHIPS+feature+flagging)
+However, where possible follow the naming advice above.
+
 #### For work relating to features under development/to be enabled on a date
 
 * The feature flag **must** be removed once the feature be deemed to be
