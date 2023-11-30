@@ -12,7 +12,7 @@ practice of trunk-based development, where features are built up on the main
 branch over time as opposed to larger feature branches which result in harder
 code reviews and more maintenance. Other flags may be semi-permanent and may be
 used to toggle functionality on/off as
-needed (e.g. in response to a live support issue.)
+needed (e.g. in response to a live support issue). These are referred to as Operational (Ops) feature flags.
 
 The following documentation details how feature flags should be used and
 managed.
@@ -24,9 +24,11 @@ managed.
 * The feature flag name should be descriptive and tell people what the flag
   does before they look for it in the code.
 * Feature flags **must** be prefixed with `FEATURE_FLAG_`.
+* Operational feature flags **must** be prefixed with `OPS_FEATURE_FLAG_`.
 * The feature flag should contain a creation date in the following format
   `ddmmyy` as a suffix.
 * Do not use dots in the name as they cause problems on Windows based machines.
+* Ops feature flag naming convention adopted in November 2023. Older Ops flags should be renamed wherever possible.
 
 #### Examples
 
@@ -43,14 +45,14 @@ However, where possible follow the naming advice above.
 
 #### For work relating to features under development/to be enabled on a date
 
-* The feature flag **must** be removed once the feature be deemed to be
+* The feature flag **must** be removed once the feature is deemed to be
   working.
 
   For example, it may be necessary to leave the feature in LIVE for a few
   weeks and observe whether the feature has been triggered and to assess the
   outcome.
 
-  The flag **must** be removed prior to the team down tools on the project.
+  The flag **must** be removed prior to the team downing tools on the project.
   Leaving feature flags around increases risk, increases the maintenance
   burden and increases the work for others to maintain the application.
 * You should create a story to remove the feature flag at some point in the
@@ -62,7 +64,7 @@ However, where possible follow the naming advice above.
   (known as the
   [scouting rule](https://auth0.com/blog/a-scout-approach-to-software-development/)).
 
-#### Feature flags not bound to features under development (i.e. semi-permanent flags)
+#### Operational Feature flags not bound to features under development (i.e. semi-permanent flags)
 
 * Note that some feature flags may not only be used for 'under construction'
   work and have a much longer shelf-life (e.g. those to control access to logic
