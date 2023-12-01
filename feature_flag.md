@@ -12,7 +12,7 @@ practice of trunk-based development, where features are built up on the main
 branch over time as opposed to larger feature branches which result in harder
 code reviews and more maintenance. Other flags may be semi-permanent and may be
 used to toggle functionality on/off as
-needed (e.g. in response to a live support issue). 
+needed (e.g. in response to a live support issue).
 These are referred to as Operational (Ops) feature flags.
 
 The following documentation details how feature flags should be used and
@@ -66,7 +66,7 @@ However, where possible follow the naming advice above.
   (known as the
   [scouting rule](https://auth0.com/blog/a-scout-approach-to-software-development/)).
 
-#### Operational Feature flags not bound to features under development       
+#### Operational Feature flags not bound to features under development
 
 * Note that some feature flags may not only be used for 'under construction'
   work and have a much longer shelf-life (e.g. those to control access to logic
