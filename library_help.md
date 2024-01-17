@@ -15,7 +15,7 @@ Check:
 * Number and nature of maintainers. Does the library only have one maintainer, or only one person committing the vast majority of the code? If so, they will be at risk of burn-out, or being hired by a company that forbids them to work further on the library.
 * Maintainers' responsiveness to issues.
 * Age of library. Is this a brand-new project? If so, perhaps there are older projects that have stood the test of time and shown that their maintainer(s) will still be around to support the project.
-* The library is actively maintained and updated to support the relevant dependencies in your application.
+* The library is actively maintained and updated to support the relevant dependencies in your application. A library that is kept up-to-date with its dependencies is less likely to have security issues in those dependencies and will be quicker to respond should an issue arise in one of those dependencies.
 * Security history of the library. Has it had security issues in the past and, if so, how quickly were they addressed?
 
 ### Documentation Quality and Accessibility
