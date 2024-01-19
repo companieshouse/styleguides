@@ -14,7 +14,11 @@ documentation in public or private repositories.
 ## Introduction
 
 Companies House embraces diversity and promotes inclusion and equality of
-opportunity.
+opportunity. This supports the current 2020-25 strategy which states:
+
+> Inclusion is the golden thread that runs through all Companies House
+> activity. We strive to build an inclusive, positive culture where
+> everyone can bring their whole selves to work
 
 Language plays a critical role in fostering an inclusive environment and as
 such, the language used in the documentation and code managed by our software
@@ -103,6 +107,8 @@ Checking for bias in job adverts with <https://joblint.org/>.
   [draft submitted to the IETF](https://tools.ietf.org/id/draft-knodel-terminology-04.html).
 - Specific guidance on documenting accessibility
   [by Google](https://developers.google.com/style/inclusive-documentation#about-disability-and-accessibility).
+- Current
+  [Companies House ED&I Strategy](https://companieshouse.sharepoint.com/:b:/r/sites/CommsStrategy/Shared%20Documents/ch-0164-d%26I-strategy.v5%20LATEST%20FINAL.pdf?csf=1&web=1&e=I7heIF)
 
 This policy has been modified based upon the Inclusive Language policy at
 [UK Hydrographic Office (UKHO)](https://github.com/UKHO/docs/blob/main/software-engineering-policies/InclusiveLanguage/InclusiveLanguagePolicy.md).
