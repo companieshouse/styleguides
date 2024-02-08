@@ -1,6 +1,8 @@
 # Coding standards and guidelines
 
 A collection of standards for development at Companies House.
+See [Confluence](https://companieshouse.atlassian.net/wiki/spaces/DEV/pages/4042162210/Which+software+version+should+I+use)
+for which version of software to use (internal CH link).
 
 ## General
 
