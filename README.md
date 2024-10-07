@@ -4,6 +4,9 @@ A collection of standards for development at Companies House.
 See [Confluence](https://companieshouse.atlassian.net/wiki/spaces/DEV/pages/4042162210/Which+software+version+should+I+use)
 for which version of software to use (internal CH link).
 
+You can use the [checklists](./checklists/) to support ensuring a repository is
+up to scratch and meeting the latest repository standards.
+
 ## General
 
 - [Service Naming](service_naming.md)
