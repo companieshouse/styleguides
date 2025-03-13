@@ -2,6 +2,7 @@
 
 ## General
 Avoid using deprecated methods, both in the CHIPS code and third-party packages to avoid work in the future.
+
 Use the **uk.gov.ch.chips.common.util.DateUtils** class to generate Dates. Avoid using new Date() in favour of DateUtils.today() and try to use methods in that class where possible.
  
 ## Packages
