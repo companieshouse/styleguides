@@ -10,7 +10,7 @@ Don't add classes to the **uk.gov.ch.cap** package. The package was created for 
 The rules in the CSV configuration should be ordered by rule bean name to make finding the entry as easy as possible.
 
 ## Testing
-Use **Mockito** for mocking classes. Tests using Easymock should be converted when worked on.
+Use **Mockito** for mocking classes. Test classes using Easymock should be converted when worked on.
 Use **org.junit.Assert.assertThat** instead of AssertTrue where that makes the code clearer.
 Use the **uk.gov.ch.chips.common.util.DateUtils** class to generate Dates for testing. 
 
