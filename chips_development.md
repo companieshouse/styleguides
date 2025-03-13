@@ -12,6 +12,7 @@ The rules in the CSV configuration should be ordered by rule bean name to make f
 
 ## Testing
 Use **Mockito** for mocking classes. Test classes using Easymock should be converted when worked on.
+
 Use **org.hamcrest.MatcherAssert.assertThat** instead of AssertTrue where that makes the code clearer.
 
 ## Spring
