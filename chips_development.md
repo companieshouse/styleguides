@@ -19,4 +19,4 @@ Use **org.hamcrest.MatcherAssert.assertThat** instead of AssertTrue where that m
 ## Spring
 Use **SpringTemplate.queryForObject()**, not **SpringTemplate.queryForLong()** or **SpringTemplate.queryForInt()** because these methods are deprecated.
 
-Do not use the Spring **HibernateTemplate** because this deprecated; instead use calls to **HibernateSession**.
+Do not use the Spring **HibernateTemplate** because this is deprecated; instead use calls to Hibernate **Session**.
