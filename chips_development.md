@@ -9,7 +9,7 @@ Use the **uk.gov.ch.chips.common.util.DateUtils** class to generate Dates. Avoid
 New code should follow the Company House standard, however the reformatting of whole exiting classes is not recommended because it makes reviewing the code more complicated.  
 
 ## Packages
-Don't add classes to the **uk.gov.ch.cap** package. The package was created for a specific legal change and is no longer needed.
+Don't add classes to the **uk.gov.ch.cap** package. The package was created for a specific legal change and is no longer current. Refactoring of existing classes needing modified to move them from cap to chips should be considered on a case-by-case basis.
 
 ## Rule configuration
 The rules in the CSV configuration should be ordered by rule bean name to make finding the entry as easy as possible.
