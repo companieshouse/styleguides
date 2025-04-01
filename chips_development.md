@@ -11,7 +11,7 @@ that class where possible.
 
 ## Formatting
 
-New code should follow the Company House standard, however the reformatting of 
+New code should follow the Company House standard, however the reformatting of
 whole existing classes is not recommended because it makes reviewing the
 code more complicated.
 
