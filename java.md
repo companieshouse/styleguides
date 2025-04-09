@@ -28,4 +28,4 @@ advantage over version control history.
 
 ## CHIPS specific guidance
 
-[CHIPS devlopment](chips_development.md).
+[CHIPS development](chips_development.md).
