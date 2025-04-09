@@ -37,8 +37,8 @@ AssertTrue where that makes the code clearer.
 
 ## Spring
 
-Use **SpringTemplate.queryForObject()**,
-not **SpringTemplate.queryForLong()** or **SpringTemplate.queryForInt()**
+Use **JdbcTemplate.queryForObject()**,
+not **JdbcTemplate.queryForLong()** or **JdbcTemplate.queryForInt()**
 because these methods are deprecated.
 
 Do not use the Spring **HibernateTemplate** because this is deprecated;
