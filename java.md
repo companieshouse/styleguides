@@ -25,3 +25,7 @@ advantage over version control history.
 ## Checkstyle
 
 [Checkstyle README](https://github.com/companieshouse/java-checkstyle-config)
+
+## CHIPS specific guidance
+
+[CHIPS development](chips_development.md).
