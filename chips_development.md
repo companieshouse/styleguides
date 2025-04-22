@@ -39,14 +39,14 @@ AssertTrue where that makes the code clearer.
 
 When working with CHIPS Rules please use the assertions provided if appropriate.
 
-The assert methods run the rule as represented by the testRule instance 
+The assert methods run the rule as represented by the testRule instance
 variable and check the number of issues found.
 
-| Method                    | Description                                        |
-|---------------------------|----------------------------------------------------|
-| assertExpectedIssuesMatches(int expectedIssues) | Assert that the number of issues generated matches the value of expectedIssues. |
-| assertZeroIssues()        | Assert that the number of issues generated is 0.   |
-| assertOneOrMoreIssues()   | Assert that the number of issues generated is > 0. |
+| Method                                      | Description                                              |
+|---------------------------------------------|----------------------------------------------------------|
+| assertExpectedIssuesMatches(expectedIssues) | Assert that the expected number of issues are generated. |
+| assertZeroIssues()                          | Assert that the number of issues generated is 0          |
+| assertOneOrMoreIssues()                     | Assert that the number of issues generated is > 0        |
 
 ### Integration tests
 
