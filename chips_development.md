@@ -39,17 +39,19 @@ AssertTrue where that makes the code clearer.
 
 When working with CHIPS Rules please use the assertions provided of appropriate.
 
-The assert methods run the rule as represented by the testRule instance variable and check the number of issues found.
+The assert methods run the rule as represented by the testRule instance variable and
+check the number of issues found.
 
-| Method                                        | Description                                                                                       |
-|-----------------------------------------------|---------------------------------------------------------------------------------------------------|
-| assertExpectedIssuesMatches(int expectedIssues) | 	Run testRule and assert that the number of issues generated matches the value of expectedIssues. |
-| assertZeroIssues()	                           | Run testRule and assert that the number of issues generated is 0.                                 |
-| assertOneOrMoreIssues()                       | 	Run testRule and assert that the number of issues generated is > 0.                              |
+| Method                                        | Description                                                                                      |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------|
+| assertExpectedIssuesMatches(int expectedIssues) | Run testRule and assert that the number of issues generated matches the value of expectedIssues. |
+| assertZeroIssues()	                           | Run testRule and assert that the number of issues generated is 0.                                |
+| assertOneOrMoreIssues()                       | Run testRule and assert that the number of issues generated is > 0.                              |
 
 ### Integration tests
 
-Integration tests for Data Access Object (DAO) classes that interact with the database are required.
+Integration tests for Data Access Object (DAO) classes that interact with the database
+are required.
 
 ### Minimum coverage
 
