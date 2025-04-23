@@ -43,17 +43,17 @@ The assert methods run the rule as represented by the testRule instance
 variable and check the number of issues found.
 The methods are:
 
-**assertExpectedIssuesMatches(int expectedIssues)**
+#### assertExpectedIssuesMatches(int expectedIssues)
 
-*Assert that the expected number of issues are generated.*
+Assert that the expected number of issues are generated.
 
-**assertZeroIssues()**
+#### assertZeroIssues()
 
-*Assert that the number of issues generated is 0*
+Assert that the number of issues generated is 0
 
-**assertOneOrMoreIssues()**
+#### assertOneOrMoreIssues()
 
-*Assert that the number of issues generated is > 0*
+Assert that the number of issues generated is > 0
 
 ### Integration tests
 
