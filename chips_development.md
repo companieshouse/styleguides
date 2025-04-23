@@ -29,11 +29,41 @@ finding the entry as easy as possible.
 
 ## Testing
 
+### Unit tests
+
 Use **Mockito** for mocking classes.
 Test classes using Easymock should be converted when worked on.
 
 Use **org.hamcrest.MatcherAssert.assertThat** instead of
 AssertTrue where that makes the code clearer.
+
+When working with CHIPS Rules please use the assertions provided if appropriate.
+
+The assert methods run the rule as represented by the testRule instance
+variable and check the number of issues found.
+The methods are:
+
+#### assertExpectedIssuesMatches(int expectedIssues)
+
+Assert that the expected number of issues are generated.
+
+#### assertZeroIssues()
+
+Assert that the number of issues generated is 0
+
+#### assertOneOrMoreIssues()
+
+Assert that the number of issues generated is > 0
+
+### Integration tests
+
+Integration tests for Data Access Object (DAO) classes that interact with the database
+are required. These are located in the **server/test/it/src** directory and are subclasses
+of **AbstractSpringContextPersistenceTest**.
+
+### Minimum coverage
+
+The minimum test coverage for new code is 80%.
 
 ## Spring
 
