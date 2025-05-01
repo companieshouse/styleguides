@@ -175,5 +175,10 @@ Predicate<String> predicate = str ->
 - Javadoc should not be used for private methods unless clarification is needed.
 - **Do not use the `@author` tag**; it is unnecessary and provides no advantage over version control.
 
+## 7. Checkstyle
 
+[Checkstyle README](https://github.com/companieshouse/java-checkstyle-config)
 
+## 8. CHIPS Specific Guidance
+
+[CHIPS development](chips_development.md)
