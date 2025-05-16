@@ -2,7 +2,7 @@
 
 This document outlines key practices for writing clean and efficient Java code. It is based on the comprehensive [Google Java Style guide](https://google.github.io/styleguide/javaguide.html), with some notable exceptions.
 
-## 1. Source File Basics
+## Source File Basics
 
 - **File Name**: Matches the top-level class name (case-sensitive, with `.java` extension).
 - **Encoding**: UTF-8.
@@ -12,7 +12,7 @@ This document outlines key practices for writing clean and efficient Java code. 
   - Use escape sequences for special characters (`\n`, `\t`, etc.).
   - Unicode characters should be used where they enhance readability but not for code logic.
 
-## 2. Source File Structure
+## Source File Structure
 
 1. License or copyright (if present)
 2. Package statement (must be the first non-comment statement)
@@ -32,9 +32,9 @@ public class MyClass {
 }
 ```
 
-## 3. Formatting
+## Formatting
 
-### 3.1 Braces
+### Braces
 
 - Always used for `if`, `else`, `for`, `do` and `while` statements, even for single statements.
 - Follow **Kernighan & Ritchie** style:
@@ -52,7 +52,7 @@ if (condition) {
 }
 ``` 
 
-### 3.2 Indentation
+### Indentation
 
 - Code blocks should be indented by **+4 spaces per indentation level**.
 - No tab characters; use spaces only.
@@ -74,7 +74,7 @@ switch (value) {
 ```
 
 
-### **3.3 Line Wrapping**  
+### Line Wrapping**  
 
 #### **Prime Directive**  
 - **Prefer breaking at a higher syntactic level** for readability.  
@@ -111,7 +111,7 @@ Predicate<String> predicate = str ->
 ```
 
 
-### 3.4 Whitespace
+### Whitespace
 
 - **One blank line**:
   - Between class members (fields, constructors, methods, etc.)
@@ -122,14 +122,14 @@ Predicate<String> predicate = str ->
   - Space around binary and ternary operators
   - No trailing whitespace at the end of lines
 
-## 4. Naming Conventions
+## Naming Conventions
 
-### 4.1 General Rules
+### General Rules
 
 - **No Hungarian notation, prefixes, or suffixes** (`mName`, `s_name` are not used).
 - Names should be meaningful and clearly indicate purpose.
 
-### 4.2 Specific Identifiers
+### Specific Identifiers
 
 - **Packages**: lowercase, no underscores (`com.example.myproject`).
 - **Classes/Interfaces**: `UpperCamelCase` (`MyClass`).
@@ -138,16 +138,16 @@ Predicate<String> predicate = str ->
 - **Type Parameters**: Single capital letter or `ClassT` (`T`, `RequestT`).
 - **Boolean variables** should be named to indicate a `true/false` value (e.g., `isReady`, `hasFinished`).
 
-## 5. Programming Practices
+## Programming Practices
 
-### 5.1 Annotations
+### Annotations
 
 - **Always use** `@Override` when overriding methods.
 - Class-level annotations go on separate lines.
 - Method-level annotations can be inline if single.
 - Multiple annotations should be stacked, one per line.
 
-### 5.2 Exception Handling
+### Exception Handling
 
 - **Do not ignore exceptions**.
 - Use `// fall through` comment when intentional in `switch` cases.
@@ -155,18 +155,18 @@ Predicate<String> predicate = str ->
 - Avoid catching generic `Exception` unless absolutely necessary.
 - Prefer using specific exception types for clarity.
 
-### 5.3 Static Members
+### Static Members
 
 - **Access static members using class name**, not instance (`ClassName.method()` instead of `instance.method()`).
 - **Do not use `finalize()`**; it is deprecated.
 - Static imports should be used sparingly to avoid reducing code clarity.
 
-### 5.4 Collections and Generics
+### Collections and Generics
 
 - Prefer `ImmutableList`, `ImmutableSet` and `ImmutableMap` where applicable.
 - Use generics to enforce type safety (`List<String>` instead of `List`).
 
-## 6. Javadoc
+## Javadoc
 
 - Required for **public** classes and **public/protected** members.
 - **Use concise summary fragments** (e.g., `/** Returns the customer ID. */`).
@@ -175,10 +175,10 @@ Predicate<String> predicate = str ->
 - Javadoc should not be used for private methods unless clarification is needed.
 - **Do not use the `@author` tag**; it is unnecessary and provides no advantage over version control.
 
-## 7. Checkstyle
+## Checkstyle
 
 [Checkstyle README](https://github.com/companieshouse/java-checkstyle-config)
 
-## 8. CHIPS Specific Guidance
+## CHIPS Specific Guidance
 
 [CHIPS development](chips_development.md)
