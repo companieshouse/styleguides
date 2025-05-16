@@ -4,7 +4,7 @@ This document outlines key practices for writing clean and efficient Go code.
 
 It is based on the [effective go guide](https://go.dev/doc/effective_go), with some notable exceptions.
 
-## 1. Formatting & Code Style
+## Formatting & Code Style
 
 ### Use `gofmt`
 - Always format code using `gofmt` (or `go fmt` for package-level formatting).
@@ -44,7 +44,7 @@ Disqualifications []Disqualification `bson:"disqualifications" json:"disqualific
 - Use `godoc`-friendly comments to generate documentation from your code.
 
 
-## 2. Development Environments
+## Development Environments
 
 - Go forces your directory structure under your GOPATH. Do not modify this structure, but you can place your GOPATH wherever is convenient.
 - Recommended tools:
@@ -55,7 +55,7 @@ Disqualifications []Disqualification `bson:"disqualifications" json:"disqualific
 - `golangci-lint` is useful for local linting (<https://github.com/golangci/golangci-lint>).
 - Follow `gofmt` best practices (<https://blog.golang.org/go-fmt-your-code>).
 
-## 3. Structs & Methods
+## Structs & Methods
 
 ### Use Pointer Receivers When Needed
 - Use pointers when modifying a struct or to avoid unnecessary copying.
@@ -85,7 +85,7 @@ func (u User) Name() string {
 }
 ```
 
-## 4. Control Structures
+## Control Structures
 
 ### `if` Statements
 - Always use braces `{}`.
@@ -111,7 +111,7 @@ for key, value := range myMap {
 }
 ```
 
-## 5. Error Handling
+## Error Handling
 
 ### Never Ignore Errors
 - Always handle errors; never use `_` to discard them.
@@ -144,7 +144,7 @@ if _, err := callDifferentThing(); err != nil {
 - Use `chs.go` for error logging.
 
 
-## 6. Testing
+## Testing
 
 ### General Guidelines
 - Use `go convey` for testing: `import (. "github.com/smartystreets/goconvey/convey")`.
@@ -176,7 +176,7 @@ test-integration:
     go test $(TESTS) -run 'Integration'
 ```
 
-## 7. Concurrency
+## Concurrency
 
 ### Use Goroutines & Channels Safely
 - Do not share memory by default; communicate via channels.
