@@ -1,12 +1,15 @@
 # Terraform Coding Standards
 
 ## Overview
+
 Terraform is the default tool used for provisioning cloud infrastructure. This guide defines the coding standards and best practices for writing and maintaining Terraform scripts.
 
 ---
 
 ## Versions
+
 - The currently supported version of Terraform is:  
+
    ```terraform
    0.12
    ```
@@ -16,15 +19,18 @@ Terraform is the default tool used for provisioning cloud infrastructure. This g
 ## Formatting and Style
 
 ### Indentation and Spacing
+
 - Use **2 spaces** for indentation (not tabs).
 - Consistent spacing aids readability and code consistency.
 
 ### Alignment
+
 - Ensure all code is **correctly and consistently aligned** for better legibility.
 
 ### Naming Conventions
+
 - Use **snake_case** for all element names to avoid Terraform warnings:
-    - ✅ `my_resource`  
+  - ✅ `my_resource`  
     - ❌ `my-resource`  
 
 ---
@@ -32,13 +38,16 @@ Terraform is the default tool used for provisioning cloud infrastructure. This g
 ## Modules
 
 ### Module Structure
+
 - When your scripts are sufficiently large, use modules to promote reusability and maintainability.
 - Each module should reside in its own directory, following the naming convention:  
+
    ```plaintext
    module-<FUNCTION>
    ```
+
 - Example:
-    - ✅ `module-security-groups`
+  - ✅ `module-security-groups`
     - ✅ `module-ec2-instances`
 
 ---
@@ -46,10 +55,12 @@ Terraform is the default tool used for provisioning cloud infrastructure. This g
 ## Comments and Descriptions
 
 ### Comments
+
 - **Minimise comments** where possible. Code should be self-explanatory.  
 - Use **descriptions** instead of comments where supported, as descriptions are visible in the AWS console.
 
 ### Example
+
 ```terraform
 # Avoid comments like this
 # This security group allows SSH access
@@ -64,8 +75,9 @@ resource "aws_security_group" "ssh" {
 ## Resources
 
 ### Resource Naming
+
 - Use **snake_case** for all resource names:
-    - ✅ `my_instance`
+  - ✅ `my_instance`
     - ❌ `my-instance`
 - This prevents Terraform warnings and maintains consistency.
 
@@ -74,19 +86,23 @@ resource "aws_security_group" "ssh" {
 ## Data Sources
 
 ### Usage
+
 - Use **data sources** to look up external data or resources defined in separate Terraform configurations.
 - Examples include:
-    - Data held in **HashiCorp Vault**
+  - Data held in **HashiCorp Vault**
     - Infrastructure resources like **subnet CIDRs** or **VPC IDs**
 
 ### Naming
+
 - Use **snake_case** for data source names:
-    - ✅ `my_data`
+  - ✅ `my_data`
     - ❌ `my-data`
 
 ### Remote State
+
 - **Avoid using Terraform Remote State** for data lookups.  
 - Review and remove any instances of:  
+
    ```terraform
    terraform_remote_state
    ```
@@ -96,23 +112,27 @@ resource "aws_security_group" "ssh" {
 ## Variables
 
 ### Naming
+
 - Use **meaningful and contextual variable names**.  
 - Reflect the data being passed:
-    - ✅ `web_cidrs` → (list of CIDRs for web servers)  
+  - ✅ `web_cidrs` → (list of CIDRs for web servers)  
     - ❌ `my_subnet_cidrs` → (too vague)  
 
 - Use **plural names** for lists and singular names for single values:
-    - ✅ `server_ids` → List of server IDs  
+  - ✅ `server_ids` → List of server IDs  
     - ✅ `db_password` → Single password string  
 
 ### Descriptions
+
 - Omit descriptions if the variable name is clear.  
 - Add descriptions for ambiguous or complex variables.
 
 ### Type Declaration
+
 - **Always specify the type** to prevent ambiguity and ensure robust code.
 
 ### Example
+
 ```terraform
 variable "web_cidrs" {
   type        = list(string)
@@ -125,30 +145,36 @@ variable "web_cidrs" {
 ## Value Assignment
 
 ### Methods
+
 - Assign variable values using:
-    - **Environment vars**
+  - **Environment vars**
     - **Defaults**
     - **Locals blocks**
 
 ### Guidance
 
 #### Defaults
+
 - Use default values when they apply across multiple environments.  
 - Avoid duplicating values across environments.
 
 #### Environment Vars
+
 - Set environment-specific variables here.
 
 #### Local Vars
+
 - Use `locals` to avoid repeating constants inside a module.
 - Group related local variables for readability.
 
 ### Example with Vault-Sourced Secrets
+
 ```terraform
 locals {
   internal_cidrs = values(data.vault_generic_secret.internal_cidrs.data)
 }
 ```
+
 - Use `local.internal_cidrs` throughout the module instead of the full `data.vault_generic_secret...` path for clarity.
 
 ---
@@ -166,6 +192,7 @@ locals {
 - Group related variables together under comments for readability. Include their type, description and default value.
 
 ### Example
+
 ```terraform
 # DNS
 variable "zone_id" {
@@ -187,17 +214,20 @@ variable "ec2_instance_type" {
 ## READMEs
 
 ### Documentation Standards
+
 - All scripts should include a **README** with:
-    - **Purpose** of the script
+  - **Purpose** of the script
     - List of variables with descriptions
     - Example usage  
 
 ### Module-Specific Documentation
+
 - When using modules:
-    - Each module must include its own `README.md` for detailed documentation.  
+  - Each module must include its own `README.md` for detailed documentation.  
     - The **root README** should link to individual module READMEs.
 
 ### Example README Structure
+
 ```terraform
 # VPC Provisioning
 
