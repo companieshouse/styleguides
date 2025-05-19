@@ -59,7 +59,7 @@ Terraform is the default tool used for provisioning cloud infrastructure. This g
 - **Minimise comments** where possible. Code should be self-explanatory.  
 - Use **descriptions** instead of comments where supported, as descriptions are visible in the AWS console.
 
-### Example
+### Comment Example
 
 ```terraform
 # Avoid comments like this
@@ -131,7 +131,7 @@ resource "aws_security_group" "ssh" {
 
 - **Always specify the type** to prevent ambiguity and ensure robust code.
 
-### Example 2
+### Example
 
 ```terraform
 variable "web_cidrs" {
@@ -191,7 +191,7 @@ locals {
 
 - Group related variables together under comments for readability. Include their type, description and default value.
 
-### Example
+### Grouping Example
 
 ```terraform
 # DNS
