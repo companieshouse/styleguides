@@ -76,7 +76,7 @@ switch (value) {
 }
 ```
 
-### Line Wrapping**  
+### Line Wrapping  
 
 #### **Prime Directive**  
 
