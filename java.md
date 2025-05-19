@@ -21,6 +21,7 @@ This document outlines key practices for writing clean and efficient Java code. 
 5. Blank lines separate logical sections
 
 Example:
+
 ```java
 package com.example.myproject;
 
@@ -44,13 +45,14 @@ public class MyClass {
   - Empty blocks must use `{}` with no content inside, except for multi-block statements
 
 Example:
+
 ```java
 if (condition) {
     doSomething();
 } else {
     doSomethingElse();
 }
-``` 
+```
 
 ### Indentation
 
@@ -60,6 +62,7 @@ if (condition) {
 - **+4 spaces** also apply for indentation within a **switch statement.**
 
 Example:
+
 ```java
 switch (value) {
     case 1:
@@ -73,26 +76,30 @@ switch (value) {
 }
 ```
 
-
 ### Line Wrapping**  
 
 #### **Prime Directive**  
+
 - **Prefer breaking at a higher syntactic level** for readability.  
 
 #### **Breaking at Operators**  
+
 - **Break before** non-assignment operators:  
   - Dot separator (`.`), method reference (`::`), ampersand in type bounds (`<T extends Foo & Bar>`) and pipes in multi-catch (`catch (FooException | BarException e)`).  
 
 #### **Breaking at Assignment Operators**  
+
 - **Break after** an assignment operator (`=`), though either way is acceptable.  
   - Also applies to the **colon (`:`) in an enhanced for-loop** (`foreach` statement).  
 
 #### **Other Rules**  
+
 - **Method and constructor names stay attached** to the opening `(`.  
 - **Commas (` , `) stay attached** to the preceding token.  
 - **Never break directly before or after `->` in a lambda**, except when the body is a **single unbraced expression**.  
 
 Examples:
+
 ```java
 // Breaking before operator symbols
 MyLambda<String, Long, Object> lambda =
@@ -109,7 +116,6 @@ someList.stream()
 Predicate<String> predicate = str ->
         longExpressionInvolving(str);
 ```
-
 
 ### Whitespace
 
