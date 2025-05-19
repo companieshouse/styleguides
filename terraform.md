@@ -131,7 +131,7 @@ resource "aws_security_group" "ssh" {
 
 - **Always specify the type** to prevent ambiguity and ensure robust code.
 
-### Example
+### Example 2
 
 ```terraform
 variable "web_cidrs" {
