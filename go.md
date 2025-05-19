@@ -1,12 +1,13 @@
 # Go Coding Standards
 
-This document outlines key practices for writing clean and efficient Go code. 
+This document outlines key practices for writing clean and efficient Go code.
 
 It is based on the [effective go guide](https://go.dev/doc/effective_go), with some notable exceptions.
 
 ## Formatting & Code Style
 
 ### Use `gofmt`
+
 - Always format code using `gofmt` (or `go fmt` for package-level formatting).
 - `gofmt` standardises indentation, alignment and spacing.
 - Indentation uses **tabs**, not spaces.
@@ -14,6 +15,7 @@ It is based on the [effective go guide](https://go.dev/doc/effective_go), with s
 - If integrating with CI/CD pipelines, configure automatic `gofmt` checks to enforce consistent formatting.
 
 ### Line Length & Parentheses
+
 - No strict line length limit, but wrap long lines for readability.
 - Avoid unnecessary parentheses in control structures (`if`, `for`, `switch`).
 - Maintain logical breaks for readability and organization.
@@ -21,6 +23,7 @@ It is based on the [effective go guide](https://go.dev/doc/effective_go), with s
 - Keep function signatures compact and clear, using multiple lines if necessary for readability.
 
 ### Naming Conventions
+
 - **Package names**: Use short, lowercase names (e.g., `encoding/json`).
 - **Exported identifiers**: Use MixedCaps (e.g., `ServeHTTP`, `ReadFile`).
 - **Interfaces**: Use `-er` suffix for single-method interfaces (e.g., `Reader`, `Writer`).
@@ -36,13 +39,13 @@ Disqualifications []Disqualification `bson:"disqualifications" json:"disqualific
 ```
 
 ### Comments
+
 - Use `//` for line comments; `/* */` only for package-level documentation.
 - Avoid repeating type or name in comments.
 - Document all exported functions, methods and structs.
 - Use comments to explain why a piece of code exists, not just what it does.
 - Keep comments concise but informative.
 - Use `godoc`-friendly comments to generate documentation from your code.
-
 
 ## Development Environments
 
@@ -58,6 +61,7 @@ Disqualifications []Disqualification `bson:"disqualifications" json:"disqualific
 ## Structs & Methods
 
 ### Use Pointer Receivers When Needed
+
 - Use pointers when modifying a struct or to avoid unnecessary copying.
 - Use value receivers when the method does not modify the struct.
 - Avoid using pointer receivers for small structs unless modification is needed.
@@ -75,6 +79,7 @@ func NewUser(name string, age int) *User {
 ```
 
 ### Getters & Setters
+
 - Do not prefix getters with `Get`.
 - Avoid unnecessary setters unless mutation requires validation.
 - Use consistent naming conventions for getters and setters.
@@ -88,6 +93,7 @@ func (u User) Name() string {
 ## Control Structures
 
 ### `if` Statements
+
 - Always use braces `{}`.
 - Avoid unnecessary `else` if the `if` block returns.
 - Keep `if` statements short and readable.
@@ -100,6 +106,7 @@ if err := doSomething(); err != nil {
 ```
 
 ### `for` Loops
+
 - Use `for` instead of `while` (Go does not have `while`).
 - Use `range` for iterating over arrays, slices, maps, or channels.
 - Precompute values if they are used multiple times inside a loop.
@@ -114,6 +121,7 @@ for key, value := range myMap {
 ## Error Handling
 
 ### Never Ignore Errors
+
 - Always handle errors; never use `_` to discard them.
 - Return detailed errors with context.
 - Logging errors should be meaningful and not just `fmt.Println(err)`.
@@ -127,6 +135,7 @@ if err := process(); err != nil {
 ```
 
 ### Inline Error Handling
+
 - Function calls that only return an error should use inline error checking. If for any reason the function call itself reads better as multiple lines (e.g. struct being passed in as an argument), the inline error checking style shouldn't apply.
 
 ```go
@@ -140,13 +149,14 @@ if _, err := callDifferentThing(); err != nil {
 ```
 
 ### Avoid Debugging Tools in Commits
+
 - `go-spew` is useful for debugging but should never be committed.
 - Use `chs.go` for error logging.
-
 
 ## Testing
 
 ### General Guidelines
+
 - Use `go convey` for testing: `import (. "github.com/smartystreets/goconvey/convey")`.
 - `go convey` provides a clean syntax for writing expressive tests and integrates with `go test`.
 - Unit test function names should follow the format `TestUnit*`.
@@ -164,6 +174,7 @@ func TestUnitExample(t *testing.T) {
 ```
 
 ### Running Tests with Makefile
+
 - The Makefile should have separate targets for running unit and integration tests.
 - These targets should use `go test` with appropriate filters.
 - The `-coverprofile` flag should be used to track test coverage.
@@ -179,6 +190,7 @@ test-integration:
 ## Concurrency
 
 ### Use Goroutines & Channels Safely
+
 - Do not share memory by default; communicate via channels.
 - Use `select` to handle multiple channels.
 - Avoid race conditions by structuring concurrent code carefully.
@@ -193,6 +205,7 @@ value := <-ch
 ```
 
 ### Recover from Panics in Goroutines
+
 - Use `recover` inside `defer` to prevent crashes.
 - Log panic recoveries for debugging purposes.
 - Ensure that panics do not silently fail without logging.
@@ -206,6 +219,7 @@ defer func() {
 ```
 
 ### Synchronisation
+
 - Use `sync.Mutex` or `sync.RWMutex` when protecting shared resources.
 - Use `sync.WaitGroup` to coordinate goroutines.
 - Consider `sync.Once` for initialisation code that should only run once.
