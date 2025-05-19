@@ -28,7 +28,6 @@ This document establishes the Perl coding standards for Companies House, based o
 - Align assignment operators for better visual clarity.
 - Avoid trailing whitespace.
 
-
 ```perl
 sub process_data {
     my ($input) = @_;
@@ -68,7 +67,6 @@ sub process_data {
 - Use `unless` only when it improves clarity over `if`.
 - Do **not** use `unless` when evaluating multiple conditions (e.g., `unless $x || !$y`).
 
-
 ```perl
 unless ($something_is_true) {
     # preferred over if (!something_is_true)
@@ -83,7 +81,6 @@ unless ($something_is_true) {
 - Use `state` variables only where persistent state is needed.
 - Declare variables in the smallest possible scope.
 - Initialise variables at the time of declaration whenever possible.
-
 
 ```perl
 sub counter {
@@ -124,7 +121,6 @@ sub my_method {
 - Prefer `eval {}` for exception handling over `eval ""`.
 - Log error messages using `Log::Log4perl` or similar frameworks.
 
-
 ```perl
 use Carp;
 open my $fh, '<', 'file.txt' or croak "Cannot open file: $!";
@@ -136,7 +132,6 @@ open my $fh, '<', 'file.txt' or croak "Cannot open file: $!";
 - Comment complex regex patterns.
 - Use non-capturing groups when capturing is unnecessary.
 - Avoid unnecessary backtracking by using efficient regex patterns.
-
 
 ```perl
 my $pattern = qr/   # Start of regex
@@ -156,7 +151,6 @@ my $pattern = qr/   # Start of regex
 - Always define a destructor if resource cleanup is necessary.
 - Use method chaining where appropriate.
 
-
 ```perl
 use Moose;
 
@@ -170,7 +164,6 @@ has 'name' => (is => 'rw', isa => 'Str');
 - Ensure test coverage for all public methods.
 - Use `prove` to run test suites efficiently.
 - Automate testing in CI/CD pipelines.
-
 
 ```perl
 use Test::More;
