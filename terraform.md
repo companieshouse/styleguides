@@ -111,7 +111,7 @@ resource "aws_security_group" "ssh" {
 
 ## Variables
 
-### Naming
+### Naming Variables
 
 - Use **meaningful and contextual variable names**.  
 - Reflect the data being passed:
