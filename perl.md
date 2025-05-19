@@ -28,7 +28,6 @@ This document establishes the Perl coding standards for Companies House, based o
 - Align assignment operators for better visual clarity.
 - Avoid trailing whitespace.
 
-### Example
 
 ```perl
 sub process_data {
@@ -69,7 +68,6 @@ sub process_data {
 - Use `unless` only when it improves clarity over `if`.
 - Do **not** use `unless` when evaluating multiple conditions (e.g., `unless $x || !$y`).
 
-### Example
 
 ```perl
 unless ($something_is_true) {
@@ -86,7 +84,6 @@ unless ($something_is_true) {
 - Declare variables in the smallest possible scope.
 - Initialise variables at the time of declaration whenever possible.
 
-### Example
 
 ```perl
 sub counter {
@@ -127,7 +124,6 @@ sub my_method {
 - Prefer `eval {}` for exception handling over `eval ""`.
 - Log error messages using `Log::Log4perl` or similar frameworks.
 
-### Example
 
 ```perl
 use Carp;
@@ -141,7 +137,6 @@ open my $fh, '<', 'file.txt' or croak "Cannot open file: $!";
 - Use non-capturing groups when capturing is unnecessary.
 - Avoid unnecessary backtracking by using efficient regex patterns.
 
-### Example
 
 ```perl
 my $pattern = qr/   # Start of regex
@@ -161,7 +156,6 @@ my $pattern = qr/   # Start of regex
 - Always define a destructor if resource cleanup is necessary.
 - Use method chaining where appropriate.
 
-### Example
 
 ```perl
 use Moose;
@@ -177,7 +171,6 @@ has 'name' => (is => 'rw', isa => 'Str');
 - Use `prove` to run test suites efficiently.
 - Automate testing in CI/CD pipelines.
 
-### Example
 
 ```perl
 use Test::More;
