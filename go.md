@@ -2,7 +2,8 @@
 
 This document outlines key practices for writing clean and efficient Go code.
 
-It is based on the [effective go guide](https://go.dev/doc/effective_go), with some notable exceptions.
+It is based on the [effective go guide](https://go.dev/doc/effective_go), with
+some notable exceptions.
 
 ## Formatting & Code Style
 
@@ -11,27 +12,34 @@ It is based on the [effective go guide](https://go.dev/doc/effective_go), with s
 - Always format code using `gofmt` (or `go fmt` for package-level formatting).
 - `gofmt` standardises indentation, alignment and spacing.
 - Indentation uses **tabs**, not spaces.
-- All Go code in the standard library is formatted using `gofmt`, so following this ensures consistency with the broader ecosystem.
-- If integrating with CI/CD pipelines, configure automatic `gofmt` checks to enforce consistent formatting.
+- All Go code in the standard library is formatted using `gofmt`, so following
+  this ensures consistency with the broader ecosystem.
+- If integrating with CI/CD pipelines, configure automatic `gofmt` checks to
+  enforce consistent formatting.
 
 ### Line Length & Parentheses
 
 - No strict line length limit, but wrap long lines for readability.
 - Avoid unnecessary parentheses in control structures (`if`, `for`, `switch`).
 - Maintain logical breaks for readability and organization.
-- Use vertical spacing (blank lines) to separate logical sections within functions.
-- Keep function signatures compact and clear, using multiple lines if necessary for readability.
+- Use vertical spacing (blank lines) to separate logical sections within
+  functions.
+- Keep function signatures compact and clear, using multiple lines if necessary
+  for readability.
 
 ### Naming Conventions
 
 - **Package names**: Use short, lowercase names (e.g., `encoding/json`).
 - **Exported identifiers**: Use MixedCaps (e.g., `ServeHTTP`, `ReadFile`).
-- **Interfaces**: Use `-er` suffix for single-method interfaces (e.g., `Reader`, `Writer`).
+- **Interfaces**: Use `-er` suffix for single-method interfaces (e.g., `Reader`,
+  `Writer`).
 - **Method names**: Use `VerbNoun` format (e.g., `ServeHttp`).
 - **Struct fields**: Use JSON-style tags and align them properly.
 - Avoid abbreviations unless they are widely understood (e.g., `HTTP`, `ID`).
-- Function names should be descriptive and avoid generic terms like `Handle` unless necessary.
-- Constants should be in MixedCaps or UPPER_SNAKE_CASE if they are meant to be widely used.
+- Function names should be descriptive and avoid generic terms like `Handle`
+  unless necessary.
+- Constants should be in MixedCaps or UPPER_SNAKE_CASE if they are meant to be
+  widely used.
 
 ```go
 DateOfBirth       types.JSONDate      `bson:"date_of_birth,omitempty" json:"date_of_birth,omitempty"`
@@ -49,13 +57,17 @@ Disqualifications []Disqualification `bson:"disqualifications" json:"disqualific
 
 ## Development Environments
 
-- Go forces your directory structure under your GOPATH. Do not modify this structure, but you can place your GOPATH wherever is convenient.
+- Go forces your directory structure under your GOPATH. Do not modify this
+  structure, but you can place your GOPATH wherever is convenient.
 - Recommended tools:
-  - **Atom** with `go-plus` for `gofmt`, `go imports`, `go vet` and `golint` (<https://atom.io/packages/go-plus>).
-  - **JetBrains Go IDE** (part of IntelliJ, includes remote debugging) (<https://www.jetbrains.com/go/>).
+  - **Atom** with `go-plus` for `gofmt`, `go imports`, `go vet` and `golint`
+    (<https://atom.io/packages/go-plus>).
+  - **JetBrains Go IDE** (part of IntelliJ, includes remote debugging)
+    (<https://www.jetbrains.com/go/>).
   - **vim-go** plugin for Vim users.
 - If not using Atom, ensure `golint`, `go vet` and similar tools run regularly.
-- `golangci-lint` is useful for local linting (<https://github.com/golangci/golangci-lint>).
+- `golangci-lint` is useful for local linting
+  (<https://github.com/golangci/golangci-lint>).
 - Follow `gofmt` best practices (<https://blog.golang.org/go-fmt-your-code>).
 
 ## Structs & Methods
@@ -136,7 +148,10 @@ if err := process(); err != nil {
 
 ### Inline Error Handling
 
-- Function calls that only return an error should use inline error checking. If for any reason the function call itself reads better as multiple lines (e.g. struct being passed in as an argument), the inline error checking style shouldn't apply.
+- Function calls that only return an error should use inline error checking. If
+  for any reason the function call itself reads better as multiple lines (e.g.
+  struct being passed in as an argument), the inline error checking style
+  shouldn't apply.
 
 ```go
 if err := thingReturnsAnError(); err != nil {
@@ -158,10 +173,12 @@ if _, err := callDifferentThing(); err != nil {
 ### General Guidelines
 
 - Use `go convey` for testing: `import (. "github.com/smartystreets/goconvey/convey")`.
-- `go convey` provides a clean syntax for writing expressive tests and integrates with `go test`.
+- `go convey` provides a clean syntax for writing expressive tests and
+  integrates with `go test`.
 - Unit test function names should follow the format `TestUnit*`.
 - Integration test function names should follow the format `TestIntegration*`.
-- Tests should be structured with clear assertions and avoid excessive logic inside test functions.
+- Tests should be structured with clear assertions and avoid excessive logic
+  inside test functions.
 - Use `convey` blocks to structure tests clearly.
 
 ```go
@@ -175,7 +192,8 @@ func TestUnitExample(t *testing.T) {
 
 ### Running Tests with Makefile
 
-- The Makefile should have separate targets for running unit and integration tests.
+- The Makefile should have separate targets for running unit and integration
+  tests.
 - These targets should use `go test` with appropriate filters.
 - The `-coverprofile` flag should be used to track test coverage.
 
