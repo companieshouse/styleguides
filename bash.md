@@ -115,6 +115,7 @@ namespace pollution.
 - Variable initialisation inside functions is not required prior to use in
 loops. For example:
 
+<!-- markdownlint-disable MD013 -->
   ```sh
   get_configuration () {
       # This initialisation is not required
@@ -127,6 +128,7 @@ loops. For example:
       echo ${configuration}  # Still accessible here
   }
   ```
+<!-- markdownlint-enable MD013 -->
 
 ## Variables
 
