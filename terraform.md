@@ -241,7 +241,6 @@ variable "ec2_instance_type" {
 
 ### Example README Structure
 
-<!-- markdownlint-disable MD013 -->
 ```terraform
 # VPC Provisioning
 
@@ -251,8 +250,10 @@ subnets in AWS using Terraform.
 
 ## Variables
 - `vpc_cidr`: The CIDR block for the VPC. Example: `"10.0.0.0/16"`
-- `public_subnet_cidrs`: List of CIDR blocks for the public subnets. Example: `["10.0.1.0/24"]`
-- `private_subnet_cidrs`: List of CIDR blocks for the private subnets. Example: `["10.0.2.0/24"]`
+- `public_subnet_cidrs`: List of CIDR blocks for the public subnets. Example:
+  `["10.0.1.0/24"]`
+- `private_subnet_cidrs`: List of CIDR blocks for the private subnets.
+  Example: `["10.0.2.0/24"]`
 
 ## Usage
 Include this code in your main Terraform configuration file to call the module
@@ -264,6 +265,3 @@ module "vpc" {
   public_subnet_cidrs = ["10.0.1.0/24"]
   private_subnet_cidrs = ["10.0.2.0/24"]
 }
-```
-<!-- markdownlint-enable MD013 -->
-
