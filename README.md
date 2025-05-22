@@ -21,6 +21,7 @@ up to scratch and meeting the latest repository standards.
 ## Languages
 
 - [Bash](bash.md)
+- [CHIPS](chips_development.md)
 - [Go](go.md)
 - [Java](java.md)
 - [Java Review](java_review.md)
