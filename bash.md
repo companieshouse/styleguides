@@ -229,14 +229,14 @@ missing files, etc.).
   echo -e 'Comment\n'
   ```
 
-❌ Instead of using a blank `echo` call:
+  ❌ Instead of using a blank `echo` call:
 
   ```sh
   echo 'Comment'
   echo
   ```
 
-This avoids unnecessary output inconsistencies.
+  This avoids unnecessary output inconsistencies.
 
 ## Consistency & Readability
 
