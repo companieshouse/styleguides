@@ -1,75 +1,80 @@
-# CHIPS development guidelines
+# CHIPS Development Guidelines
 
 ## General
 
-Avoid using deprecated methods, both in the CHIPS code and third-party packages
-to avoid work in the future.
+- To reduce future maintenance work, avoid using deprecated methods - both in
+CHIPS code and third-party packages.
+- Use the `uk.gov.ch.chips.common.util.DateUtils` class for generating
+dates.
 
-Use the **uk.gov.ch.chips.common.util.DateUtils** class to generate Dates.
-Avoid using new Date() in favour of DateUtils.today() and try to use methods in
-that class where possible.
+- Avoid `new Date()`; prefer `DateUtils.today()`.
+- Use methods in `DateUtils` where applicable.
 
 ## Formatting
 
-New code should follow the Company House standard, however the reformatting of
-whole existing classes is not recommended because it makes reviewing the
-code more complicated.
+- New code should follow the Companies House standard.
+- Avoid reformatting entire existing classes, as this can complicate code
+reviews.
 
 ## Packages
 
-Don't add classes to the **uk.gov.ch.cap** package. The package was created for
-a specific legal change and is no longer current. Refactoring of existing classes
-needing modified to move them from cap to chips should be considered
-on a case-by-case basis.
+- **Do not** add classes to the `uk.gov.ch.cap` package.
 
-## Rule configuration
+- This package was created for a specific legal change and is no longer in
+active use.
+- Refactor existing classes from `cap` to `chips` **case by case**, when
+modifying them.
+- If refactoring of existing classes in the cap package is needed, consider
+refactoring and moving them to CHIPS, with this decision made on a case-by-case
+basis.
 
-The rules in the CSV configuration should be ordered by rule bean name to make
-finding the entry as easy as possible.
+## Rule Configuration
+
+- Rules in the CSV configuration file should be **ordered by rule bean name**
+to simplify lookup.
 
 ## Testing
 
-### Unit tests
+### Unit Tests
 
-Use **Mockito** for mocking classes.
-Test classes using Easymock should be converted when worked on.
+- Use **Mockito** for mocking classes.
+- Convert test classes using **EasyMock** to Mockito when modifying them.
+- Prefer `org.hamcrest.MatcherAssert.assertThat` over `AssertTrue` when it
+makes the code clearer.
+- When testing CHIPS Rules, use the provided assertion methods where
+appropriate.
 
-Use **org.hamcrest.MatcherAssert.assertThat** instead of
-AssertTrue where that makes the code clearer.
+#### Assertion Methods
 
-When working with CHIPS Rules please use the assertions provided if appropriate.
+These methods operate on the `testRule` instance variable and verify the number
+of issues detected:
 
-The assert methods run the rule as represented by the testRule instance
-variable and check the number of issues found.
-The methods are:
+- `assertExpectedIssuesMatches(int expectedIssues)`
+Asserts that the expected number of issues is generated.
 
-#### assertExpectedIssuesMatches(int expectedIssues)
+- `assertZeroIssues()`
+Asserts that zero issues are generated.
 
-Assert that the expected number of issues are generated.
+- `assertOneOrMoreIssues()`
+Asserts that one or more issues are generated.
 
-#### assertZeroIssues()
+### Integration Tests
 
-Assert that the number of issues generated is 0
+- Data Access Object (DAO) classes that interact with the database **must**
+include integration tests.
 
-#### assertOneOrMoreIssues()
+- These tests are located in: `server/test/it/src`
+- They should be subclasses of `AbstractSpringContextPersistenceTest`
 
-Assert that the number of issues generated is > 0
+### Minimum Coverage
 
-### Integration tests
-
-Integration tests for Data Access Object (DAO) classes that interact with the database
-are required. These are located in the **server/test/it/src** directory and are subclasses
-of **AbstractSpringContextPersistenceTest**.
-
-### Minimum coverage
-
-The minimum test coverage for new code is 80%.
+- New code must have **at least 80% test coverage**.
 
 ## Spring
 
-Use **JdbcTemplate.queryForObject()**,
-not **JdbcTemplate.queryForLong()** or **JdbcTemplate.queryForInt()**
-because these methods are deprecated.
+- Use `JdbcTemplate.queryForObject()`
+**Do not** use `JdbcTemplate.queryForLong()` or
+`JdbcTemplate.queryForInt()`—these methods are deprecated.
 
-Do not use the Spring **HibernateTemplate** because this is deprecated;
-instead use calls to Hibernate **Session**.
+- **Avoid** using Spring's `HibernateTemplate` (deprecated).
+Use Hibernate `Session` methods instead.
