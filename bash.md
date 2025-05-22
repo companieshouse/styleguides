@@ -55,11 +55,11 @@ prevent unintended execution.
 - **Start scripts with a hashbang (`#!/bin/bash`) and avoid `#!/usr/bin/env
 bash`** to ensure consistency in script execution.
 - **Organise scripts properly:**
-- Place constants and environment variables at the top.
-- Keep all functions together below constants, maintaining modularity and
+  - Place constants and environment variables at the top.
+  - Keep all functions together below constants, maintaining modularity and
 readability.
-- The `main` function should be at the bottom, with `main "$@"` as the last
-line.
+  - The `main` function should be at the bottom, with `main "$@"` as the
+last line.
 - Ensure scripts can be executed from any location and do not rely on the
 current working directory.
 
@@ -106,10 +106,10 @@ namespace pollution.
   ```
 
 - Each function in a library must have a comment header describing:
-- **Purpose** of the function.
-- **Global variables used** and whether they are modified.
-- **Arguments taken** with details.
-- **Outputs and return values**, if applicable.
+  - **Purpose** of the function.
+  - **Global variables used** and whether they are modified.
+  - **Arguments taken** with details.
+  - **Outputs and return values**, if applicable.
 - Define all functions before they are used to ensure clarity.
 
 - Variable initialisation inside functions is not required prior to use in
