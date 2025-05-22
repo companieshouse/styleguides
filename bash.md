@@ -1,10 +1,13 @@
 # Shell (Bash) Coding Standards
 
-This document outlines key practices for writing clean and efficient Bash code.
+This document outlines key practices for writing clean and efficient Bash
+code.
 
-It is based on the [Google shell coding standard](https://google.github.io/styleguide/shell.xml)
+It is based on the [Google shell coding
+standard](https://google.github.io/styleguide/shell.xml)
 with the **exception of using four spaces** (not two as
-[specified in the standard](https://google.github.io/styleguide/shellguide.html#indentation)).
+[specified in the
+standard](https://google.github.io/styleguide/shellguide.html#indentation)).
 
 ## General
 
@@ -23,7 +26,8 @@ pipelines.
   echo "This will exit on error, unset variable use, or pipeline failure."
   ```
 
-- **Avoid `eval`** due to security risks, as it can lead to command injection vulnerabilities.
+- **Avoid `eval`** due to security risks, as it can lead to command injection
+vulnerabilities.
 
   ```sh
   # Dangerous example of eval
@@ -31,25 +35,33 @@ pipelines.
   eval "$user_input"  # This can be catastrophic!
   ```
 
-- **Use `ShellCheck`** to detect common script issues and ensure scripts are robust and maintainable.
+- **Use `ShellCheck`** to detect common script issues and ensure scripts are
+robust and maintainable.
 
   ```sh
   # Run ShellCheck on a script
   shellcheck my_script.sh
   ```
 
-- Use comments where necessary but avoid excessive commenting. Code should be self-explanatory where possible.
+- Use comments where necessary but avoid excessive commenting. Code should be
+self-explanatory where possible.
 
 ## File Naming & Structure
 
-- Executables should **omit the `.sh` extension** unless required for build systems or packaging.
-- **Libraries must have a `.sh` extension** and should not be executable to prevent unintended execution.
-- **Start scripts with a hashbang (`#!/bin/bash`) and avoid `#!/usr/bin/env bash`** to ensure consistency in script execution.
+- Executables should **omit the `.sh` extension** unless required for build
+systems or packaging.
+- **Libraries must have a `.sh` extension** and should not be executable to
+prevent unintended execution.
+- **Start scripts with a hashbang (`#!/bin/bash`) and avoid `#!/usr/bin/env
+bash`** to ensure consistency in script execution.
 - **Organise scripts properly:**
-  - Place constants and environment variables at the top.
-  - Keep all functions together below constants, maintaining modularity and readability.
-  - The `main` function should be at the bottom, with `main "$@"` as the last line.
-- Ensure scripts can be executed from any location and do not rely on the current working directory.
+- Place constants and environment variables at the top.
+- Keep all functions together below constants, maintaining modularity and
+readability.
+- The `main` function should be at the bottom, with `main "$@"` as the last
+line.
+- Ensure scripts can be executed from any location and do not rely on the
+current working directory.
 
   ```sh
   # Example of making a script location-independent
@@ -59,10 +71,13 @@ pipelines.
 
 ## Formatting
 
-- **Indentation:** Use **four spaces per level** to maintain readability and consistency.
-- **Line length:** Keep lines **under 80 characters** where possible; wrap long commands using `\` for clarity.
+- **Indentation:** Use **four spaces per level** to maintain readability and
+consistency.
+- **Line length:** Keep lines **under 80 characters** where possible; wrap long
+commands using `\` for clarity.
 - **Use blank lines** between logical blocks to improve readability.
-- **Control structures (`if`, `for`, `while`) should use `; then` and `; do` on the same line.**
+- **Control structures (`if`, `for`, `while`) should use `; then` and `; do` on
+the same line.**
 
   ```sh
   # Example of correct control structure formatting
@@ -79,7 +94,8 @@ pipelines.
 
 - Use **snake_case function names** to maintain consistency.
 - **Omit the `function` keyword** to align with standard Bash conventions.
-- **Always use `local` for function-specific variables** to prevent global namespace pollution.
+- **Always use `local` for function-specific variables** to prevent global
+namespace pollution.
 
   ```sh
   # Example function with local variable
@@ -90,13 +106,14 @@ pipelines.
   ```
 
 - Each function in a library must have a comment header describing:
-  - **Purpose** of the function.
-  - **Global variables used** and whether they are modified.
-  - **Arguments taken** with details.
-  - **Outputs and return values**, if applicable.
+- **Purpose** of the function.
+- **Global variables used** and whether they are modified.
+- **Arguments taken** with details.
+- **Outputs and return values**, if applicable.
 - Define all functions before they are used to ensure clarity.
 
-- Variable initialisation inside functions is not required prior to use in loops. For example:
+- Variable initialisation inside functions is not required prior to use in
+loops. For example:
 
   ```sh
   get_configuration () {
@@ -114,15 +131,18 @@ pipelines.
 ## Variables
 
 - **Use `local` for function-specific variables** to avoid unexpected behavior.
-- **Use uppercase for constants and environment variables** for easy identification.
+- **Use uppercase for constants and environment variables** for easy
+identification.
 
   ```sh
   # Example of defining a constant
   readonly MAX_RETRIES=5
   ```
 
-- **Prefer `${var}` over `$var`** for clarity and to prevent issues with unintended variable expansion.
-- **Always quote variables in expansions:** `"${var}"` to avoid unwanted word splitting.
+- **Prefer `${var}` over `$var`** for clarity and to prevent issues with
+unintended variable expansion.
+- **Always quote variables in expansions:** `"${var}"` to avoid unwanted word
+splitting.
 
   ```sh
   # Example showing why quoting is important
@@ -135,7 +155,8 @@ pipelines.
 
 ## Command Execution
 
-- **Use built-in commands over external ones** to improve script performance and avoid unnecessary dependencies.
+- **Use built-in commands over external ones** to improve script performance
+and avoid unnecessary dependencies.
 - **Check return values** explicitly to catch and handle errors effectively:
 
   ```sh
@@ -145,21 +166,25 @@ pipelines.
   fi
   ```
 
-- **Prefer `$(command)` over backticks (`) for command substitution** to enhance readability and avoid escaping issues.
+- **Prefer `$(command)` over backticks (`) for command substitution** to
+enhance readability and avoid escaping issues.
 
   ```sh
   # Example of command substitution
   files=$(ls)
   ```
 
-- **Use process substitution (`< <(...)`)** instead of pipelines to avoid unintended subshell behavior.
+- **Use process substitution (`< <(...)`)** instead of pipelines to avoid
+unintended subshell behavior.
 
 ## Quoting & Expansion
 
 - **Always quote variables** unless word splitting is explicitly desired.
-- **Use `[[ ... ]]` instead of `[ ... ]`** for conditionals, as it provides safer string comparisons.
+- **Use `[[ ... ]]` instead of `[ ... ]`** for conditionals, as it provides
+safer string comparisons.
 - **Use `-z` and `-n`** instead of checking for empty strings manually.
-- **For numeric comparisons, use `(( ... ))` or `-lt`, `-gt`** instead of string comparisons to avoid unexpected behavior.
+- **For numeric comparisons, use `(( ... ))` or `-lt`, `-gt`** instead of
+string comparisons to avoid unexpected behavior.
 
   ```sh
   # Example of numeric comparison
@@ -168,13 +193,16 @@ pipelines.
   fi
   ```
 
-- Prefer using arrays instead of space-separated lists to prevent issues with spaces in filenames.
+- Prefer using arrays instead of space-separated lists to prevent issues with
+spaces in filenames.
 
 ## Arrays
 
-- **Use arrays** instead of space-separated strings for lists to prevent issues with special characters and spaces.
+- **Use arrays** instead of space-separated strings for lists to prevent issues
+with special characters and spaces.
 - Expand arrays using `"${array[@]}"` to preserve elements correctly.
-- Avoid `for var in $(command)`, as it can split incorrectly; use `while read -r` or `readarray` instead for robust handling.
+- Avoid `for var in $(command)`, as it can split incorrectly; use `while read
+-r` or `readarray` instead for robust handling.
 
   ```sh
   # Example of safe array iteration
@@ -187,10 +215,13 @@ pipelines.
 
 ## Best Practices
 
-- **Avoid aliases in scripts**; use functions instead to ensure consistent behavior.
-- **Do not use SUID/SGID in shell scripts**; use `sudo` or dedicated privilege escalation methods if necessary.
+- **Avoid aliases in scripts**; use functions instead to ensure consistent
+behavior.
+- **Do not use SUID/SGID in shell scripts**; use `sudo` or dedicated privilege
+escalation methods if necessary.
 - Ensure error messages are sent to `STDERR` for proper logging and debugging.
-- **Use meaningful exit codes** (`exit 1` for general errors, `exit 2` for missing files, etc.).
+- **Use meaningful exit codes** (`exit 1` for general errors, `exit 2` for
+missing files, etc.).
 
 - ✅ The preferred way to print new lines with echo is to use:
 
@@ -198,18 +229,20 @@ pipelines.
   echo -e 'Comment\n'
   ```
 
-  ❌ Instead of using a blank `echo` call:
+❌ Instead of using a blank `echo` call:
 
   ```sh
   echo 'Comment'
   echo
   ```
 
-  This avoids unnecessary output inconsistencies.
+This avoids unnecessary output inconsistencies.
 
 ## Consistency & Readability
 
 - Follow existing style when modifying scripts to ensure uniformity.
 - **Be consistent across the codebase** to improve maintainability.
-- Use comments **only when necessary** to explain non-obvious code; avoid redundant or overly verbose comments.
-- Consider using logging functions instead of plain `echo` to standardise output handling.
+- Use comments **only when necessary** to explain non-obvious code; avoid
+redundant or overly verbose comments.
+- Consider using logging functions instead of plain `echo` to standardise
+output handling.
