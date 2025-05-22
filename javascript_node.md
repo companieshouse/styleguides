@@ -305,4 +305,3 @@ For improved readability in CLI output:
 npm install snazzy
 standard | snazzy
 ```
-```
