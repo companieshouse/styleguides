@@ -72,8 +72,8 @@ include integration tests.
 
 ## Spring
 
-- Use `JdbcTemplate.queryForObject()`
-**Do not** use `JdbcTemplate.queryForLong()` or
+- Use `JdbcTemplate.queryForObject()`,
+**do not** use `JdbcTemplate.queryForLong()` or
 `JdbcTemplate.queryForInt()` - these methods are deprecated.
 
 - **Avoid** using Spring's `HibernateTemplate` (deprecated).
