@@ -292,7 +292,7 @@ standard --plugin markdown "**/*.md"
 To prevent unstyled code from being committed:
 
 ```yaml
-- repo: [https://github.com/standard/standard](https://github.com/standard/standard)
+- repo: https://github.com/standard/standard
   hooks:
     - id: standard
 ```
