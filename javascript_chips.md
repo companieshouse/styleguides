@@ -93,7 +93,7 @@ function calculateArea(width, height) {
 ## Code Structure
 
 - **One Statement per Line**: Each statement must be on its own line.
-- **Column Limit**: Keep lines within **100 characters**.
+- **Column Limit**: Keep lines within **80 characters**.
 - **Blank Lines**:
   - Separate logical sections with a blank line.
   - Place blank lines between class members.
