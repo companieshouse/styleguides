@@ -94,7 +94,7 @@ switch (value) {
 #### **Breaking at Operators**  
 
 - **Break before** non-assignment operators:  
-    - Dot separator (`.`), method reference (`::`), ampersand in type bounds
+  - Dot separator (`.`), method reference (`::`), ampersand in type bounds
 (`<T extends Foo & Bar>`) and pipes in multi-catch (`catch (FooException |
 BarException e)`).  
 
@@ -102,7 +102,7 @@ BarException e)`).
 
 - **Break after** an assignment operator (`=`), though either way is
 acceptable.  
-    - Also applies to the **colon (`:`) in an enhanced for-loop** (`foreach`
+  - Also applies to the **colon (`:`) in an enhanced for-loop** (`foreach`
 statement).  
 
 #### **Other Rules**  
@@ -134,13 +134,13 @@ Predicate<String> predicate = str ->
 ### Whitespace
 
 - **One blank line**:
-    - Between class members (fields, constructors, methods, etc.)
-    - Between logical sections of code
+  - Between class members (fields, constructors, methods, etc.)
+  - Between logical sections of code
 - **Horizontal whitespace**:
-    - Space before `{`
-    - Space after commas, semicolons and type declarations
-    - Space around binary and ternary operators
-    - No trailing whitespace at the end of lines
+  - Space before `{`
+  - Space after commas, semicolons and type declarations
+  - Space around binary and ternary operators
+  - No trailing whitespace at the end of lines
 
 ## Naming Conventions
 
