@@ -134,13 +134,13 @@ Predicate<String> predicate = str ->
 ### Whitespace
 
 - **One blank line**:
-- Between class members (fields, constructors, methods, etc.)
-- Between logical sections of code
+    - Between class members (fields, constructors, methods, etc.)
+    - Between logical sections of code
 - **Horizontal whitespace**:
-- Space before `{`
-- Space after commas, semicolons and type declarations
-- Space around binary and ternary operators
-- No trailing whitespace at the end of lines
+    - Space before `{`
+    - Space after commas, semicolons and type declarations
+    - Space around binary and ternary operators
+    - No trailing whitespace at the end of lines
 
 ## Naming Conventions
 
