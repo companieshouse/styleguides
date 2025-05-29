@@ -11,10 +11,10 @@ exceptions.
 extension).
 - **Encoding**: UTF-8.
 - **Special Characters**:
-    - No tab characters for indentation.
-    - Only ASCII space (0x20) for whitespace outside string literals.
-    - Use escape sequences for special characters (`\n`, `\t`, etc.).
-    - Unicode characters should be used where they enhance readability but not
+  - No tab characters for indentation.
+  - Only ASCII space (0x20) for whitespace outside string literals.
+  - Use escape sequences for special characters (`\n`, `\t`, etc.).
+  - Unicode characters should be used where they enhance readability but not
 for code logic.
 
 ## Source File Structure
