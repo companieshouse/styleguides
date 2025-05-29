@@ -94,15 +94,15 @@ switch (value) {
 #### **Breaking at Operators**  
 
 - **Break before** non-assignment operators:  
-- Dot separator (`.`), method reference (`::`), ampersand in type bounds (`<T
-extends Foo & Bar>`) and pipes in multi-catch (`catch (FooException |
+    - Dot separator (`.`), method reference (`::`), ampersand in type bounds
+(`<T extends Foo & Bar>`) and pipes in multi-catch (`catch (FooException |
 BarException e)`).  
 
 #### **Breaking at Assignment Operators**  
 
 - **Break after** an assignment operator (`=`), though either way is
 acceptable.  
-- Also applies to the **colon (`:`) in an enhanced for-loop** (`foreach`
+    - Also applies to the **colon (`:`) in an enhanced for-loop** (`foreach`
 statement).  
 
 #### **Other Rules**  
