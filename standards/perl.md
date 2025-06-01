@@ -135,7 +135,7 @@ sub my_method {
 ## Documentation
 
 - Documentation should be written in [perlpod](http://perldoc.perl.org/perlpod.html).
-- Follow the internal [POD documentation guidelines](https://github.com/companieshouse/styleguides/blob/249a913f1a917f6968a6d431239edb73b784c484/perlpod.md).
+- Follow the internal [POD documentation guidelines](../tools/perlpod.md).
 
 ---
 
