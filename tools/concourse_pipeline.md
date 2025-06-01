@@ -39,23 +39,23 @@ existing
 ## Resource Icons
 
 - Only use an approved icon for your `Resources`.  Currently, these are:
-  - ![bitbucket](concourse_icons/bitbucket.png) **bitbucket** - used for S3
+  - ![bitbucket](../concourse_icons/bitbucket.png) **bitbucket** - used for S3
     release buckets (the name is misleading but it's the only bucket icon
     available)
-  - ![docker](concourse_icons/docker.png) **docker** - used for Docker images
-  - ![folder-zip](concourse_icons/folder-zip.png) **folder-zip** - used for
+  - ![docker](../concourse_icons/docker.png) **docker** - used for Docker images
+  - ![folder-zip](../concourse_icons/folder-zip.png) **folder-zip** - used for
     `maven-repository`
-  - ![github-circle](concourse_icons/github-circle.png) **github-circle** -
+  - ![github-circle](../concourse_icons/github-circle.png) **github-circle** -
     used for GitHub repos
-  - ![human](concourse_icons/human.png) **human** - used for accessibility
+  - ![human](../concourse_icons/human.png) **human** - used for accessibility
     testing
-  - ![iframe](concourse_icons/iframe.png) **iframe** - used for `taf-source`
-  - ![package-variant-closed](concourse_icons/package-variant-closed.png)
+  - ![iframe](../concourse_icons/iframe.png) **iframe** - used for `taf-source`
+  - ![package-variant-closed](../concourse_icons/package-variant-closed.png)
     **package-variant-closed** - used for releases
-  - ![slack](concourse_icons/slack.png) **slack** - used for `notify-slack`
-  - ![source-merge](concourse_icons/source-merge.png) **source-merge** - used
+  - ![slack](../concourse_icons/slack.png) **slack** - used for `notify-slack`
+  - ![source-merge](../concourse_icons/source-merge.png) **source-merge** - used
     for analysing pull-requests
-  - ![tag](concourse_icons/tag.png) **tag** - used for `release-tag`
-  - ![timer](concourse_icons/timer.png) **timer** - used for `time` resources
-  - ![xml](concourse_icons/xml.png) **xml** - used for XML files such as
+  - ![tag](../concourse_icons/tag.png) **tag** - used for `release-tag`
+  - ![timer](../concourse_icons/timer.png) **timer** - used for `time` resources
+  - ![xml](../concourse_icons/xml.png) **xml** - used for XML files such as
     pom.xml
