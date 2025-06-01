@@ -43,5 +43,5 @@ interact with, so this file is empty"
 
 ## Template
 
-You can copy the [markdown template](./templates/README.template.md) to create
+You can copy the [markdown template](../templates/README.template.md) to create
 your ReadMe. Remove any text that does not apply.
