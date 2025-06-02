@@ -5,7 +5,6 @@ JavaScript code for Node applications.
 
 It is based on the [Standard JS guide](https://standardjs.com/).
 
-
 ## Why Use JavaScript Standard Style?
 
 JavaScript Standard Style is designed to streamline development by enforcing
