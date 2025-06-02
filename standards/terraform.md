@@ -6,8 +6,6 @@ Terraform is the default tool used for provisioning cloud infrastructure.
 This guide defines the coding standards and best practices for writing
 and maintaining Terraform scripts.
 
----
-
 ## Versions
 
 - The currently supported version of Terraform is:
@@ -15,8 +13,6 @@ and maintaining Terraform scripts.
     ```terraform
     0.12
     ```
-
----
 
 ## Formatting and Style
 
@@ -36,8 +32,6 @@ and maintaining Terraform scripts.
   - ✅ `my_resource`
   - ❌ `my-resource`
 
----
-
 ## Modules
 
 ### Module Structure
@@ -54,8 +48,6 @@ and maintaining Terraform scripts.
 - Example:
   - ✅ `module-security-groups`
   - ✅ `module-ec2-instances`
-
----
 
 ## Comments and Descriptions
 
@@ -76,8 +68,6 @@ resource "aws_security_group" "ssh" {
 }
 ```
 
----
-
 ## Resources
 
 ### Resource Naming
@@ -86,8 +76,6 @@ resource "aws_security_group" "ssh" {
   - ✅ `my_instance`
   - ❌ `my-instance`
 - This prevents Terraform warnings and maintains consistency.
-
----
 
 ## Data Sources
 
@@ -113,8 +101,6 @@ resource "aws_security_group" "ssh" {
     ```terraform
     terraform_remote_state
     ```
-
----
 
 ## Variables
 
@@ -146,8 +132,6 @@ variable "web_cidrs" {
   description = "List of CIDR blocks for web access"
 }
 ```
-
----
 
 ## Value Assignment
 
@@ -185,8 +169,6 @@ locals {
 - Use `local.internal_cidrs` throughout the module instead of the full
   `data.vault_generic_secret...` path for clarity.
 
----
-
 ## Security
 
 - **Never commit sensitive values** (e.g., passwords, secrets) to source
@@ -195,8 +177,6 @@ locals {
   management.
 - Even infrastructure details (e.g., CIDRs) should be handled carefully,
   as repositories can become public.
-
----
 
 ## Grouping Variables
 
@@ -220,8 +200,6 @@ variable "ec2_instance_type" {
   default     = "t2.micro"
 }
 ```
-
----
 
 ## READMEs
 
