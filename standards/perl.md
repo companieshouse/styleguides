@@ -9,7 +9,6 @@ readability across all Perl projects. This guide will also cover best
 practices for documentation, debugging and performance optimisation to
 create high-quality, maintainable Perl applications.
 
-
 ## General Guidelines
 
 - Always include `use strict;` and `use warnings;`
@@ -23,7 +22,6 @@ create high-quality, maintainable Perl applications.
 - Avoid using global variables unless absolutely necessary.
 - Use version control effectively; commit meaningful changes with
   descriptive messages.
-
 
 ## Code Layout & Formatting
 
@@ -46,7 +44,6 @@ sub process_data {
     return;
 }
 ```
-
 
 ## Naming Conventions
 
@@ -73,7 +70,6 @@ sub process_data {
 - The package name should match the filename.
 - Namespace modules logically (e.g., `MyCompany::Utilities::Logger`).
 
-
 ## Control Structures
 
 - Avoid `unless` in most cases for readability.
@@ -86,7 +82,6 @@ unless ($something_is_true) {
     # preferred over if (!something_is_true)
 }
 ```
-
 
 ## Code Structure
 
@@ -125,12 +120,10 @@ sub my_method {
 # ------------------------------------------------------------------------------
 ```
 
-
 ## Documentation
 
 - Documentation should be written in [perlpod](http://perldoc.perl.org/perlpod.html).
 - Follow the internal [POD documentation guidelines](../tools/perlpod.md).
-
 
 ## Error Handling
 
@@ -144,7 +137,6 @@ sub my_method {
 use Carp;
 open my $fh, '<', 'file.txt' or croak "Cannot open file: $!";
 ```
-
 
 ## Regular Expressions
 
@@ -163,7 +155,6 @@ my $pattern = qr/   # Start of regex
 /x;
 ```
 
-
 ## Object-Oriented Perl
 
 - Use `Moose` or `Moo` for object-oriented development.
@@ -177,7 +168,6 @@ use Moose;
 
 has 'name' => (is => 'rw', isa => 'Str');
 ```
-
 
 ## Testing
 
@@ -193,7 +183,6 @@ ok(1, 'Basic test');
 done_testing();
 ```
 
-
 ## Security
 
 - Never use `system()` with unchecked input.
@@ -204,14 +193,12 @@ done_testing();
 - Restrict file permissions appropriately.
 - Regularly update Perl modules to prevent vulnerabilities.
 
-
 ## Debugging & Logging
 
 - Use `use diagnostics;` for detailed error messages.
 - Employ `Data::Dumper` for inspecting complex data structures.
 - Use logging frameworks like `Log::Log4perl` instead of printing to STDOUT.
 - Leverage `perl -d` debugger for step-by-step execution analysis.
-
 
 ## Performance Optimisation
 
@@ -221,7 +208,6 @@ done_testing();
 - Precompile regex patterns when used repeatedly.
 - Reduce memory footprint by undefining large variables when no longer
   needed.
-
 
 ## Staying Consistent
 
