@@ -5,7 +5,6 @@ JavaScript code for Node applications.
 
 It is based on the [Standard JS guide](https://standardjs.com/).
 
----
 
 ## Why Use JavaScript Standard Style?
 
@@ -27,7 +26,6 @@ preferences.
 - **Broad adoption**: Used by many major companies and open-source
   projects.
 
----
 
 ## Installation
 
@@ -50,7 +48,6 @@ To use StandardJS within a specific project:
 npm install standard --save-dev
 ```
 
----
 
 ## Usage
 
@@ -88,7 +85,6 @@ standard --fix
 
 This will format the code to conform to StandardJS rules where possible.
 
----
 
 ## Best Practices
 
@@ -126,7 +122,6 @@ jobs:
       - run: npm test
 ```
 
----
 
 ## Ignoring Files
 
@@ -143,7 +138,6 @@ To exclude specific files or directories from linting, add a
 
 Alternatively, use `.gitignore` for broader exclusion.
 
----
 
 ## Overriding Rules
 
@@ -164,7 +158,6 @@ console.log(anotherVar);
 /* eslint-enable no-use-before-define */
 ```
 
----
 
 ## Supported Editors
 
@@ -177,7 +170,6 @@ StandardJS integrates with popular code editors:
 - **Emacs**: Install `Flycheck`.
 - **WebStorm**: Has built-in support for `standard`.
 
----
 
 ## Dev Environments
 
@@ -222,7 +214,6 @@ https://minimaldevelop.blog/2017/05/05/how-to-setup-standardjs-for-visual-studio
 By setting up VS Code using these guides, you will benefit from automatic
 linting and real-time error reporting.
 
----
 
 ## Using JavaScript Variants
 
@@ -246,7 +237,6 @@ npm install @babel/eslint-parser eslint-plugin-flowtype --save-dev
 standard --parser @babel/eslint-parser --plugin flowtype
 ```
 
----
 
 ## Environment-Specific Settings
 
@@ -274,7 +264,6 @@ For compatibility with Web and Service Workers:
 /* eslint-env serviceworker */
 ```
 
----
 
 ## Advanced Usage
 
