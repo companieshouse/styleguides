@@ -46,10 +46,10 @@ public class MyClass {
 - Always used for `if`, `else`, `for`, `do` and `while` statements, even for
 single statements.
 - Follow **Kernighan & Ritchie** style:
-- No line break before opening `{`
-- Line break after opening `{` and before closing `}`
-- No line break after `}` if followed by `else`
-- Empty blocks must use `{}` with no content inside, except for multi-block
+  - No line break before opening `{`
+  - Line break after opening `{` and before closing `}`
+  - No line break after `}` if followed by `else`
+  - Empty blocks must use `{}` with no content inside, except for multi-block
 statements
 
 Example:
