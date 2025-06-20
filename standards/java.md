@@ -87,25 +87,25 @@ switch (value) {
 
 ### Line Wrapping  
 
-#### **Prime Directive**  
+#### Prime Directive 
 
 - **Prefer breaking at a higher syntactic level** for readability.  
 
-#### **Breaking at Operators**  
+#### Breaking at Operators  
 
 - **Break before** non-assignment operators:  
   - Dot separator (`.`), method reference (`::`), ampersand in type bounds
 (`<T extends Foo & Bar>`) and pipes in multi-catch (`catch (FooException |
 BarException e)`).  
 
-#### **Breaking at Assignment Operators**  
+#### Breaking at Assignment Operators  
 
 - **Break after** an assignment operator (`=`), though either way is
 acceptable.  
   - Also applies to the **colon (`:`) in an enhanced for-loop** (`foreach`
 statement).  
 
-#### **Other Rules**  
+#### Other Rules  
 
 - **Method and constructor names stay attached** to the opening `(`.  
 - **Commas (` , `) stay attached** to the preceding token.  
@@ -128,7 +128,7 @@ someList.stream()
 
 // Lambda with an unbraced body
 Predicate<String> predicate = str ->
-        longExpressionInvolving(str);
+        booleanExpressionInvolving(str);
 ```
 
 ### Whitespace
