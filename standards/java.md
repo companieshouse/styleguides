@@ -87,7 +87,7 @@ switch (value) {
 
 ### Line Wrapping  
 
-#### Prime Directive 
+#### Prime Directive
 
 - **Prefer breaking at a higher syntactic level** for readability.  
 
