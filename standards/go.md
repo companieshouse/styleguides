@@ -11,7 +11,6 @@ some notable exceptions.
 
 - Always format code using `gofmt` (or `go fmt` for package-level formatting).
 - `gofmt` standardises indentation, alignment and spacing.
-- Indentation uses **tabs**, not spaces.
 - All Go code in the standard library is formatted using `gofmt`, so following
   this ensures consistency with the broader ecosystem.
 - If integrating with CI/CD pipelines, configure automatic `gofmt` checks to
