@@ -153,12 +153,12 @@ used).
 ### Specific Identifiers
 
 - **Packages**: lowercase, no underscores (`com.example.myproject`).
-- **Classes/Interfaces**: `UpperCamelCase` (`MyClass`).
-- **Methods/Variables**: `lowerCamelCase` (`calculateTotal`).
+- **Classes/Interfaces**: `PascalCase` (`MyClass`).
+- **Methods/Variables**: `camelCase` (`calculateTotal`).
 - **Constants** (`static final`): `UPPER_SNAKE_CASE` (`MAX_SIZE`).
 - **Type Parameters**: Single capital letter or `ClassT` (`T`, `RequestT`).
-- **Boolean variables** should be named to indicate a `true/false` value (e.g.,
-`isReady`, `hasFinished`).
+- **Boolean variables/methods** should be named to indicate a `true/false` value
+(e.g., `isReady`, `hasFinished`).
 
 ## Programming Practices
 
