@@ -55,8 +55,10 @@ self-explanatory where possible.
 systems or packaging.
 - **Libraries must have a `.sh` extension** and should not be executable to
 prevent unintended execution.
-- **Start scripts with a hashbang (`#!/bin/bash`) and avoid `#!/usr/bin/env
-bash`** to ensure consistency in script execution.
+- **Start scripts with a hashbang (`#!/usr/bin/env bash`)** to ensure
+compatibility across environments, especially on macOS where the default
+Bash version may be outdated. (Teams may wish to standardise Bash versions
+in dev environment setup scripts for consistency).
 - **Organise scripts properly:**
   - Place constants and environment variables at the top.
   - Keep all functions together below constants, maintaining modularity and
@@ -153,6 +155,7 @@ splitting.
   # Example showing why quoting is important
   file="My Documents"
   ls "$file"  # Correct
+  ls "${file}"  # Better
   ls $file    # Incorrect, will split into 'ls My Documents'
   ```
 
@@ -176,7 +179,7 @@ enhance readability and avoid escaping issues.
 
   ```sh
   # Example of command substitution
-  files=$(ls)
+  files="$(ls)"
   ```
 
 - **Use process substitution (`< <(...)`)** instead of pipelines to avoid
@@ -198,9 +201,6 @@ string comparisons to avoid unexpected behavior.
   fi
   ```
 
-- Prefer using arrays instead of space-separated lists to prevent issues with
-spaces in filenames.
-
 ## Arrays
 
 - **Use arrays** instead of space-separated strings for lists to prevent issues
@@ -211,9 +211,14 @@ with special characters and spaces.
 
   ```sh
   # Example of safe array iteration
+  command |
   while read -r line; do
       echo "Line: $line"
-  done < input.txt
+  done  # correct
+  
+  while read -r line; do
+      echo "Line: $line"
+  done < <(command)  # better
   ```
 
 - Use associative arrays (`declare -A`) for key-value pairs when necessary.
