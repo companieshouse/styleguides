@@ -6,7 +6,6 @@
 CHIPS code and third-party packages.
 - Use the `uk.gov.ch.chips.common.util.DateUtils` class for generating
 dates.
-
 - Avoid `new Date()`; prefer `DateUtils.today()`.
 - Use methods in `DateUtils` where applicable.
 
@@ -19,7 +18,6 @@ reviews.
 ## Packages
 
 - **Do not** add classes to the `uk.gov.ch.cap` package.
-
 - This package was created for a specific legal change and is no longer in
 active use.
 - Refactor existing classes from `cap` to `chips` **case by case**, when
@@ -39,7 +37,7 @@ to simplify lookup.
 
 - Use **Mockito** for mocking classes.
 - Convert test classes using **EasyMock** to Mockito when modifying them.
-- Prefer `org.hamcrest.MatcherAssert.assertThat` over `AssertTrue` when it
+- Prefer `org.hamcrest.MatcherAssert.assertThat` over `assertTrue` when it
 makes the code clearer.
 - When testing CHIPS Rules, use the provided assertion methods where
 appropriate.
