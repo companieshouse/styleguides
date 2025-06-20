@@ -159,6 +159,8 @@ used).
 - **Type Parameters**: Single capital letter or `ClassT` (`T`, `RequestT`).
 - **Boolean variables/methods** should be named to indicate a `true/false` value
 (e.g., `isReady`, `hasFinished`).
+- Prefer **positive names** over negative ones (e.g., `isRunning` instead of
+`isNotFinished`) to avoid confusion with double negatives.
 
 ## Programming Practices
 
