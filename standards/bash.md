@@ -11,10 +11,13 @@ standard](https://google.github.io/styleguide/shellguide.html#indentation)).
 
 ## General
 
-- Use **Bash** (`#!/bin/bash`) for shell scripts. Avoid other shells unless
-necessary, unless required by legacy systems.
+- Use **Bash** (`#!/usr/bin/env bash`) for shell scripts. This ensures
+compatibility across environments where Bash might not be in `/bin/bash`
+(e.g. Homebrew-installed Bash on macOS).
+- Avoid other shells unless necessary or required by legacy systems.
 - Scripts should be **short and simple**; if a script exceeds 100 lines or
-involves complex logic, consider another language such as Python or Go.
+involves complex logic, consider using a more suitable language such as
+JavaScript or Go.
 - **Use `set -e`** to ensure scripts exit on error. Also, consider `set -u` to
 treat unset variables as errors and `set -o pipefail` to catch failures in
 pipelines.
