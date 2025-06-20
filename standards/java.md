@@ -67,7 +67,7 @@ if (condition) {
 - Code blocks should be indented by **+4 spaces per indentation level**.
 - No tab characters; use spaces only.
 - When line wrapping, the continuation lines should be indented by **+8**
-spaces**.
+**spaces**.
 - **+4 spaces** also apply for indentation within a **switch statement.**
 
 Example:
