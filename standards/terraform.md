@@ -11,7 +11,7 @@ and maintaining Terraform scripts.
 - The currently supported version of Terraform is:
 
     ```terraform
-    0.12
+    1.3
     ```
 
 ## Formatting and Style
@@ -173,8 +173,7 @@ locals {
 
 - **Never commit sensitive values** (e.g., passwords, secrets) to source
   control.
-- Use tools like **HashiCorp Vault** or AWS Secrets Manager for secrets
-  management.
+- Use **HashiCorp Vault** for storing sensitive values.
 - Even infrastructure details (e.g., CIDRs) should be handled carefully,
   as repositories can become public.
 
