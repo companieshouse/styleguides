@@ -103,21 +103,6 @@ Run tests using:
 npm test
 ```
 
-### Enforcing StandardJS in CI/CD
-
-For automated checks in CI/CD pipelines, add `standard` as a test step.
-Example for GitHub Actions:
-
-```yaml
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm test
-```
-
 ## Ignoring Files
 
 To exclude specific files or directories from linting, add a
