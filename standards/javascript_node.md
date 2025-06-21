@@ -121,7 +121,7 @@ Alternatively, use `.gitignore` for broader exclusion.
 ## Overriding Rules
 
 If a rule needs to be disabled for a specific line, use ESLint inline
-comments — and **always include a brief reason** explaining *why* the 
+comments — and **always include a brief reason** explaining *why* the
 rule is being bypassed:
 
 <!-- markdownlint-disable MD013 -->
