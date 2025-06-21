@@ -139,7 +139,8 @@ If a rule needs to be disabled for a specific line, use ESLint inline
 comments:
 
 ```js
-// This variable was declared elsewhere and is available, eslint does not have sight of this
+// This variable was declared elsewhere and is available, eslint does not
+have sight of this
 // eslint-disable-next-line no-use-before-define
 console.log(myVar);
 ```
