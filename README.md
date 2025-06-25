@@ -40,6 +40,58 @@ up to scratch and meeting the latest repository standards.
 - [Maven](tools/maven.md)
 - [Perl POD](tools/perlpod.md)
 
+## Folder Structure Overview
+
+This repository includes a wide range of documentation and standards used across teams. The following guide explains the purpose of each folder to help keep content well organised:
+
+### `.ci/bin/`
+Helper scripts or linters used in CI pipelines.  
+Example: `markdownlint`
+
+### `Makefiles/`
+Makefile-related standards or examples, organised by language.  
+Examples: `go_makefiles.md`, `java_makefiles.md`, `makefile_standards.md`
+
+### `checklists/`
+Reusable checklists for manual or automated workflows.  
+Examples: `one-off-checklist.md`, `periodic-checklist.md`
+
+### `concourse_icons/`
+PNG image assets used in Concourse dashboards, docs, or internal tooling.  
+Examples: `docker.png`, `tag.png`, `iframe.png`
+
+### `general/`
+Shared guidance not tied to any one language, tool, or framework — general best practices.  
+Examples: `feature_flag.md`, `logging.md`, `accessibility.md`
+
+### `git/`
+Guidance for using Git consistently across teams.  
+Examples: `branches.md`, `commits.md`, `pull-requests.md`
+
+### `gitignore/`
+Prebuilt `.gitignore` fragments or examples for common technologies.  
+Examples: `go/`, `maven/`, `perl/`, `ant/`
+
+### `standards/`
+Language-specific development standards, code style guides, and review checklists.  
+Examples:  
+- `bash.md`, `go.md`, `java.md`, `terraform.md` — core language guidance  
+- `chips_development.md`, `javascript_chips.md` — CHIPS-specific adaptations  
+- `language_common.md`, `java_review.md` — general or review-related docs
+
+### `templates/`
+Markdown templates to be reused across repositories or teams.  
+Example: `README.template.md`
+
+### `tools/`
+Docs for using key tools in the ecosystem (e.g., pipelines, versioning, build systems).  
+Examples: `concourse_pipeline.md`, `git.md`, `maven.md`, `perlpod.md`
+
+### Root files:
+- `README.md`: Introductory info for the repo itself.  
+- `Makefile`: Used to automate formatting, validation, or doc generation (if applicable).  
+- `library_help.md`: Likely helper documentation or support material for teams using shared libraries.
+
 ## Linting
 
 This repository is linted using
