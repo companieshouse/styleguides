@@ -46,34 +46,44 @@ The following guide explains the purpose of each folder to help keep content
 well organised:
 
 ### `.ci/bin/`
+
 - Helper scripts or linters used in CI pipelines
 
 ### `Makefiles/`
+
 - Makefile-related standards or examples, organised by language
 
 ### `checklists/`
+
 - Reusable checklists for manual or automated workflows
 
 ### `concourse_icons/`
+
 - PNG image assets used in Concourse dashboards, docs or internal tooling
 
 ### `general/`
+
 - Shared guidance not tied to any one language, tool, or framework - general
 best practices
 
 ### `git/`
+
 - Guidance for using Git consistently across teams
 
 ### `gitignore/`
+
 - Prebuilt `.gitignore` fragments or examples for common technologies
 
 ### `standards/`
+
 - Language-specific development standards, code style guides and review checklists
 
 ### `templates/`
+
 - Markdown templates to be reused across repositories or teams
 
 ### `tools/`
+
 - Docs for using key tools in the ecosystem (e.g., pipelines, versioning, build
 systems)
 
