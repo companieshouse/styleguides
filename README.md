@@ -42,37 +42,40 @@ up to scratch and meeting the latest repository standards.
 
 ## Folder Structure Overview
 
-This repository includes a wide range of documentation and standards used across teams. The following guide explains the purpose of each folder to help keep content well organised:
+The following guide explains the purpose of each folder to help keep content
+well organised:
 
 ### `.ci/bin/`
-Helper scripts or linters used in CI pipelines.  
+- Helper scripts or linters used in CI pipelines
 
 ### `Makefiles/`
-Makefile-related standards or examples, organised by language.  
+- Makefile-related standards or examples, organised by language
 
 ### `checklists/`
-Reusable checklists for manual or automated workflows.  
+- Reusable checklists for manual or automated workflows
 
 ### `concourse_icons/`
-PNG image assets used in Concourse dashboards, docs or internal tooling.  
+- PNG image assets used in Concourse dashboards, docs or internal tooling
 
 ### `general/`
-Shared guidance not tied to any one language, tool, or framework - general best practices.  
+- Shared guidance not tied to any one language, tool, or framework - general
+best practices
 
 ### `git/`
-Guidance for using Git consistently across teams.  
+- Guidance for using Git consistently across teams
 
 ### `gitignore/`
-Prebuilt `.gitignore` fragments or examples for common technologies.  
+- Prebuilt `.gitignore` fragments or examples for common technologies
 
 ### `standards/`
-Language-specific development standards, code style guides and review checklists.  
+- Language-specific development standards, code style guides and review checklists
 
 ### `templates/`
-Markdown templates to be reused across repositories or teams.  
+- Markdown templates to be reused across repositories or teams
 
 ### `tools/`
-Docs for using key tools in the ecosystem (e.g., pipelines, versioning, build systems).  
+- Docs for using key tools in the ecosystem (e.g., pipelines, versioning, build
+systems)
 
 ## Linting
 
