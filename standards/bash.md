@@ -222,6 +222,18 @@ with special characters and spaces.
   ```
 
 - Use associative arrays (`declare -A`) for key-value pairs when necessary.
+- For reading all lines of a command into an array, prefer `mapfile` (also known
+as `readarray`) for simplicity and performance:
+
+  ```sh
+  # Read command output into an array
+  mapfile -t my_array_var < <(command)
+  ```
+  
+  Use `-t` to strip newline characters from each line.
+  Avoid piping into `mapfile`, as it runs in a subshell and can lead to unexpected
+behaviour. Use process substitution (`< <(...)`) instead for correctness and better
+portability.
 
 ## Best Practices
 
