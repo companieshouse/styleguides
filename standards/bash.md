@@ -18,15 +18,20 @@ compatibility across environments where Bash might not be in `/bin/bash`
 - Scripts should be **short and simple**; if a script exceeds 100 lines or
 involves complex logic, consider using a more suitable language such as
 JavaScript or Go.
-- **Use `set -e`** to ensure scripts exit on error. Also, consider `set -u` to
-treat unset variables as errors and `set -o pipefail` to catch failures in
-pipelines.
+- Avoid `set -e` — its behaviour is often misunderstood and inconsistent
+across contexts (e.g. functions, conditionals, subshells). Prefer explicit
+checks (`|| exit 1`) for critical commands instead. `set -u` (treat unset
+variables as errors) and `set -o pipefail` (catch pipeline failures) are
+generally safe and recommended.
 
   ```sh
-  # Example usage of set options
-  set -euo pipefail
-
-  echo "This will exit on error, unset variable use, or pipeline failure."
+  # Recommended for safer scripting
+  set -uo pipefail
+  
+  cd "$target_dir" || {
+    echo "Directory change failed" >&2
+    exit 1
+  }
   ```
 
 - **Avoid `eval`** due to security risks, as it can lead to command injection
