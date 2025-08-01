@@ -250,20 +250,13 @@ escalation methods if necessary.
 - **Use meaningful exit codes** (`exit 1` for general errors, `exit 2` for
 missing files, etc.).
 
-- ✅ The preferred way to print new lines with echo is to use:
-
-  ```sh
-  echo -e 'Comment\n'
-  ```
-
-  ❌ Instead of using a blank `echo` call:
-
-  ```sh
-  echo 'Comment'
-  echo
-  ```
-
-  This avoids unnecessary output inconsistencies.
+- Use `printf '%s\n' "$var"` instead of `echo "$var"`, as `printf` is consistent 
+across shells and avoids `echo`'s unpredictable behaviour with escape sequences
+(`\n`, `\t`), leading `-` characters, and history expansion (`!`) in interactive
+shells.
+- `echo`'s output varies between implementations and contexts, especially when 
+printing user input or file names — making it unsafe for uncontrolled data or 
+portable scripting.
 
 ## Consistency & Readability
 
