@@ -190,6 +190,33 @@ enhance readability and avoid escaping issues.
 - **Use process substitution (`< <(...)`)** instead of pipelines to avoid
 unintended subshell behavior.
 
+## Script Termination
+
+- **Terminate a script** with `exit <code>`:
+
+  ```sh
+  printf '%s\n' "Fatal error: unable to continue" >&2
+  exit 1
+  ```
+
+- For exit codes, use `0` for success, non-zero for failures.
+- For subshells and pipelines, `exit` inside a subshell 
+(e.g. in `cmd1 | { …; exit 1; }`) or process-substitution only kills that 
+subshell. To stop the main script, call `exit` in the top-level code path.
+- For sourced scripts, if a file is loaded with `.` or `source`, a plain `exit`
+will kill the interactive shell. Instead, use `return`:
+
+  ```sh
+  # In a sourced helper script
+  if [[ -z "${CONFIG_FILE}" ]]; then
+      printf '%s\n' "CONFIG_FILE not set" >&2
+      return 1
+  fi
+  ```
+
+- For functions and loops, use `return <code>` to leave a function, and `break`
+to exit a loop. Avoid relying on `exit` deep inside nested contexts.
+
 ## Quoting & Expansion
 
 - **Always quote variables** unless word splitting is explicitly desired.
