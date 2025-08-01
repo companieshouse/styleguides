@@ -29,7 +29,7 @@ generally safe and recommended.
   set -uo pipefail
   
   cd "$target_dir" || {
-    echo "Directory change failed" >&2
+    printf '%s\n' "Directory change failed" >&2
     exit 1
   }
   ```
@@ -92,9 +92,9 @@ the same line.**
   ```sh
   # Example of correct control structure formatting
   if [[ -f "file.txt" ]]; then
-      echo "File exists"
+      printf '%s\n' "File exists"
   else
-      echo "File does not exist"
+      printf '%s\n' "File does not exist"
   fi
   ```
 
@@ -111,7 +111,7 @@ namespace pollution.
   # Example function with local variable
   my_function() {
       local name="Mark"
-      echo "Hello, $name!"
+      printf '%s\n' "Hello, $name!"
   }
   ```
 
@@ -135,7 +135,7 @@ loops. For example:
           local configuration=${definition}
       done
 
-      echo ${configuration}  # Still accessible here
+      printf '%s\n' ${configuration}  # Still accessible here
   }
   ```
 <!-- markdownlint-enable MD013 -->
@@ -174,7 +174,7 @@ and avoid unnecessary dependencies.
 
   ```sh
   if ! mv "${file}" "${dest}"; then
-      echo "Error moving file" >&2
+      printf '%s\n' "Error moving file" >&2
       exit 1
   fi
   ```
@@ -202,7 +202,7 @@ string comparisons to avoid unexpected behavior.
   ```sh
   # Example of numeric comparison
   if (( count > 10 )); then
-      echo "Count is greater than 10"
+      printf '%s\n' "Count is greater than 10"
   fi
   ```
 
@@ -218,11 +218,11 @@ with special characters and spaces.
   # Example of safe array iteration
   command |
   while read -r line; do
-      echo "Line: $line"
+      printf '%s\n' "Line: $line"
   done  # correct
   
   while read -r line; do
-      echo "Line: $line"
+      printf '%s\n' "Line: $line"
   done < <(command)  # better
   ```
 
@@ -250,12 +250,12 @@ escalation methods if necessary.
 - **Use meaningful exit codes** (`exit 1` for general errors, `exit 2` for
 missing files, etc.).
 
-- Use `printf '%s\n' "$var"` instead of `echo "$var"`, as `printf` is consistent 
+- Use `printf '%s\n' "$var"` instead of `echo "$var"`, as `printf` is consistent
 across shells and avoids `echo`'s unpredictable behaviour with escape sequences
 (`\n`, `\t`), leading `-` characters, and history expansion (`!`) in interactive
 shells.
-- `echo`'s output varies between implementations and contexts, especially when 
-printing user input or file names — making it unsafe for uncontrolled data or 
+- `echo`'s output varies between implementations and contexts, especially when
+printing user input or file names — making it unsafe for uncontrolled data or
 portable scripting.
 
 ## Consistency & Readability
