@@ -217,6 +217,49 @@ will kill the interactive shell. Instead, use `return`:
 - For functions and loops, use `return <code>` to leave a function, and `break`
 to exit a loop. Avoid relying on `exit` deep inside nested contexts.
 
+## Temporary Files
+
+- **Use `mktemp`** to create secure, unique temp files or directories (it
+honours `$TMPDIR` if set):
+
+  ```sh
+  tmpfile="$(mktemp)"        # file
+  tmpdir="$(mktemp -d)"      # directory
+  ```
+
+- Cleanup on exit or interruption:
+
+  ```sh
+  cleanup() {
+    # Only remove if the variable is set and the file/dir exists
+    [[ -n "$tmpfile" && -f "$tmpfile" ]] && rm -f "$tmpfile"
+    [[ -n "$tmpdir"  && -d "$tmpdir"  ]] && rmdir  "$tmpdir"
+  }
+  # Also catch ERR if using set -e
+  trap cleanup EXIT INT TERM ERR
+  ```
+
+- Avoid predictable names (e.g. `/tmp/myapp.tmp`) to prevent race
+conditions or attacks.
+- Use the system temp hierarchy, not home directories; let `mktemp`
+handle locations.
+- Verify creation succeeded before using:
+
+  ```sh
+  if [[ ! -f "$tmpfile" || ! -d "$tmpdir" ]]; then
+    printf '%s\n' "Failed to create temporary resources" >&2
+    exit 1
+  fi
+  ```
+
+- If you populate a temp directory, replace `rmdir` with a guarded `rm -rf`,
+ensuring you only delete within `$tmpdir`:
+
+  ```sh
+  # Confirm $tmpdir ends without a slash prefix hack
+  [[ "${tmpdir%/}" == "$tmpdir" ]] && rm -rf "$tmpdir"
+  ```
+
 ## Quoting & Expansion
 
 - **Always quote variables** unless word splitting is explicitly desired.
