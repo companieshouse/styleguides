@@ -179,6 +179,15 @@ and avoid unnecessary dependencies.
   fi
   ```
 
+- Terminate option parsing with `--` when passing positional arguments that
+may start with hyphens, to prevent them being treated as options. For example:
+
+  ```sh
+  # Search for the literal string "-v" in file.txt,
+  # rather than invoking grep’s reverse-match option.
+  grep -- -v file.txt
+  ```
+
 - **Prefer `$(command)` over backticks (`) for command substitution** to
 enhance readability and avoid escaping issues.
 
