@@ -180,7 +180,7 @@ and avoid unnecessary dependencies.
   ```
 
 - Terminate option parsing with `--` when passing positional arguments that
-may start with hyphens, to prevent them being treated as options. For example:
+may start with hyphens, to prevent them being treated as options:
 
   ```sh
   # Search for the literal string "-v" in file.txt,
