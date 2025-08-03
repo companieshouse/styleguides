@@ -209,8 +209,8 @@ unintended subshell behavior.
   ```
 
 - For exit codes, use `0` for success, non-zero for failures.
-- For subshells and pipelines, `exit` inside a subshell 
-(e.g. in `cmd1 | { …; exit 1; }`) or process-substitution only kills that 
+- For subshells and pipelines, `exit` inside a subshell
+(e.g. in `cmd1 | { …; exit 1; }`) or process-substitution only kills that
 subshell. To stop the main script, call `exit` in the top-level code path.
 - For sourced scripts, if a file is loaded with `.` or `source`, a plain `exit`
 will kill the interactive shell. Instead, use `return`:
