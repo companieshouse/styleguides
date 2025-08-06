@@ -27,15 +27,15 @@
 Consistent naming conventions improve code clarity and make it easier to
 understand the purpose of variables, functions and classes.
 
-- **File Names**: JavaScript files should start with a lowercase letter
-  and indicate the functionality they provide. For example:
-  - `table.js` - contains the classes `Table` and `Row`
-  - `query-handling.js` - contains functionality specific to query
+- **File Names**: Use `camelCase` and choose names that clearly indicate
+  their functionality. For example:
+  - `table.js` - contains the classes `Table` and `Row`.
+  - `queryHandling.js` - contains functionality specific to query
     handling.
-- **Variables and Methods**: Use `lowerCamelCase`. This applies to
+- **Variables and Methods**: Use `camelCase`. This applies to
   function names, object properties and local variables (e.g.,
   `calculateTotal`, `userInfo`).
-- **Classes**: Use `UpperCamelCase`. Class names should be nouns or noun
+- **Classes**: Use `PascalCase`. Class names should be nouns or noun
   phrases (e.g., `UserAccount`, `PaymentProcessor`).
 - **Constants**: Use `UPPER_SNAKE_CASE` for immutable values (e.g.,
   `const MAX_SIZE = 100;`).
