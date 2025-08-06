@@ -1,0 +1,347 @@
+# Shell (Bash) Coding Standards
+
+This document outlines key practices for writing clean and efficient Bash
+code.
+
+It is based on the [Google shell coding
+standard](https://google.github.io/styleguide/shell.xml)
+with the **exception of using four spaces** (not two as
+[specified in the
+standard](https://google.github.io/styleguide/shellguide.html#indentation)).
+
+## General
+
+- Use **Bash** (`#!/usr/bin/env bash`) for shell scripts. This ensures
+compatibility across environments where Bash might not be in `/bin/bash`
+(e.g. Homebrew-installed Bash on macOS).
+- Avoid other shells unless necessary or required by legacy systems.
+- Scripts should be **short and simple**; if a script exceeds 100 lines or
+involves complex logic, consider using a more suitable language such as
+JavaScript or Go.
+- Avoid `set -e` — its behaviour is often misunderstood and inconsistent
+across contexts (e.g. functions, conditionals, subshells). Prefer explicit
+checks (`|| exit 1`) for critical commands instead. `set -u` (treat unset
+variables as errors) and `set -o pipefail` (catch pipeline failures) are
+generally safe and recommended.
+
+  ```sh
+  # Recommended for safer scripting
+  set -uo pipefail
+  
+  cd "$target_dir" || {
+    printf '%s\n' "Directory change failed" >&2
+    exit 1
+  }
+  ```
+
+- **Avoid `eval`** due to security risks, as it can lead to command injection
+vulnerabilities.
+
+  ```sh
+  # Dangerous example of eval
+  user_input="rm -rf /"
+  eval "$user_input"  # This can be catastrophic!
+  ```
+
+- **Use `ShellCheck`** to detect common script issues and ensure scripts are
+robust and maintainable.
+
+  ```sh
+  # Run ShellCheck on a script
+  shellcheck my_script.sh
+  ```
+
+- Use comments where necessary but avoid excessive commenting. Code should be
+self-explanatory where possible.
+
+## File Naming & Structure
+
+- Executables should **omit the `.sh` extension** unless required for build
+systems or packaging.
+- **Libraries must have a `.sh` extension** and should not be executable to
+prevent unintended execution.
+- **Start scripts with a hashbang (`#!/usr/bin/env bash`)** to ensure
+compatibility across environments, especially on macOS where the default
+Bash version may be outdated. (Teams may wish to standardise Bash versions
+in dev environment setup scripts for consistency).
+- **Organise scripts properly:**
+  - Place constants and environment variables at the top.
+  - Keep all functions together below constants, maintaining modularity and
+readability.
+  - The `main` function should be at the bottom, with `main "$@"` as the
+last line.
+- Ensure scripts can be executed from any location and do not rely on the
+current working directory.
+
+  ```sh
+  # Example of making a script location-independent
+  SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  source ${SCRIPT_DIRECTORY}/common
+  ```
+
+## Formatting
+
+- **Indentation:** Use **four spaces per level** to maintain readability and
+consistency.
+- **Line length:** Keep lines **under 80 characters** where possible; wrap long
+commands using `\` for clarity.
+- **Use blank lines** between logical blocks to improve readability.
+- **Control structures (`if`, `for`, `while`) should use `; then` and `; do` on
+the same line.**
+
+  ```sh
+  # Example of correct control structure formatting
+  if [[ -f "file.txt" ]]; then
+      printf '%s\n' "File exists"
+  else
+      printf '%s\n' "File does not exist"
+  fi
+  ```
+
+- Avoid trailing whitespace and ensure scripts end with a newline.
+
+## Functions
+
+- Use **snake_case function names** to maintain consistency.
+- **Omit the `function` keyword** to align with standard Bash conventions.
+- **Always use `local` for function-specific variables** to prevent global
+namespace pollution.
+
+  ```sh
+  # Example function with local variable
+  my_function() {
+      local name="Mark"
+      printf '%s\n' "Hello, $name!"
+  }
+  ```
+
+- Each function in a library must have a comment header describing:
+  - **Purpose** of the function.
+  - **Global variables used** and whether they are modified.
+  - **Arguments taken** with details.
+  - **Outputs and return values**, if applicable.
+- Define all functions before they are used to ensure clarity.
+
+- Variable initialisation inside functions is not required prior to use in
+loops. For example:
+
+<!-- markdownlint-disable MD013 -->
+  ```sh
+  get_configuration () {
+      # This initialisation is not required
+      configuration=""
+  
+      for definition in $(find ${PIPELINE_DEFINITIONS} -type f -name ${pipeline}); do
+          local configuration=${definition}
+      done
+
+      printf '%s\n' ${configuration}  # Still accessible here
+  }
+  ```
+<!-- markdownlint-enable MD013 -->
+
+## Variables
+
+- **Use `local` for function-specific variables** to avoid unexpected behavior.
+- **Use uppercase for constants and environment variables** for easy
+identification.
+
+  ```sh
+  # Example of defining a constant
+  readonly MAX_RETRIES=5
+  ```
+
+- **Prefer `${var}` over `$var`** for clarity and to prevent issues with
+unintended variable expansion.
+- **Always quote variables in expansions:** `"${var}"` to avoid unwanted word
+splitting.
+
+  ```sh
+  # Example showing why quoting is important
+  file="My Documents"
+  ls "$file"  # Correct
+  ls "${file}"  # Better
+  ls $file    # Incorrect, will split into 'ls My Documents'
+  ```
+
+- Prefer using `readonly` for constants to prevent accidental modification.
+
+## Command Execution
+
+- **Use built-in commands over external ones** to improve script performance
+and avoid unnecessary dependencies.
+- **Check return values** explicitly to catch and handle errors effectively:
+
+  ```sh
+  if ! mv "${file}" "${dest}"; then
+      printf '%s\n' "Error moving file" >&2
+      exit 1
+  fi
+  ```
+
+- Terminate option parsing with `--` when passing positional arguments that
+may start with hyphens, to prevent them being treated as options:
+
+  ```sh
+  # Search for the literal string "-v" in file.txt,
+  # rather than invoking grep’s reverse-match option.
+  grep -- -v file.txt
+  ```
+
+- **Prefer `$(command)` over backticks (`) for command substitution** to
+enhance readability and avoid escaping issues.
+
+  ```sh
+  # Example of command substitution
+  files="$(ls)"
+  ```
+
+- **Use process substitution (`< <(...)`)** instead of pipelines to avoid
+unintended subshell behavior.
+
+## Script Termination
+
+- **Terminate a script** with `exit <code>`:
+
+  ```sh
+  printf '%s\n' "Fatal error: unable to continue" >&2
+  exit 1
+  ```
+
+- For exit codes, use `0` for success, non-zero for failures.
+- For subshells and pipelines, `exit` inside a subshell
+(e.g. in `cmd1 | { …; exit 1; }`) or process-substitution only kills that
+subshell. To stop the main script, call `exit` in the top-level code path.
+- For sourced scripts, if a file is loaded with `.` or `source`, a plain `exit`
+will kill the interactive shell. Instead, use `return`:
+
+  ```sh
+  # In a sourced helper script
+  if [[ -z "${CONFIG_FILE}" ]]; then
+      printf '%s\n' "CONFIG_FILE not set" >&2
+      return 1
+  fi
+  ```
+
+- For functions and loops, use `return <code>` to leave a function, and `break`
+to exit a loop. Avoid relying on `exit` deep inside nested contexts.
+
+## Temporary Files
+
+- **Use `mktemp`** to create secure, unique temp files or directories (it
+honours `$TMPDIR` if set):
+
+  ```sh
+  tmpfile="$(mktemp)"        # file
+  tmpdir="$(mktemp -d)"      # directory
+  ```
+
+- Cleanup on exit or interruption:
+
+  ```sh
+  cleanup() {
+    # Only remove if the variable is set and the file/dir exists
+    [[ -n "$tmpfile" && -f "$tmpfile" ]] && rm -f "$tmpfile"
+    [[ -n "$tmpdir"  && -d "$tmpdir"  ]] && rmdir  "$tmpdir"
+  }
+  # Also catch ERR if using set -e
+  trap cleanup EXIT INT TERM ERR
+  ```
+
+- Avoid predictable names (e.g. `/tmp/myapp.tmp`) to prevent race
+conditions or attacks.
+- Use the system temp hierarchy, not home directories; let `mktemp`
+handle locations.
+- Verify creation succeeded before using:
+
+  ```sh
+  if [[ ! -f "$tmpfile" || ! -d "$tmpdir" ]]; then
+    printf '%s\n' "Failed to create temporary resources" >&2
+    exit 1
+  fi
+  ```
+
+- If you populate a temp directory, replace `rmdir` with a guarded `rm -rf`,
+ensuring you only delete within `$tmpdir`:
+
+  ```sh
+  # Confirm $tmpdir ends without a slash prefix hack
+  [[ "${tmpdir%/}" == "$tmpdir" ]] && rm -rf "$tmpdir"
+  ```
+
+## Quoting & Expansion
+
+- **Always quote variables** unless word splitting is explicitly desired.
+- **Use `[[ ... ]]` instead of `[ ... ]`** for conditionals, as it provides
+safer string comparisons.
+- **Use `-z` and `-n`** instead of checking for empty strings manually.
+- **For numeric comparisons, use `(( ... ))` or `-lt`, `-gt`** instead of
+string comparisons to avoid unexpected behavior.
+
+  ```sh
+  # Example of numeric comparison
+  if (( count > 10 )); then
+      printf '%s\n' "Count is greater than 10"
+  fi
+  ```
+
+## Arrays
+
+- **Use arrays** instead of space-separated strings for lists to prevent issues
+with special characters and spaces.
+- Expand arrays using `"${array[@]}"` to preserve elements correctly.
+- Avoid `for var in $(command)`, as it can split incorrectly; use `while read
+-r` or `readarray` instead for robust handling.
+
+  ```sh
+  # Example of safe array iteration
+  command |
+  while read -r line; do
+      printf '%s\n' "Line: $line"
+  done  # correct
+  
+  while read -r line; do
+      printf '%s\n' "Line: $line"
+  done < <(command)  # better
+  ```
+
+- Use associative arrays (`declare -A`) for key-value pairs when necessary.
+- For reading all lines of a command into an array, prefer `mapfile` (also known
+as `readarray`) for simplicity and performance:
+
+  ```sh
+  # Read command output into an array
+  mapfile -t my_array_var < <(command)
+  ```
+  
+  Use `-t` to strip newline characters from each line.
+  Avoid piping into `mapfile`, as it runs in a subshell and can lead to unexpected
+behaviour. Use process substitution (`< <(...)`) instead for correctness and better
+portability.
+
+## Best Practices
+
+- **Avoid aliases in scripts**; use functions instead to ensure consistent
+behavior.
+- **Do not use SUID/SGID in shell scripts**; use `sudo` or dedicated privilege
+escalation methods if necessary.
+- Ensure error messages are sent to `STDERR` for proper logging and debugging.
+- **Use meaningful exit codes** (`exit 1` for general errors, `exit 2` for
+missing files, etc.).
+
+- Use `printf '%s\n' "$var"` instead of `echo "$var"`, as `printf` is consistent
+across shells and avoids `echo`'s unpredictable behaviour with escape sequences
+(`\n`, `\t`), leading `-` characters, and history expansion (`!`) in interactive
+shells.
+- `echo`'s output varies between implementations and contexts, especially when
+printing user input or file names — making it unsafe for uncontrolled data or
+portable scripting.
+
+## Consistency & Readability
+
+- Follow existing style when modifying scripts to ensure uniformity.
+- **Be consistent across the codebase** to improve maintainability.
+- Use comments **only when necessary** to explain non-obvious code; avoid
+redundant or overly verbose comments.
+- Consider using logging functions instead of plain `echo` to standardise
+output handling.
