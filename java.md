@@ -13,7 +13,8 @@ Note that four spaces also apply for
 
 ## Line length
 
-The line length for wrapping should be 130 characters rather than [100 as Google specifies](https://google.github.io/styleguide/javaguide.html#s4.4-column-limit). 
+The line length for wrapping should be 130 characters rather than 
+[100 as Google specifies](https://google.github.io/styleguide/javaguide.html#s4.4-column-limit).
 
 When line wrapping, the continuation lines should be indented by eight spaces rather than
 [four as Google specifies](https://google.github.io/styleguide/javaguide.html#s4.5.2-line-wrapping-indent).
