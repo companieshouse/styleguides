@@ -69,8 +69,8 @@ if (condition) {
 - When line wrapping, the continuation lines should be indented by **+8**
 **spaces**.
 - **+4 spaces** also apply for indentation within a **switch statement.**
-- The line length for wrapping should be 130 characters (rather than 100
-as the Google guide specifies).
+- The line length for wrapping should be 130 characters, instead of the
+100 characters specified in the Google guide.
 
 Example:
 
