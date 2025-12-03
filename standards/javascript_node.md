@@ -6,7 +6,8 @@ JavaScript code for Node applications.
 It is based on the [Standard JS guide](https://standardjs.com/).
 
 Please note that TypeScript is now the standard for all Node applications,
-including new projects and major updates.
+including new projects and major updates. Any existing applications that do
+not comply should be updated to meet this standard.
 
 ## Why Use JavaScript Standard Style?
 
