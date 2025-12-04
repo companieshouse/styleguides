@@ -4,7 +4,7 @@
 > This style guide is now deprecated as the team has transitioned to
 > TypeScript. It is no longer maintained and no further updates or changes
 > will be made.
->
+
 > [!WARNING]
 > Please note that TypeScript is now the standard for all Node applications,
 including new projects and major updates. Any existing applications that do
