@@ -1,4 +1,13 @@
-# JavaScript (Node) Coding Standards
+# JavaScript (Node) Coding Standards [DEPRECATED]
+
+> [!CAUTION]
+> This style guide is now deprecated as the team has transitioned to
+> TypeScript. It is no longer maintained and no further updates or changes
+> will be made.
+>
+> Please note that TypeScript is now the standard for all Node applications,
+including new projects and major updates. Any existing applications that do
+not comply should be updated to meet this standard.
 
 This document outlines key practices for writing clean and efficient
 JavaScript code for Node applications.
