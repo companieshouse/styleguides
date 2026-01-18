@@ -100,18 +100,17 @@ Before creating or submitting a pull request, run through this checklist:
   Use when individual commits represent distinct, meaningful changes
   and preserving those commits helps traceability.
 
-* **When to preserve commits**
+**When to preserve commits**
   
-  Preserve commits that represent distinct changes worth keeping
-  (refactors, separate features/fixes). Squash only when intermediate
-  commits provide no lasting review or trace value.
+  * Preserve commits that represent distinct changes worth keeping
+(refactors, separate features/fixes). Squash only when intermediate
+commits provide no lasting review or trace value.
 
+**Branch deletion:**
 
-* **Branch deletion:**
-
-  * Delete the source branch **after a successful merge**
-  * This applies to both feature and bugfix branches
-  * Long-lived branches should be avoided unless explicitly agreed
+  * Delete the source branch **after a successful merge**.
+  * This applies to both feature and bugfix branches.
+  * Long-lived branches should be avoided unless explicitly agreed.
 
 
 ## Pull Requests into `develop`
