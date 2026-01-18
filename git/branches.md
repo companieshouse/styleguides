@@ -16,8 +16,6 @@ and tooling.
 * Branches **may be prefixed like a URI**, including
 optional team or project subpaths
 
----
-
 ## Approved Branch Prefixes & Formats
 
 ### Feature Branches
@@ -34,8 +32,6 @@ feature/[<team-or-project>/]<ticket-id>-<short-description>
 feature/chips/uar-1234-new-eligibility-check
 ```
 
----
-
 ### Bugfix Branches
 
 Used for defect fixes.
@@ -50,8 +46,6 @@ bugfix/[<team-or-project>/]<ticket-id>-<short-description>
 bugfix/idv/uar-123-null-pointer-on-login
 ```
 
----
-
 ### Release Branches
 
 Used for versioned releases.
@@ -65,8 +59,6 @@ release/x.y.z
 ```
 release/1.3.0
 ```
-
----
 
 ### Integration / CI Branches (Temporary)
 
@@ -84,8 +76,6 @@ feature/**/ci
 feature/rice/uar-1234-new-eligibility-check/ci
 ```
 
----
-
 ## Notes
 
 * Ticket IDs are **mandatory** for feature and bugfix branches
@@ -93,4 +83,4 @@ feature/rice/uar-1234-new-eligibility-check/ci
 * Consistent naming improves tooling, automation, and
 cross-team collaboration
 
----
+
