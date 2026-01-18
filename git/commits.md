@@ -5,7 +5,7 @@ a change exists, not just what changed. Keep messages short, focused and
 useful for reviewers and future readers.
 
 
-## 1) Unifed format (required)
+## Unifed format (required)
 
 **Subject line (required)**
 `PROJ-1234: Short imperative summary (≤50 chars)`
@@ -38,7 +38,7 @@ See also: PROJ-456, PROJ-789
 ```
 
 
-## 2) Unified workflow (development & merging)
+## Unified workflow (development & merging)
 
 **During development**
 
@@ -71,7 +71,7 @@ Choose the merge strategy that best preserves value:
   pulled the branch, **do not** rebase or force-push to change its
   history.
 
-## 3) Commit structure - quick checklist
+## Commit structure - quick checklist
 
 * ✅ Starts with a Jira key and colon: `PROJ-1234: …`
 * ✅ Subject in imperative mood, ≤50 chars preferred
@@ -82,7 +82,7 @@ Choose the merge strategy that best preserves value:
 * ✅ Separate whitespace/refactor/functional changes into separate commits
 
 
-## 4) Things to avoid
+## Things to avoid
 
 * **Mixing whitespace with functional changes.** Make separate commits.
 * **Mixing unrelated functional changes.** Keep unrelated work in
@@ -94,7 +94,7 @@ Choose the merge strategy that best preserves value:
   purpose without opening Jira.
 
 
-## 5) Example
+## Example
 
 ```
 IDV-1234: Add export-to-csv for user reports
