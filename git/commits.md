@@ -14,7 +14,7 @@ useful for reviewers and future readers.
 * Use **imperative mood**: `Add…`, `Fix…`, `Update…`.
 * Aim for **≤50 characters** in the subject.
 
-> Note: `PROJ` in these examples is a placeholder — use must the
+> Note: `PROJ` in these examples is a placeholder — you must use the
 > Jira project key associated with your repository.
 
 **Body (optional but recommended for non-trivial changes)**
