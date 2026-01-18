@@ -48,6 +48,7 @@ See also: PROJ-456, PROJ-789
   **do not** rewrite published/shared history.
 
 **Before merging**
+
 Choose the merge strategy that best preserves value:
 
 * **Squash merge**
