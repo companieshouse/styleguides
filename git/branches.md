@@ -1,15 +1,96 @@
 Branch Naming Standards
 ================
 
-- Should be all lower case.
-- Must not include the hash character `#`.
-- Should be descriptive (not just story/ticket number).
-- Can be prefixed like a URI.
-- Integration branch names should be in the format `feature/**/ci`
+These standards exist to keep branches consistent,
+searchable, and easy to reason about across teams
+and tooling.
 
-Examples
--------
+## General Rules
 
-- `feature/scrs/painfully-complicated-feature`
-- `release/1.3.0`
-- `feature/project-name/ci`
+* **Lowercase only**: `a–z`, digits `0–9`, `/`, and `-`
+* **No spaces** — use `-` as the word separator
+* **Do not include** the hash character `#`
+* **Always include the ticket ID** (lowercase)
+* **Always include a short, meaningful description**
+  (avoid vague terms like `misc`, `fixes`, `updates`)
+* Branches **may be prefixed like a URI**, including
+optional team or project subpaths
+
+---
+
+## Approved Branch Prefixes & Formats
+
+### Feature Branches
+
+Used for new functionality.
+
+```
+feature/[<team-or-project>/]<ticket-id>-<short-description>
+```
+
+**Example**
+
+```
+feature/chips/uar-1234-new-eligibility-check
+```
+
+---
+
+### Bugfix Branches
+
+Used for defect fixes.
+
+```
+bugfix/[<team-or-project>/]<ticket-id>-<short-description>
+```
+
+**Example**
+
+```
+bugfix/idv/uar-123-null-pointer-on-login
+```
+
+---
+
+### Release Branches
+
+Used for versioned releases.
+
+```
+release/x.y.z
+```
+
+**Example**
+
+```
+release/1.3.0
+```
+
+---
+
+### Integration / CI Branches (Temporary)
+
+Used for CI or integration testing.
+These **must mirror their parent feature branch path** and
+append `/ci`.
+
+```
+feature/**/ci
+```
+
+**Example**
+
+```
+feature/rice/uar-1234-new-eligibility-check/ci
+```
+
+---
+
+## Notes
+
+* Ticket IDs are **mandatory** for feature and bugfix branches
+* Descriptions should be short but specific
+* Consistent naming improves tooling, automation, and
+cross-team collaboration
+
+---
