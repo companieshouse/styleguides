@@ -1,95 +1,117 @@
 # Commit Standards
 
-Commit messages should be considered an integral part of the development
-process, its the best way to communicate the context of a change, a diff can
-tell you what changed but a commit message can tell you **why**.
+Commit messages are part of your code’s documentation — they explain **why**
+a change exists, not just what changed. Keep messages short, focused and
+useful for reviewers and future readers.
 
-Your commit messages should answer 3 questions:
 
-1. Why is it necessary?
-    * It may fix a bug, it may add a feature, it may improve
-      performance, reliabilty, stability, or just be a change for the sake
-      of correctness.
+## 1) Unifed format (required)
 
-2. How does it address the issue?
-    * For small changes this part can be omitted, but it should be a high
-      level description of what the approach was.
+**Subject line (required)**
+`PROJ-1234: Short imperative summary (≤50 chars)`
 
-3. What effects does the commit have?
-    * This may include benchmarks, side effects etc
+* Must begin with the Jira issue key for this repo (e.g. `PROJ-1234`).
+* Use **imperative mood**: `Add…`, `Fix…`, `Update…`.
+* Aim for **≤50 characters** in the subject.
 
-A commit is basically constructed of:
+> Note: `PROJ` in these examples is a placeholder — use must the
+> Jira project key associated with your repository.
 
-1. A one line brief summary (50 characters or fewer), this will be used as
-  a commit title of sorts.
-    * What the commit does
-    * Use imperative mood here i.e. "fix a missing dictionary code for title"
-      instead of "fixes a missing dictionary code for title", you should be
-      able to complete the following sentence -
-      `If applied, this commit will <insert summary here>`
+**Body (optional but recommended for non-trivial changes)**
 
-2. A body which gives more details (if required)
-    * Should answer the 3 questions mentioned above
-    * Give as much relevant detail as possible
-    * The lines should wrap at around 72 characters
+* Separate the body from the subject with a single blank line.
+* Wrap lines at **~72 characters**.
+* For anything beyond a trivial change, answer these three questions:
 
-## Example
+  1. **Why** is this necessary?
+  2. **How** does it address the issue? (omit for very small changes)
+  3. **What effects** does it have? (side effects, benchmarks,
+     migrations, etc.)
 
-```md
-Summarize changes in 50 characters or less
+**References / Footer**
 
-More detailed explanatory text, if necessary. Wrap it to about 72
-characters or so. In some contexts, the first line is treated as the
-subject of the commit and the rest of the text as the body. The
-blank line separating the summary from the body is critical (unless
-you omit the body entirely).
+At the bottom include references to issues/stories using the Jira keys:
 
-Explain the problem that this commit is solving. Focus on why you
-are making this change as opposed to how (the code explains that).
-Are there side effects or other unintuitive consequences of this
-change? Here's the place to explain them.
-
-Further paragraphs come after blank lines.
-
- - Bullet points are okay, too
-
- - Typically a hyphen or asterisk is used for the bullet, preceded
-   by a single space, with blank lines in between, but conventions
-   vary here
-
-Put references to any issues/stories you are resolving at the bottom,
-like this:
-
-Resolves: #123
-See also: #456, #789
+```
+Resolves: PROJ-123
+See also: PROJ-456, PROJ-789
 ```
 
-## Things to avoid
 
-* **Mixing whitespace changes with functional code changes** - The whitespace
-  changes will obscure the important functional changes, making it harder for
-  a reviewer to correctly determine whether the change is correct. The
-  solution to this is to create 2 commits, one with the whitespace changes,
-  one with the functional changes. Typically the whitespace change would be
-  done first, but that need not be a hard rule.
-* **Mixing two unrelated functional changes** - Again the reviewer will find
-  it harder to identify flaws if two unrelated changes are mixed together. If
-  it becomes necessary to later revert a broken commit, the two unrelated
-  changes will need to be untangled, with further risk of bug creation.
-* **Sending large new features in a single giant commit** - It may well be the
-  case that the code for a new feature is only useful when all of it is
-  present. This does not, however, imply that the entire feature should be
-  provided in a single commit. New features often entail refactoring existing
-  code. It is highly desirable that any refactoring is done in commits which
-  are separate from those implementing the new feature. This helps reviewers
-  and test suites validate that the refactoring has no unintentional functional
-  changes. Even the newly written code can often be split up into multiple
-  pieces that can be independently reviewed. For example, changes which add new
-  internal APIs/classes, can be in self-contained commits. Again this leads to
-  easier code review. It also allows other developers to cherry-pick small
-  parts of the work, if the entire new feature is not immediately ready for
-  merge.
-* **Hide behind the fact that there are links to stories** -  It may be
-  tempting to not put any detail in your commit message because there are links
-  to jira, while adding these links is useful there should be enough detail in
-  a commit message that a reviewer knows what the commit is doing.
+## 2) Unified workflow (development & merging)
+
+**During development**
+
+* Make **small, focused commits**. Keep refactors, whitespace, and
+  functional changes separate.
+* Use `git commit --amend` to polish the *current* local commit, but
+  **do not** rewrite published/shared history.
+
+**Before merging**
+Choose the merge strategy that best preserves value:
+
+* **Squash merge**
+  Good for PRs with many small or interim commits. If you squash,
+  ensure the *final commit message* (the squashed commit) includes the
+  subject and a body that answers the three questions above.
+
+* **Merge commit**
+  Use when individual commits represent distinct, meaningful changes
+  and preserving those commits helps traceability.
+
+* **When to preserve commits**
+  Preserve commits that represent distinct changes worth keeping
+  (refactors, separate features/fixes). Squash only when intermediate
+  commits provide no lasting review or trace value.
+
+**Shared-branch rules**
+
+* Avoid rewriting public/shared branch history. If others may have
+  pulled the branch, **do not** rebase or force-push to change its
+  history.
+
+## 3) Commit structure - quick checklist
+
+* ✅ Starts with a Jira key and colon: `PROJ-1234: …`
+* ✅ Subject in imperative mood, ≤50 chars preferred
+* ✅ Blank line between subject and body (if body present)
+* ✅ Body wraps at ~72 chars and answers the three questions when
+  relevant
+* ✅ Footer includes Jira references (`Resolves: PROJ-123`)
+* ✅ Separate whitespace/refactor/functional changes into separate commits
+
+
+## 4) Things to avoid
+
+* **Mixing whitespace with functional changes.** Make separate commits.
+* **Mixing unrelated functional changes.** Keep unrelated work in
+  separate commits/PRs.
+* **Single giant commit for a large feature.** Break into reviewable
+  pieces; keep refactors separate from functional additions.
+* **Relying solely on links.** Don’t hide behind issue links — include
+  enough detail in the commit message that a reviewer understands the
+  purpose without opening Jira.
+
+
+## 5) Example
+
+```
+IDV-1234: Add export-to-csv for user reports
+
+Why:
+This allows users to download filtered report data for offline analysis
+and integrates with our analytics workflow.
+
+How:
+Adds an `ExportCSV` service and new controller endpoint; the CSV writer
+uses streaming to avoid large memory usage.
+
+Effects:
+- Adds an endpoint: `GET /reports/export?filter=...`
+- Migration: none
+- Benchmarks: exports ~10k rows in ~400ms on staging
+
+Resolves: IDV-1234
+See also: IDV-2345, IDV-6789
+```
+
