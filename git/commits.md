@@ -6,7 +6,7 @@ useful for reviewers and future readers.
 
 ## Unifed format (required)
 
-### Subject line (required)**
+### Subject line (required)
 
 `PROJ-1234: Short imperative summary (≤50 chars)`
 
