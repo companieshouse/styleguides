@@ -19,8 +19,6 @@ project code and `XXXX` is the relevant ticket item)
 SCRS-402 Add PSC summary page with director details
 ```
 
----
-
 ## Body
 
 * Provide detail on what the pull request is doing
@@ -37,9 +35,7 @@ you)
 * Treat all repositories as **public/open source**
   * Be mindful of language and sensitive information in commits and PRs
 
----
-
-## Example
+**Example**
 
 ```md
 SCRS-402 Add PSC Summary page with Director Details
@@ -100,7 +96,7 @@ Before creating or submitting a pull request, run through this checklist:
   Use when individual commits represent distinct, meaningful changes
   and preserving those commits helps traceability.
 
-#### When to preserve commits
+### When to preserve commits
 
 * Preserve commits that represent distinct changes worth keeping
 (refactors, separate features/fixes). Squash only when intermediate
