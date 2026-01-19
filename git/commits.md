@@ -39,14 +39,14 @@ See also: PROJ-456, PROJ-789
 
 ## Unified workflow (development & merging)
 
-#### During development
+### During development
 
 * Make **small, focused commits**. Keep refactors, whitespace, and
   functional changes separate.
 * Use `git commit --amend` to polish the *current* local commit, but
   **do not** rewrite published/shared history.
 
-#### Before merging
+### Before merging
 
 Choose the merge strategy that best preserves value:
 
@@ -67,7 +67,7 @@ Choose the merge strategy that best preserves value:
   (refactors, separate features/fixes). Squash only when intermediate
   commits provide no lasting review or trace value.
 
-#### Shared-branch rules
+### Shared-branch rules
 
 * Avoid rewriting public/shared branch history. If others may have
   pulled the branch, **do not** rebase or force-push to change its
