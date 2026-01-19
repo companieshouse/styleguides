@@ -19,7 +19,7 @@ optional team or project subpaths
 
 ### Feature Branches
 
-> Note: `uar-123` in these examples is a placeholder — you must use the
+> Note: `uar-1234` in these examples is a placeholder — you must use the
 > Jira project key associated with your repository.
 
 Used for new functionality.
