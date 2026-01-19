@@ -87,13 +87,13 @@ Before creating or submitting a pull request, run through this checklist:
 
 * **Squash merge**
 
-  Good for PRs with many small or interim commits. If you squash,
+  * Good for PRs with many small or interim commits. If you squash,
   ensure the *final commit message* (the squashed commit) includes the
   subject and a body that answers the three questions above.
 
 * **Merge commit**
   
-  Use when individual commits represent distinct, meaningful changes
+  * Use when individual commits represent distinct, meaningful changes
   and preserving those commits helps traceability.
 
 **When to preserve commits:**
