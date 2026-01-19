@@ -35,7 +35,7 @@ you)
 * Treat all repositories as **public/open source**
   * Be mindful of language and sensitive information in commits and PRs
 
-**Example**
+### Example
 
 ```md
 SCRS-402 Add PSC Summary page with Director Details
