@@ -15,7 +15,7 @@ project code and `XXXX` is the relevant ticket item)
 
 **Example:**
 
-```
+```md
 SCRS-402 Add PSC summary page with director details
 ```
 
@@ -41,7 +41,7 @@ you)
 
 ## Example
 
-```
+```md
 SCRS-402 Add PSC Summary page with Director Details
 
 This is a new page for a PSC Summary. It uses Director details for the PSC.
@@ -88,7 +88,7 @@ Before creating or submitting a pull request, run through this checklist:
 ## Merge Strategy & Branch Deletion
 
 **Choose the merge strategy that best preserves value:**
- 
+
 * **Squash merge**
 
   Good for PRs with many small or interim commits. If you squash,
@@ -100,18 +100,17 @@ Before creating or submitting a pull request, run through this checklist:
   Use when individual commits represent distinct, meaningful changes
   and preserving those commits helps traceability.
 
-**When to preserve commits**
-  
-  * Preserve commits that represent distinct changes worth keeping
+#### When to preserve commits
+
+- Preserve commits that represent distinct changes worth keeping
 (refactors, separate features/fixes). Squash only when intermediate
 commits provide no lasting review or trace value.
 
 **Branch deletion:**
 
-  * Delete the source branch **after a successful merge**.
-  * This applies to both feature and bugfix branches.
-  * Long-lived branches should be avoided unless explicitly agreed.
-
+- Delete the source branch **after a successful merge**.
+- This applies to both feature and bugfix branches.
+- Long-lived branches should be avoided unless explicitly agreed.
 
 ## Pull Requests into `develop`
 
@@ -120,18 +119,17 @@ Additional considerations when reviewing pull requests into `develop`
 
 1. **Do not approve work from your own team**
 
-   * You may review and comment, but final approval must come from outside
-     the team.
-     
+- You may review and comment, but final approval must come from outside
+the team.
+
 2. **Ensure sufficient expertise**
 
-   * Only approve if you have adequate knowledge of the area being changed.
+- Only approve if you have adequate knowledge of the area being changed.
 
 3. **Consider wider impact**
 
-   * Assess whether the pull request could block or negatively affect other
-     work streams.
-
+- Assess whether the pull request could block or negatively affect other
+work streams.
 
 **Summary**
 
@@ -139,4 +137,3 @@ Additional considerations when reviewing pull requests into `develop`
 * Keep PRs small and well-described
 * Squash and merge
 * Delete branches after merging
-
