@@ -22,13 +22,13 @@ optional team or project subpaths
 
 Used for new functionality.
 
-```
+```md
 feature/[<team-or-project>/]<ticket-id>-<short-description>
 ```
 
 **Example**
 
-```
+```md
 feature/chips/uar-1234-new-eligibility-check
 ```
 
@@ -36,13 +36,13 @@ feature/chips/uar-1234-new-eligibility-check
 
 Used for defect fixes.
 
-```
+```md
 bugfix/[<team-or-project>/]<ticket-id>-<short-description>
 ```
 
-**Example**
+#### Example
 
-```
+```md
 bugfix/idv/uar-123-null-pointer-on-login
 ```
 
@@ -50,13 +50,13 @@ bugfix/idv/uar-123-null-pointer-on-login
 
 Used for versioned releases.
 
-```
+```md
 release/x.y.z
 ```
 
-**Example**
+#### Example
 
-```
+```md
 release/1.3.0
 ```
 
@@ -66,13 +66,13 @@ Used for CI or integration testing.
 These **must mirror their parent feature branch path** and
 append `/ci`.
 
-```
+```md
 feature/**/ci
 ```
 
-**Example**
+#### Example
 
-```
+```md
 feature/rice/uar-1234-new-eligibility-check/ci
 ```
 
@@ -82,5 +82,3 @@ feature/rice/uar-1234-new-eligibility-check/ci
 * Descriptions should be short but specific
 * Consistent naming improves tooling, automation, and
 cross-team collaboration
-
-
