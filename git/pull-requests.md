@@ -102,15 +102,15 @@ Before creating or submitting a pull request, run through this checklist:
 
 #### When to preserve commits
 
-- Preserve commits that represent distinct changes worth keeping
+* Preserve commits that represent distinct changes worth keeping
 (refactors, separate features/fixes). Squash only when intermediate
 commits provide no lasting review or trace value.
 
 **Branch deletion:**
 
-- Delete the source branch **after a successful merge**.
-- This applies to both feature and bugfix branches.
-- Long-lived branches should be avoided unless explicitly agreed.
+* Delete the source branch **after a successful merge**.
+* This applies to both feature and bugfix branches.
+* Long-lived branches should be avoided unless explicitly agreed.
 
 ## Pull Requests into `develop`
 
@@ -119,16 +119,16 @@ Additional considerations when reviewing pull requests into `develop`
 
 1. **Do not approve work from your own team**
 
-- You may review and comment, but final approval must come from outside
+You may review and comment, but final approval must come from outside
 the team.
 
 2. **Ensure sufficient expertise**
 
-- Only approve if you have adequate knowledge of the area being changed.
+Only approve if you have adequate knowledge of the area being changed.
 
 3. **Consider wider impact**
 
-- Assess whether the pull request could block or negatively affect other
+Assess whether the pull request could block or negatively affect other
 work streams.
 
 **Summary**
