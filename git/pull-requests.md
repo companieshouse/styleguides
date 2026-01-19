@@ -113,18 +113,18 @@ commits provide no lasting review or trace value.
 Additional considerations when reviewing pull requests into `develop`
 (the integration/staging branch):
 
-* **Do not approve work from your own team**
+**Do not approve work from your own team**
 
-  You may review and comment, but final approval must come from outside
+* You may review and comment, but final approval must come from outside
   the team.
 
-* **Ensure sufficient expertise**
+**Ensure sufficient expertise**
 
-  Only approve if you have adequate knowledge of the area being changed.
+* Only approve if you have adequate knowledge of the area being changed.
 
-* **Consider wider impact**
+**Consider wider impact**
 
-  Assess whether the pull request could block or negatively affect other
+* Assess whether the pull request could block or negatively affect other
   work streams.
 
 ## Summary
