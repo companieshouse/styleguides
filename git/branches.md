@@ -19,6 +19,9 @@ optional team or project subpaths
 
 ### Feature Branches
 
+> Note: `uar-123` in these examples is a placeholder — you must use the
+> Jira project key associated with your repository.
+
 Used for new functionality.
 
 ```md
@@ -42,7 +45,7 @@ bugfix/[<team-or-project>/]<ticket-id>-<short-description>
 Example
 
 ```md
-bugfix/idv/uar-123-null-pointer-on-login
+bugfix/idv/uar-1234-null-pointer-on-login
 ```
 
 ### Release Branches
