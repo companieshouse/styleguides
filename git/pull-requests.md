@@ -21,8 +21,8 @@ SCRS-402 Add PSC summary page with director details
 
 ## Body
 
-* Provide detail on what the pull request is doing
-  *For small PRs, the title may be enough*
+* Provide detail on what the pull request is doing - for small PRs, the
+  title may be enough
 * Wrap each line at around **72 characters** (GitHub will not do this for
 you)
 * Add any relevant links (e.g. related pull requests or documentation)
@@ -33,7 +33,7 @@ you)
 * Do not assume reviewer familiarity with the change
 * Consider the audience — reviewers may not always be deeply technical
 * Treat all repositories as **public/open source**
-  * Be mindful of language and sensitive information in commits and PRs
+* Be mindful of language and sensitive information in commits and PRs
 
 ### Example
 
@@ -96,7 +96,7 @@ Before creating or submitting a pull request, run through this checklist:
   Use when individual commits represent distinct, meaningful changes
   and preserving those commits helps traceability.
 
-### When to preserve commits
+**When to preserve commits:**
 
 * Preserve commits that represent distinct changes worth keeping
 (refactors, separate features/fixes). Squash only when intermediate
