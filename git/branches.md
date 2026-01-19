@@ -17,10 +17,10 @@ optional team or project subpaths
 
 ## Approved Branch Prefixes & Formats
 
-### Feature Branches
-
 > Note: `uar-1234` in these examples is a placeholder — you must use the
 > Jira project key associated with your repository.
+
+### Feature Branches
 
 Used for new functionality.
 
