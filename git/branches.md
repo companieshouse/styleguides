@@ -1,5 +1,4 @@
-Branch Naming Standards
-================
+# Branch Naming Standards
 
 These standards exist to keep branches consistent,
 searchable, and easy to reason about across teams
@@ -26,7 +25,7 @@ Used for new functionality.
 feature/[<team-or-project>/]<ticket-id>-<short-description>
 ```
 
-**Example**
+Example
 
 ```md
 feature/chips/uar-1234-new-eligibility-check
@@ -40,7 +39,7 @@ Used for defect fixes.
 bugfix/[<team-or-project>/]<ticket-id>-<short-description>
 ```
 
-#### Example
+Example
 
 ```md
 bugfix/idv/uar-123-null-pointer-on-login
@@ -54,7 +53,7 @@ Used for versioned releases.
 release/x.y.z
 ```
 
-#### Example
+Example
 
 ```md
 release/1.3.0
@@ -70,7 +69,7 @@ append `/ci`.
 feature/**/ci
 ```
 
-#### Example
+Example
 
 ```md
 feature/rice/uar-1234-new-eligibility-check/ci
