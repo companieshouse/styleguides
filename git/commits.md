@@ -6,7 +6,7 @@ useful for reviewers and future readers.
 
 ## Unifed format (required)
 
-**Subject line (required)**
+### Subject line (required)**
 
 `PROJ-1234: Short imperative summary (≤50 chars)`
 
@@ -17,7 +17,7 @@ useful for reviewers and future readers.
 > Note: `PROJ` in these examples is a placeholder — you must use the
 > Jira project key associated with your repository.
 
-#### Body (optional but recommended for non-trivial changes)
+### Body (optional but recommended for non-trivial changes)
 
 * Separate the body from the subject with a single blank line.
 * Wrap lines at **~72 characters**.
@@ -28,7 +28,7 @@ useful for reviewers and future readers.
   3. **What effects** does it have? (side effects, benchmarks,
      migrations, etc.)
 
-#### References / Footer
+### References / Footer
 
 At the bottom include references to issues/stories using the Jira keys:
 
