@@ -29,9 +29,6 @@ you)
 * Do not rely solely on ticket links — include enough context to understand
   the change
 * Add related tickets at the bottom under a **"Resolves"** section
-* `@mention` anyone you specifically want to review it
-* Do not assume reviewer familiarity with the change
-* Consider the audience — reviewers may not always be deeply technical
 * Treat all repositories as **public/open source**
 * Be mindful of language and sensitive information in commits and PRs
 
@@ -53,6 +50,16 @@ companieshouse/concordion-webincs#13
 Resolves:
 SCRS-402, SCRS-405, SCRS-407
 ```
+
+## Reviewers
+
+* Use the GitHub `Reviewers` section to request reviews
+* Select reviewers based on relevant domain or code ownership
+* Avoid relying solely on `@mentions` in the PR body for review requests
+* Add additional context in comments if a reviewer’s attention is needed
+  for a specific area
+* Do not assume reviewer familiarity with the change
+* Consider the audience — reviewers may not always be deeply technical
 
 ## Checklist
 
