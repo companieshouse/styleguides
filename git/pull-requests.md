@@ -124,10 +124,19 @@ single long-lived branch such as `main` or `master`.**
 Additional considerations when reviewing pull requests into `develop`
 (the integration/staging branch):
 
-**Do not approve work from your own team:**
+**Do not approve work from your own team without wider visibility:**
 
-* You may review and comment, but final approval must come from outside
-  the team.
+* You may review and comment on pull requests from your own team, but
+  final approval should generally come from outside the team.
+* For merges to the repository default branch, post the pull request
+  in the relevant team channel (e.g., #pull-requests-infra,
+  #pull-requests-java, #pull-requests-nodejs) and allow time for
+  review by others.
+* If a pull request has not been reviewed after 24 hours, escalate to
+  the team lead or designated approver.
+* This requirement is primarily for repositories using integration/staging
+  branches; trunk-based development repos may follow their usual direct
+  merge practices.
 
 **Ensure sufficient expertise:**
 
