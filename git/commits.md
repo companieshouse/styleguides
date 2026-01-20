@@ -49,7 +49,8 @@ See also: PROJ-456, PROJ-789
 ### Before merging
 
 Before merging a pull request, review the merge strategy guidance in
-/../git/pull-requests.md#merge-strategy--branch-deletion
+[Merge Strategy & Branch Deletion]
+(../git/pull-requests.md#merge-strategy--branch-deletion)
 
 ### Shared-branch rules
 
