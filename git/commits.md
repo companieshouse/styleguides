@@ -48,24 +48,8 @@ See also: PROJ-456, PROJ-789
 
 ### Before merging
 
-Choose the merge strategy that best preserves value:
-
-* **Squash merge**
-
-  * Good for PRs with many small or interim commits. If you squash,
-  ensure the *final commit message* (the squashed commit) includes the
-  subject and a body that answers the three questions above.
-
-* **Merge commit**
-  
-  * Use when individual commits represent distinct, meaningful changes
-  and preserving those commits helps traceability.
-
-**When to preserve commits:**
-  
-  Preserve commits that represent distinct changes worth keeping
-  (refactors, separate features/fixes). Squash only when intermediate
-  commits provide no lasting review or trace value.
+Before merging a pull request, review the merge strategy guidance in
+/../git/pull-requests.md#merge-strategy--branch-deletion
 
 ### Shared-branch rules
 
