@@ -72,6 +72,9 @@ Choose the merge strategy that best preserves value:
 * Avoid rewriting public/shared branch history. If others may have
   pulled the branch, **do not** rebase or force-push to change its
   history.
+* When changes are needed on a shared branch, creating a pull request
+  provides a safer review path and avoids the need for history
+  rewrites.
 
 ## Commit structure - quick checklist
 
