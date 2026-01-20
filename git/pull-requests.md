@@ -110,7 +110,7 @@ commits provide no lasting review or trace value.
 
 ## Pull Requests into `develop`
 
-**Note: This section does not apply to repositories that follow 
+**Note: This section does not apply to repositories that follow
 trunk-based development, where work is merged directly into a
 single long-lived branch such as `main` or `master`.**
 
