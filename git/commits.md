@@ -52,7 +52,7 @@ Before merging a pull request, review the merge strategy guidance in
 [Merge Strategy & Branch Deletion][merge-strategy].
 
 [merge-strategy]:
-https://github.com/companieshouse/styleguides/blob/main/git/commits.md#things-to-avoid
+https://github.com/companieshouse/styleguides/blob/main/git/pull-requests.md#merge-strategy--branch-deletion
 
 ### Shared-branch rules
 
