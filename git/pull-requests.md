@@ -1,38 +1,47 @@
 # Pull Request Standards
 
+These standards exist to make pull requests easy to review, easy to search,
+and safe to merge.
+
 ## Title
 
-* Should be a short description of the what the purpose of the pull request is
-* Keep it to around 50 characters
-* Capitalise the first character
-* If we look at the titles of all the pull requests between two points in time
-  e.g. 2 releases, it should give us a clear idea of what has changed
+* **Must start with a `UAR-XXXX` prefix** (where `UAR` corresponds to your
+project code and `XXXX` is the relevant ticket item)
+* Should be a short description of the purpose of the pull request
+* Keep it to around **50 characters**
+* Capitalise the first character after the prefix
+* If we look at the titles of all pull requests between two points in time
+  (e.g. two releases), they should clearly describe what has changed
+
+**Example:**
+
+```md
+SCRS-402 Add PSC summary page with director details
+```
 
 ## Body
 
-* Here you need to provide the detail of what it is you're trying to do, if the
-  pull request is small then the title maybe enough
-* Wrap each line at around 72 characters (github won't do this for you)
-* Add any relevant links i.e. other related pull requests, do not rely on the
-  fact that there are links to the stories, there should be enough detail in the
-  description to give us the context
-* Add any related JIRA stories at the bottom under a "Resolves" section
-* `@mention` anyone you to specifically look at it
-* Don't assume reviewer familiarity with your pull request
-* Consider the audience of your pull request, it sometimes might not be a
-  technical person looking at it
-* Always remember that our repos should be treated as open source i.e. anyone
-  can look at them, so be mindful of what you write in commits/pull requests
+* Provide detail on what the pull request is doing - for small PRs, the
+  title may be enough
+* Wrap each line at around **72 characters** (GitHub will not do this for
+you)
+* Add any relevant links (e.g. related pull requests or documentation)
+* Do not rely solely on ticket links — include enough context to understand
+  the change
+* Add related tickets at the bottom under a **"Resolves"** section
+* Treat all repositories as **public/open source**
+* Be mindful of language and sensitive information in commits and PRs
 
-## Example
+### Example
 
 ```md
-Add PSC Summary page with Director Details
-This is a new page for a PSC Summary, it uses Director details for the PSC
+SCRS-402 Add PSC Summary page with Director Details
+
+This is a new page for a PSC Summary. It uses Director details for the PSC.
 
 * All details gathered previously in the journey for director prepopulate
-the PSC fields.
-* Two nature of controls get automatically set to the PSC
+  the PSC fields.
+* Two nature of controls get automatically set to the PSC.
 * The only field validation is a checkbox at the bottom, noting agreement.
 
 Related concordion PR:
@@ -42,48 +51,105 @@ Resolves:
 SCRS-402, SCRS-405, SCRS-407
 ```
 
+## Reviewers
+
+* Use the GitHub `Reviewers` section to request reviews
+* Select reviewers based on relevant domain or code ownership
+* Avoid relying solely on `@mentions` in the PR body for review requests
+* Add additional context in comments if a reviewer’s attention is needed
+  for a specific area
+* Do not assume reviewer familiarity with the change
+* Consider the audience — reviewers may not always be deeply technical
+
 ## Checklist
 
-When creating a pull request run through this checklist to make sure you are
-not missing anything:
+Before creating or submitting a pull request, run through this checklist:
 
-1. The correct branch to merge changes into has been specified
-    * Look out for a large number of files being listed as having changed. It
-      could be that you are comparing to the incorrect base branch.
-2. There are no merge conflicts
-    * Make sure that the pull request branch has pulled in the latest develop.
-3. Any feature notes have been created/updated as appropriate
-    * These should contained any pertinent information about this change
-      i.e. external dependencies, link to db patch etc.
-4. All acceptance tests submitted for review pass
-    * All tests should pass before a pull request is created.
-5. Is it as small as it could be? Minimise the number of changes in a single
-  pull request
-    * If github says the diff is too big then it probably is, think about
-      breaking the feature/code up into a number of smaller pull requests. If
-      the pull request is too big, it will be rejected and will need to be
-      resubmitted as several smaller requests
-6. Add links to any external pull requests that relate to this one
-    * Make the life of your reviewer easier by adding links to any related
-      pull requests, then they won't get missed.
-7. Is pull request labelled correctly
-8. Clearly note whats supposed to be in the pull request
-    * When creating the pull request, always add a list of the changes or
-      features that are included.
-9. Ensure your code adheres to all other relevant standards in this repo
+1. **Correct base branch**
+   * Check you are merging into the correct branch.
+   * A large number of changed files may indicate the wrong base branch.
+2. **No merge conflicts**
+   * Ensure your branch has pulled in the latest `develop`.
+3. **Feature notes updated**
+   * Include any important information such as:
+     * External dependencies
+     * Database patches
+     * Configuration changes
+4. **All tests pass**
+   * All acceptance and automated tests must pass before submission.
+5. **Is it as small as it can be?**
+   * If the diff feels large, it probably is.
+   * Large PRs will be rejected and must be split into smaller ones.
+6. **Linked external pull requests**
+   * Add links to related PRs to avoid missed dependencies.
+7. **Correct labels applied**
+8. **Clear scope**
+   * Explicitly list what is included in the pull request.
+9. **Code adheres to repository standards**
+   * Follow all applicable coding and security guidelines.
 
-## Pull requests into develop
+## Merge Strategy & Branch Deletion
 
-There are some additional points to consider before peer reviewing a pull
-request into develop (the integration/staging branch):
+**Choose the merge strategy that best preserves value:**
 
-1. **Do not approve work done within your own team** - You are always
-  encouraged to review and comment on your own teams work, but the final
-  approval should be by someone outside your team.
-2. **Do you have a high level of expertise in the area of the PR?** - Again,
-  you are always encouraged to review and comment on any pull requests, but
-  before approving a pull request into develop consider whether you have a
-  high enough level of competence and expertise in the area of the pull
-  request.
-3. **Condider the impact of this pull request on other work streams** - Will
-this pull request block or otherwise negatively impact any other ongoing work?
+* **Squash merge**
+
+  * Good for PRs with many small or interim commits. If you squash,
+  ensure the *final commit message* (the squashed commit) includes the
+  subject and a body that answers the three questions above.
+
+* **Merge commit**
+  
+  * Use when individual commits represent distinct, meaningful changes
+  and preserving those commits helps traceability.
+
+**When to preserve commits:**
+
+* Preserve commits that represent distinct changes worth keeping
+(refactors, separate features/fixes). Squash only when intermediate
+commits provide no lasting review or trace value.
+
+**Branch deletion:**
+
+* Delete the source branch **after a successful merge**.
+* This applies to both feature and bugfix branches.
+* Long-lived branches should be avoided unless explicitly agreed.
+
+## Pull Requests into `develop`
+
+**Note: This section does not apply to repositories that follow
+trunk-based development, where work is merged directly into a
+single long-lived branch such as `main` or `master`.**
+
+Additional considerations when reviewing pull requests into `develop`
+(the integration/staging branch):
+
+**Do not approve work from your own team without wider visibility:**
+
+* You may review and comment on pull requests from your own team, but
+  final approval should generally come from outside the team.
+* For merges to the repository default branch, post the pull request
+  in the relevant team channel (e.g., #pull-requests-infra,
+  #pull-requests-java, #pull-requests-nodejs) and allow time for
+  review by others.
+* If a pull request has not been reviewed after 24 hours, escalate to
+  the team lead or designated approver.
+* This requirement is primarily for repositories using integration/staging
+  branches; trunk-based development repos may follow their usual direct
+  merge practices.
+
+**Ensure sufficient expertise:**
+
+* Only approve if you have adequate knowledge of the area being changed.
+
+**Consider wider impact:**
+
+* Assess whether the pull request could block or negatively affect other
+  work streams.
+
+## Summary
+
+* Use the `UAR-XXXX` format in every PR title
+* Keep PRs small and well-described
+* Squash and merge
+* Delete branches after merging
