@@ -87,6 +87,11 @@ Before creating or submitting a pull request, run through this checklist:
    * Explicitly list what is included in the pull request.
 9. **Code adheres to repository standards**
    * Follow all applicable coding and security guidelines.
+10. **Version updated to reflect changes**
+    * If applicable, ensure the version is updated according to
+      [versioning standards](../general/versioning.md). Ensuring
+      the minor version is updated for new features and major version
+      is updated for breaking changes.
 
 ## Merge Strategy & Branch Deletion
 
