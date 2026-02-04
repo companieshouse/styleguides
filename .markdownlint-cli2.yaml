@@ -1,0 +1,4 @@
+# Disable rules that don't improve content for end-users
+config:
+  line-length: false
+  no-trailing-spaces: false
