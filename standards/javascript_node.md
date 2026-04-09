@@ -187,35 +187,9 @@ Steps to set up:
     }
     ```
 
-### TypeScript in Visual Studio Code
-
-There are multiple ways to set up linting for TypeScript in Visual Studio
-Code:
-
-1. Follow [this guide](https://dev.to/itmayziii/typescript-eslint-and-standardjs-5hmd),
-  which uses ESLint and is the recommended approach.
-2. Refer to the official StandardJS documentation: [Using JavaScript
-  Variants](https://standardjs.com/#can-i-use-a-javascript-language-variant-like-flow-or-typescript).
-3. Follow [this older guide](
-https://minimaldevelop.blog/2017/05/05/how-to-setup-standardjs-for-visual-studio-code-nodejs-and-typescript/),
-  which uses TSLint (note that TSLint is deprecated and may lose support
-  in the future).
-
-By setting up VS Code using these guides, you will benefit from automatic
-linting and real-time error reporting.
-
 ## Using JavaScript Variants
 
 StandardJS supports JavaScript variants with additional configuration.
-
-### TypeScript
-
-Use `ts-standard` to enforce standard rules in TypeScript projects:
-
-```sh
-npm install ts-standard --save-dev
-ts-standard
-```
 
 ### Flow
 
