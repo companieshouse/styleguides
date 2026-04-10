@@ -1,7 +1,8 @@
 # Typescript Coding Standards
 
-[!IMPORTANT]
-TypeScript is now the default language for all JavaScript and Node.js projects. Refer to existing JavaScript style guides for specific information on Javascript styling that isn't covered by TypeScript.
+> [!IMPORTANT]
+> TypeScript is now the default language for all JavaScript and Node.js projects. Refer to existing JavaScript style guides for specific information on Javascript styling that isn't
+> covered by TypeScript.
 
 ## Why Use TypeScript?
 
@@ -76,9 +77,8 @@ Here is an example tsconfig.json. Your settings should be the same:
 }
 ```
 
-[!NOTE]
-
-At the time of writing, ES6 is the target ECMAScript. Be aware that this may change in the future or may differ depending on your project.
+> [!NOTE]
+> At the time of writing, ES6 is the target ECMAScript. Be aware that this may change in the future or may differ depending on your project.
 
 ## package.json
 
@@ -91,9 +91,8 @@ Add TypeScript and typescript-eslint versions to your package.json under devDepe
     "typescript": "^4.6.2"
 ```
 
-[!NOTE]
-
-These are the latest versions at the time of writing. Check you have the latest versions before adding to your json.
+> [!NOTE]
+> These are the latest versions at the time of writing. Check you have the latest versions before adding to your json.
 
 ## Naming and Linting
 
