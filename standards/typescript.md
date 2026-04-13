@@ -24,6 +24,10 @@ Globally:
 In project: 
 ```npm install typescript --save-dev```
 
+### IDE Integration
+
+TypeScript is compatible with popular IDEs and comes bundled with VSCode and IntelliJ as standard. Refer to the [VSCode](https://code.visualstudio.com/Docs/languages/typescript) and [IntelliJ](https://www.jetbrains.com/help/idea/typescript-support.html) pages for more configuration details.
+
 ### Usage
 
 Run `npx tsc --init` to create your tsconfig.json in your project.
@@ -36,9 +40,27 @@ The tsc compiler will catch type errors during this process and will abort, allo
 
 Refer to the [TypeScript CLI commands documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for more compiling options.
 
-### IDE Integration
+### package.json
 
-TypeScript is compatible with popular IDEs and comes bundled with VSCode and IntelliJ as standard. Refer to the [VSCode](https://code.visualstudio.com/Docs/languages/typescript) and [IntelliJ](https://www.jetbrains.com/help/idea/typescript-support.html) pages for more configuration details.
+Add TypeScript and typescript-eslint versions to your package.json under `devDependencies`. For example: 
+
+```JSON
+  "devDependencies":
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "typescript": "^4.6.2"
+```
+
+> [!NOTE]
+> These are the latest versions at the time of writing. Check you have the latest versions before adding to your json.
+
+Add tsc under `scripts`:
+
+```JSON
+"scripts": {
+    "build": "tsc && cp -r views dist/",
+},
+```
 
 ## Strictness and Pretty
 
@@ -91,28 +113,6 @@ Here is an example tsconfig.json. Your settings should be the same:
 
 > [!NOTE]
 > At the time of writing, ES6 is the target ECMAScript. Be aware that this may change in the future or may differ depending on your project.
-
-## package.json
-
-Add TypeScript and typescript-eslint versions to your package.json under `devDependencies`. For example: 
-
-```JSON
-  "devDependencies":
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "@typescript-eslint/parser": "^5.15.0",
-    "typescript": "^4.6.2"
-```
-
-> [!NOTE]
-> These are the latest versions at the time of writing. Check you have the latest versions before adding to your json.
-
-Add tsc under `scripts`:
-
-```JSON
-"scripts": {
-    "build": "tsc && cp -r views dist/",
-},
-```
 
 ## Naming and Linting
 
