@@ -31,6 +31,7 @@ up to scratch and meeting the latest repository standards.
 - [Perl](standards/perl.md)
 - [Terraform](standards/terraform.md)
 - [Common standards](standards/language_common.md)
+- [TypeScript (Node)](standards/typescript.md)
 
 ## Tools
 
