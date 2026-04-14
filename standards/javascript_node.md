@@ -2,7 +2,7 @@
 
 > [!CAUTION]
 > This style guide is now deprecated as the team has transitioned to
-> [TypeScript](standards/typescript.md). 
+> [TypeScript](typescript.md). 
 >
 > Please note that TypeScript is now the standard for all Node applications,
 including new projects and major updates. Any existing applications that do
