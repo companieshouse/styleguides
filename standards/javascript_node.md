@@ -2,7 +2,7 @@
 
 > [!CAUTION]
 > This style guide is now deprecated as the team has transitioned to
-> [TypeScript](https://github.com/companieshouse/styleguides/blob/main/standards/typescript.md). 
+> [TypeScript](standards/typescript.md). 
 >
 > Please note that TypeScript is now the standard for all Node applications,
 including new projects and major updates. Any existing applications that do

@@ -1,7 +1,7 @@
 # Typescript (Node) Coding Standards
 
 > [!IMPORTANT]
-> TypeScript is now the default language for all JavaScript and Node.js projects. Refer to existing [JavaScript style guides](https://github.com/companieshouse/styleguides/blob/main/standards/javascript_node.md) for specific information on Javascript styling that isn't
+> TypeScript is now the default language for all JavaScript and Node.js projects. Refer to existing [JavaScript style guides](standards/javascript_node.md) for specific information on Javascript styling that isn't
 > covered by TypeScript.
 
 ## Why Use TypeScript?
