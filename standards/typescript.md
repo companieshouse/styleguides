@@ -8,7 +8,7 @@
 
 TypeScript is a superset of JavaScript that allows you to write code more efficiently. It uses type definitions and a built-in checker to highlight errors and suggest code during the writing stage.
 
-This document is based on [the Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html). Please refer directly it for specific information on typing, features, and so on.
+This document is based on [the Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html). Please refer directly to it for specific information on typing, features, and so on.
 
 ### Key Benefits
 
