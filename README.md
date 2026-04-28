@@ -14,6 +14,7 @@ up to scratch and meeting the latest repository standards.
 - [Environment Variables Guidelines](general/environment_variables.md)
 - [Healthcheck Endpoint Guidelines](general/health_check.md)
 - [Feature Flag Guidelines](general/feature_flag.md)
+- [Libraries](general/library_help.md)
 - [Logging Standards](general/logging.md)
 - [README Standards](general/READMEs.md)
 - [Service Naming](general/service_naming.md)
