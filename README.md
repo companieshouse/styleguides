@@ -48,6 +48,10 @@ up to scratch and meeting the latest repository standards.
 - [CHIPS Development Guidelines](standards/chips_development.md)
 - [JavaScript (CHIPS)](standards/javascript_chips.md)
 
+## Test Tooling
+
+- [Playwright](https://companieshouse.atlassian.net/wiki/spaces/TT/pages/4373184514/Best+Practises) (internal CH link)
+
 ## Folder Structure Overview
 
 The following guide explains the purpose of each folder to help keep content
