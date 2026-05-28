@@ -15,6 +15,18 @@ The full
 > Installing unapproved skills could lead to security vulnerabilities, data
 > breaches, or other issues.
 
+### Third-Party Skills
+
+Skills produced outside Companies House must be added to the
+[@CompaniesHouse/skills repository.](https://github.com/companieshouse/skills)
+and approved by the `@CompaniesHouse/AICA-admins` team before being used
+within Companies House.
+
+More information about the process for adding third-party skills can be found in the
+[Companies House Skills repository.](https://github.com/companieshouse/skills)
+Particularly noting
+[the metadata requried for third-party skills.](https://github.com/companieshouse/skills#third-party-skills)
+
 ### Writing Skills
 
 If you are developing a skill to be used within Companies House, it must be
@@ -52,15 +64,3 @@ The `SKILL.md` file must:
   sensitive data if it is not designed for that purpose.
 * **NOT** contain any malicious code or instructions that could lead to harm
   if the skill is used.
-
-## Third-Party Skills
-
-Skills produced outside Companies House must be added to the
-[@CompaniesHouse/skills repository.](https://github.com/companieshouse/skills)
-and approved by the `@CompaniesHouse/AICA-admins` team before being used
-within Companies House.
-
-More information about the process for adding third-party skills can be found in the
-[Companies House Skills repository.](https://github.com/companieshouse/skills)
-Particularly noting
-[the metadata requried for third-party skills.](https://github.com/companieshouse/skills#third-party-skills)
