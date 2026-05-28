@@ -69,7 +69,6 @@ The `SKILL.md` file must:
 * **NOT** contain any malicious code or instructions that could lead to harm
   if the skill is used.
 
-
 ## MCP Servers
 
 > [!WARNING]
