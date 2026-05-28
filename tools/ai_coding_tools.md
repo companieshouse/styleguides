@@ -68,3 +68,11 @@ The `SKILL.md` file must:
   sensitive data if it is not designed for that purpose.
 * **NOT** contain any malicious code or instructions that could lead to harm
   if the skill is used.
+
+
+## MCP Servers
+
+> [!WARNING]
+> **Do not connect to any MCP servers** that have not been approved for use
+> within Companies House. Connecting to unapproved MCP servers could lead to
+> security vulnerabilities, data breaches, or other issues.
