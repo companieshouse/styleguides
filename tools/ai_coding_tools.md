@@ -4,7 +4,11 @@ The full
 [AI Coding Assistants Guidance can be found on Confluence.](https://companieshouse.atlassian.net/wiki/spaces/DEV/pages/5991989283/AI+Coding+Assistants+Guidance)
 
 **Do not use AI Coding tools or assistants that have not been approved for use**
-**within Companies House.**
+**within Companies House. This includes free versions of tools for which we**
+**have licenses for.** Using unapproved tools could lead to security
+vulnerabilities, data breaches, or other issues. The user is responsible for
+any consequences that arise from using unapproved AI coding tools or
+assistants.
 
 ## Skills
 
