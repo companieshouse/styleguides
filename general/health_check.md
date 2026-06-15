@@ -5,7 +5,8 @@ standard. A Lambda does not require a Health check at present.
 
 ## End point Url
 
-This should be `/healthcheck` .
+This should be `/healthcheck`. For ECS services, it is used to determine task health at container level. It should not be exposed
+on AWS load balancers - this is to mitigate security risks of publicly exposing technical application information.
 
 ## Minimum implementation
 
