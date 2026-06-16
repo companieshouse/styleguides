@@ -41,7 +41,7 @@ Refer to the example below:
 | Name | Description | Mandatory | Default | Example |
 |------|-------------|-----------|---------|---------|
 | API_SERVICE_URL | URL of the API service | Y | N/A | N/A |
-| HTTP_TIMEOUT | How long the API is allowed to take | Y | 2 seconds | N/A |
+| HTTP_TIMEOUT | How long the API is allowed to take in seconds | N | 2 seconds | N/A |
 
 ## In Service Repos
 
