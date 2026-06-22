@@ -38,6 +38,7 @@ up to scratch and meeting the latest repository standards.
 
 ## Tools
 
+- [AI Coding Tools and Assistants](tools/ai_coding_tools.md)
 - [Concourse Pipelines](tools/concourse_pipeline.md)
 - [Git](tools/git.md)
 - [Makefiles](tools/makefiles.md)
