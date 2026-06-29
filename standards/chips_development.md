@@ -42,7 +42,7 @@ makes the code clearer.
 
 - Use `uk.gov.ch.chips.common.util.DateUtils` to generate dates in tests, in tandem with using `DateUtils` in the code. This prevents spurious errors in code caused by times ticking over. 
 
-```
+```java
     @BeforeClass
     public static void setupAll() {
         DateUtils.setDateFactory(new MockDateFactory(2026, 6, 29));
@@ -93,7 +93,8 @@ As of June 2026, Chips is using Hibernate 5.3. Hibernate 5 introduces support fo
 e.g. the Hibernate Criteria is deprecated in 5.3 and is removed in Hibernate 6. 
 
 We are currently using a 'getEntityManager' method that casts the existing Hibernate Session to an EntityManager. This is a temporary solution until we can fully migrate to JPA.
-```
+
+```java
     private EntityManager getEntityManager() {
         return sessionFactory.getCurrentSession();
     }
