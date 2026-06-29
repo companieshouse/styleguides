@@ -54,7 +54,7 @@ repository but also to the Concourse pipeline which is held elsewhere)
 (Confluence links to follow for instructions for adding Dependency Track,
 Sonarqube, Dependency Check)
 
-[Concourse pipeline standards are here](../concourse_pipeline.md)
+[Concourse pipeline standards are here](/tools/concourse_pipeline.md)
 
 - [ ] 4.1 - Configured with GitHub Branch Protection rule
 - [ ] 4.2 - Concourse pipeline has unique Webhook tokens
@@ -72,7 +72,7 @@ Sonarqube, Dependency Check)
 
 ## 6. Makefiles
 
-[Makefiles standards are here](../makefiles.md)
+[Makefiles standards are here](/tools/makefiles.md)
 
 - [ ] 6.1 - Present in Repository
 
