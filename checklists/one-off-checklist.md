@@ -36,7 +36,7 @@ box which can be checked to identify these sections as not relevant.
 
 ## 2. README.md file
 
-[ReadMe standards are here](../READMEs.md)
+[ReadMe standards are here](/general/READMEs.md)
 
 - [ ] 2.1 - Present and adheres to standards
 - [ ] 2.2 - Contains a description and context for the repository
