@@ -59,10 +59,9 @@ makes the code clearer.
     }
 ```
 
-#### Testing Rules
+### Testing Chips Rules
 
-public abstract class AbstractChipsRuleTest {
-- When testing CHIPS Rules, use `` and the provided assertion methods where appropriate.
+- When testing CHIPS Rules, use `AbstractChipsRuleTest` and the provided assertion methods where appropriate.
 
 These methods operate on the `testRule` instance variable and verify the number
 of issues detected:
