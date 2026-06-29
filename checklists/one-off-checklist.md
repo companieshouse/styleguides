@@ -29,7 +29,7 @@ box which can be checked to identify these sections as not relevant.
 - [ ] 1.5 - Pull Request template defined
 
   - [ ] 1.5.1 - Enforces to the
-    [Pull request style guide](../git/pull-requests.md)
+    [Pull request style guide](/git/pull-requests.md)
 
 - [ ] 1.6 - MIT License
 - [ ] 1.7 - Service name adheres to service naming guide
