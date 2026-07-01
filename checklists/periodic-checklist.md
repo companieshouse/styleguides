@@ -24,7 +24,7 @@ box which can be checked to identify these sections as not relevant.
 
 ## 2. README.md
 
-[ReadMe standards are here](../READMEs.md)
+[ReadMe standards are here](/general/READMEs.md)
 
 - [ ] 2.1 - Contains up to date test instructions - do they work?
 - [ ] 2.2 - Contains up to date build, deploy and run instructions - do they work?
@@ -60,7 +60,7 @@ repository but also to the Concourse pipeline which is held elsewhere)
 (Confluence links to follow for instructions for adding Dependency Track,
 Sonarqube, Dependency Check)
 
-[Concourse pipeline standards are here](../concourse_pipeline.md)
+[Concourse pipeline standards are here](/tools/concourse_pipeline.md)
 
 - [ ] 4.1 - No old jobs in pipeline
 - [ ] 4.2 - Jobs are all passing
@@ -76,7 +76,7 @@ Sonarqube, Dependency Check)
 
 ## 6. Makefiles
 
-[Makefiles standards are here](../makefiles.md)
+[Makefiles standards are here](/tools/makefiles.md)
 
 - [ ] 6.1 - Adheres to styleguide
 - [ ] 6.2 - Contains targets: `all`, `clean`, `build`, `test`, `test-unit`,

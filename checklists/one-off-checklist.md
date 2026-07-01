@@ -29,14 +29,14 @@ box which can be checked to identify these sections as not relevant.
 - [ ] 1.5 - Pull Request template defined
 
   - [ ] 1.5.1 - Enforces to the
-    [Pull request style guide](../git/pull-requests.md)
+    [Pull request style guide](/git/pull-requests.md)
 
 - [ ] 1.6 - MIT License
 - [ ] 1.7 - Service name adheres to service naming guide
 
 ## 2. README.md file
 
-[ReadMe standards are here](../READMEs.md)
+[ReadMe standards are here](/general/READMEs.md)
 
 - [ ] 2.1 - Present and adheres to standards
 - [ ] 2.2 - Contains a description and context for the repository
@@ -54,7 +54,7 @@ repository but also to the Concourse pipeline which is held elsewhere)
 (Confluence links to follow for instructions for adding Dependency Track,
 Sonarqube, Dependency Check)
 
-[Concourse pipeline standards are here](../concourse_pipeline.md)
+[Concourse pipeline standards are here](/tools/concourse_pipeline.md)
 
 - [ ] 4.1 - Configured with GitHub Branch Protection rule
 - [ ] 4.2 - Concourse pipeline has unique Webhook tokens
@@ -72,7 +72,7 @@ Sonarqube, Dependency Check)
 
 ## 6. Makefiles
 
-[Makefiles standards are here](../makefiles.md)
+[Makefiles standards are here](/tools/makefiles.md)
 
 - [ ] 6.1 - Present in Repository
 
