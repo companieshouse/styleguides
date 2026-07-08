@@ -52,12 +52,12 @@ For larger changes, add a commit body with enough detail to explain:
 * how it addresses the issue
 * any effects or side effects worth knowing about
 
-Try to keep formatting, refactoring and functional changes in separate
-commits. This makes the history easier to follow and changes easier to
-review.
+Keep refactors, formatting and functional changes separate where possible.
+This makes the history easier to follow and changes easier to review.
 
 Do not rewrite shared branch history. If others may already have pulled the
-branch, avoid rebasing or force pushing it.
+branch, avoid rebasing or force pushing it. Use a pull request when changes
+are needed on a shared branch.
 
 ## Pull Requests
 
@@ -89,58 +89,39 @@ For example:
 SCRS-402 Add PSC summary page with director details
 ```
 
-Remember that repositories should be treated as public. Avoid including
-sensitive or unnecessary internal information in pull requests, comments or
-commit messages.
+Treat repositories as public and be mindful of language and sensitive
+information in commits and pull requests.
 
 ## Reviews
 
 Use the GitHub `Reviewers` section when asking for a review rather than
 relying only on `@mentions`.
 
-Choose reviewers who have suitable knowledge of the area being changed. The
-pull request should still include enough context for someone who has not been
-closely involved in the work.
+Choose reviewers based on relevant knowledge or code ownership and give them
+enough context to understand the change.
 
-When reviewing a change, think about:
+Only approve a change if you have adequate knowledge of the area being
+changed. Consider whether the change could block or negatively affect other
+work streams.
 
-* whether the change does what it is meant to do
-* security
-* maintainability
-* test coverage
-* configuration or deployment impact
-* dependencies on other services
-* possible impact on other teams
-
-Only approve a change if you are comfortable that you understand the area
-being changed.
+For repositories using an integration or staging branch, follow the wider
+review requirements in the [Pull Request Standards](pull-requests.md).
 
 ## Merging
 
 Choose the merge approach based on the changes in the pull request.
 
-Use a squash merge when the branch contains small or temporary development
-commits that do not add anything useful to the long-term Git history.
+Use a squash merge when the branch contains small or interim commits that do
+not add useful review or trace value.
 
-Use a merge commit when the individual commits represent separate,
-meaningful changes that are useful to keep.
+Use a merge commit when individual commits represent distinct, meaningful
+changes that are useful to preserve.
 
 If commits are squashed, make sure the final commit message follows the
 [Commit Standards](commits.md).
 
-Once a feature or bugfix branch has been merged successfully, delete it.
-Long-lived branches should only be kept where there is an agreed reason for
-them.
-
-## Shared Branches
-
-Avoid rewriting the history of a shared branch.
-
-If someone else may already have pulled the branch, do not rebase or force
-push it. Use a pull request for changes that need to be reviewed or merged.
-
-This helps avoid disrupting other people's work and keeps the change history
-clear.
+Delete feature and bugfix branches after a successful merge. Long-lived
+branches should be avoided unless explicitly agreed.
 
 ## Repository Hygiene
 
@@ -159,35 +140,15 @@ Avoid:
 Update documentation when a change affects how a service is built,
 configured, deployed or supported.
 
-## Versioning and Releases
-
-Where a repository uses versioning, follow the
-[Versioning Standards](../general/versioning.md).
-
-Update the version where needed to reflect the type of change being made.
-
-Release branches should use the agreed format:
-
-```md
-release/x.y.z
-```
-
-For example:
-
-```md
-release/1.3.0
-```
-
 ## In Short
 
 * Use clear and consistent branch names
 * Include the relevant Jira ticket ID
-* Keep commits focused
+* Keep commits small and focused
+* Do not rewrite shared branch history
 * Give reviewers enough context
 * Keep pull requests manageable
-* Choose reviewers who understand the area
-* Preserve useful Git history and squash unnecessary commits
-* Do not rewrite shared branch history
-* Delete merged branches
+* Choose reviewers with suitable knowledge
+* Preserve commits that provide useful trace value
+* Delete feature and bugfix branches after merging
 * Keep repositories tidy
-* Follow the versioning guidance where it applies
