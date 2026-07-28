@@ -25,6 +25,7 @@ How to use Spring application configuration is provide in the
 > This is a mandatory standard. Consistent naming simplifies the management,
 > auditing, and rotation of API keys across all CHS services.
 
+<!-- markdownlint-disable-next-line MD028 -->
 > [!NOTE]
 > This section may be expanded into dedicated API key management guidance in
 > future, covering areas such as key rotation, storage, and secret management
@@ -35,7 +36,7 @@ convention below, using the appropriate prefix for the key's origin:
 
 ### Format
 
-```
+```text
 {PREFIX}_{SERVICE_NAME}_API_KEY
 ```
 
