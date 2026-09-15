@@ -1,10 +1,10 @@
 # Innovation AWS Account Deployment Guidance
 
-This guide provides best practices for deploying resources in our innovation AWS account, with a focus on resource efficiency and cost optimization.
+This guide provides best practices for deploying resources in our innovation AWS account, with a focus on resource efficiency and cost optimisation.
 
 ## Overview
 
-The innovation AWS account is a space for experimentation and proof-of-concepts. All resources deployed here should be tagged appropriately and sized to minimize costs while meeting functional requirements.
+The innovation AWS account is a space for experimentation and proof-of-concepts. All resources deployed here should be tagged appropriately and sized to minimise costs while meeting functional requirements.
 
 ## Data Handling
 
@@ -24,14 +24,14 @@ All taggable resources **must** be tagged with the following mandatory tags:
 
 ### Optional Tags
 
-Consider adding these tags for better resource organization:
+Consider adding these tags for better resource organisation:
 
 | Tag Key | Description | Example Value |
 |---------|-------------|----------------|
 | `Project` | Associated project or initiative | `ai-experimentation` |
 | `Environment` | Deployment environment | `innovation` |
 | `ManagedBy` | Infrastructure management tool | `terraform` |
-| `ShutdownSchedule` | Shutdown schedule outside work hours | `mon-fri-1800-0800` | Used for cost optimization |
+| `ShutdownSchedule` | Shutdown schedule outside work hours | `mon-fri-1800-0800` | Used for cost optimisation |
 
 ### Tagging Example
 
@@ -176,7 +176,7 @@ ShutdownSchedule: daily-1800-0800    # Stop 6 PM–8 AM daily
 ShutdownSchedule: manual              # No automatic shutdown
 ```
 
-## Cost Optimization Checklist
+## Cost Optimisation Checklist
 
 Before deploying, verify:
 
@@ -197,7 +197,7 @@ Before deploying, verify:
 ### Weekly Tasks
 1. Review [AWS Cost Explorer](https://console.aws.amazon.com/cost-management/home#/custom) for resource costs filtered by CostCentre
 2. Check CloudWatch alarms for resource health
-3. Identify underutilized resources and scale down or delete
+3. Identify underutilised resources and scale down or delete
 4. Verify shutdown schedules are running as expected
 
 ### Automatic Cleanup
@@ -207,7 +207,7 @@ Before deploying, verify:
 
 ## Getting Help
 
-- **AWS Cost Optimization**: See the AWS Trusted Advisor recommendations
+- **AWS Cost Optimisation**: See the AWS Trusted Advisor recommendations
 - **Performance Issues**: Review CloudWatch metrics and logs
 - **Shutdown Schedule Setup**: Contact the platform engineering team
 - **Account-level Questions**: Contact the platform engineering team
