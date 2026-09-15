@@ -229,4 +229,3 @@ Before deploying, verify:
 - **Performance Issues**: Review CloudWatch metrics and logs
 - **Shutdown Schedule Setup**: Contact the platform engineering team
 - **Account-level Questions**: Contact the platform engineering team
-- **Billing/Cost Centre Issues**: Email `innovation-account@companieshouse.gov.uk`
