@@ -109,7 +109,8 @@ ShutdownSchedule: mon-fri-1800-0800
 ## Resource Selection by Use Case
 
 ### Web Application
-```
+
+```text
 - Compute: t3.small EC2 or App Runner (schedule shutdown outside work hours)
 - Database: RDS (db.t3.micro, PostgreSQL)
 - Storage: S3 (Standard storage class)
@@ -118,7 +119,8 @@ ShutdownSchedule: mon-fri-1800-0800
 ```
 
 ### Data Processing / Batch Jobs
-```
+
+```text
 - Compute: EC2 Spot Instances (t3.small) or Batch (schedule for business hours only)
 - Storage: S3 (Standard_IA for processed data)
 - Processing: Lambda (for scheduled tasks) or Glue (for data pipelines)
@@ -126,7 +128,8 @@ ShutdownSchedule: mon-fri-1800-0800
 ```
 
 ### Machine Learning / Model Training
-```
+
+```text
 - Compute: SageMaker (ml.t3.medium notebook, ml.p3.2xlarge training only when active)
 - Storage: S3 (STANDARD_IA for datasets)
 - Monitoring: SageMaker Model Monitor + CloudWatch
@@ -134,7 +137,8 @@ ShutdownSchedule: mon-fri-1800-0800
 ```
 
 ### API / Microservices
-```
+
+```text
 - Compute: ECS on Fargate (256 MB/0.25 vCPU) or Lambda
 - Database: DynamoDB (on-demand) or RDS (db.t3.micro, consider shutting down outside hours)
 - Caching: ElastiCache (cache.t3.micro)
@@ -162,24 +166,27 @@ Significant cost savings can be achieved by shutting down non-critical resources
 
 ### Implementation Methods
 
-**Option 1: AWS Systems Manager Maintenance Windows**
+#### Option 1: AWS Systems Manager Maintenance Windows
+
 - Automate start/stop schedules for EC2 and RDS
 - Set tag-based schedules (e.g., `ShutdownSchedule: mon-fri-1800-0800`)
 - Recommended for teams using Infrastructure-as-Code
 
-**Option 2: EventBridge + Lambda**
+#### Option 2: EventBridge + Lambda
+
 - Create EventBridge rules to trigger Lambda functions at scheduled times
 - Lambda stops/starts resources based on tags
 - More flexible for complex shutdown logic
 
-**Option 3: Manual Shutdown**
+#### Option 3: Manual Shutdown
+
 - For one-off or ad-hoc resources
 - Remember to shut down before leaving for the day
 - Set email reminders if needed
 
 ### Example Shutdown Schedule
 
-```
+```text
 ShutdownSchedule: mon-fri-1800-0800  # Stop 6 PM Friday through 8 AM Monday
 ShutdownSchedule: daily-1800-0800    # Stop 6 PM–8 AM daily
 ShutdownSchedule: manual              # No automatic shutdown
@@ -204,12 +211,14 @@ Before deploying, verify:
 ## Monitoring & Cleanup
 
 ### Weekly Tasks
+
 1. Review [AWS Cost Explorer](https://console.aws.amazon.com/cost-management/home#/custom) for resource costs filtered by CostCentre
 2. Check CloudWatch alarms for resource health
 3. Identify underutilised resources and scale down or delete
 4. Verify shutdown schedules are running as expected
 
 ### Automatic Cleanup
+
 - Set resource expiration tags (e.g., `ExpirationDate: 2026-10-15`)
 - Use [AWS Config](https://aws.amazon.com/config/) rules to enforce required tagging
 - Enable CloudTrail for audit logging
