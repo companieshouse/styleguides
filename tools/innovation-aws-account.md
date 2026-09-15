@@ -35,11 +35,11 @@ All taggable resources **must** be tagged with the following mandatory tags:
 
 Consider adding these tags for better resource organisation:
 
-| Tag Key | Description | Example Value |
-|---------|-------------|----------------|
-| `Project` | Associated project or initiative | `ai-experimentation` |
-| `Environment` | Deployment environment | `innovation` |
-| `ManagedBy` | Infrastructure management tool | `terraform` |
+| Tag Key | Description | Example Value | Notes |
+|---------|-------------|---------------|-------|
+| `Project` | Associated project or initiative | `ai-experimentation` | |
+| `Environment` | Deployment environment | `innovation` | |
+| `ManagedBy` | Infrastructure management tool | `terraform` | |
 | `ShutdownSchedule` | Shutdown schedule outside work hours | `mon-fri-1800-0800` | Used for cost optimisation |
 
 ### Tagging Example
