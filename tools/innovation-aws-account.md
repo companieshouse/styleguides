@@ -65,12 +65,10 @@ ShutdownSchedule: mon-fri-1800-0800
 
 ### Compute (EC2)
 
-- **Default**: `t3.micro` or `t4g.micro` (eligible for free tier)
-- **For testing/CI/CD**: `t3.small` maximum
+- **Default**: `t3.micro` or `t4g.micro`
 - **For short-lived workloads**: Use spot instances (up to 70% savings)
 - **Avoid**: `m5.large` and larger unless justified
-
-**Action**: Enable auto-scaling with aggressive scale-down policies (e.g., scale down after 5 minutes of low CPU)
+- **Consider auto-scaling**: Enable auto-scaling with aggressive scale-down policies (e.g., scale down after 5 minutes of low CPU)
 
 ### Containers (ECS/EKS)
 
@@ -111,7 +109,7 @@ ShutdownSchedule: mon-fri-1800-0800
 ### Web Application
 
 ```text
-- Compute: t3.small EC2 or App Runner (schedule shutdown outside work hours)
+- Compute: t3.small EC2 (schedule shutdown outside work hours)
 - Database: RDS (db.t3.micro, PostgreSQL)
 - Storage: S3 (Standard storage class)
 - Load Balancing: ALB (if multiple instances)
@@ -208,7 +206,7 @@ Before deploying, verify:
 - [ ] Reserved instances are NOT purchased (use on-demand only)
 - [ ] Estimated monthly cost does not exceed team budget
 
-## Monitoring & Cleanup
+## Monitoring & Clean-up
 
 ### Weekly Tasks
 
@@ -217,7 +215,7 @@ Before deploying, verify:
 3. Identify underutilised resources and scale down or delete
 4. Verify shutdown schedules are running as expected
 
-### Automatic Cleanup
+### Automatic Clean-up
 
 - Set resource expiration tags (e.g., `ExpirationDate: 2026-10-15`)
 - Use [AWS Config](https://aws.amazon.com/config/) rules to enforce required tagging
