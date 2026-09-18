@@ -9,9 +9,7 @@ The innovation AWS account is a space for experimentation and proof-of-concepts.
 ## Data Handling
 
 Use only publicly available or synthetic data in the innovation AWS account.
-Personally identifiable information (PII) must not be used. Use synthetic
-data that contains no PII for development, testing, demonstrations, and
-proof-of-concepts instead.
+Real personally identifiable information (PII) must not be used.
 
 > [!NOTE]
 > Synthetic data is artificially generated information that may mimic the
