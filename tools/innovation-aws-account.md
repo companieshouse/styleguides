@@ -27,7 +27,7 @@ All taggable resources **must** be tagged with the following mandatory tags:
 
 | Tag Key | Description | Example Value | Notes |
 |---------|-------------|----------------|-------|
-| `Name` | Human-readable resource identifier | `my-api-service` | Use lowercase with hyphens |
+| `Name` | Human-readable resource identifier | `my-api-service` | Use lowercase with hyphens, required for EC2 and networking resources, others optional |
 | `Team` | Scrum team responsible for the resource | `Apollo`, `Titans` | Use exact team name |
 | `ContactEmail` | Email of primary contact for the resource | `apollo-team@companieshouse.gov.uk` | Used for notifications and escalations |
 
