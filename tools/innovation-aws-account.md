@@ -58,10 +58,10 @@ ShutdownSchedule: mon-fri-1800-0800
 
 ### General Principles
 
-1. **Start Small**: Always provision the smallest resource size that meets your requirements
-2. **Monitor & Scale**: Use CloudWatch metrics to identify performance bottlenecks
-3. **Right-size Regularly**: Review running resources weekly and adjust allocations
-4. **Avoid Waste**: Delete unused resources immediately
+- **Start Small**: Always provision the smallest resource size that meets your requirements
+- **Monitor & Scale**: Use CloudWatch metrics to identify performance bottlenecks
+- **Right-size Regularly**: Review running resources weekly and adjust allocations
+- **Avoid Waste**: Delete unused resources immediately
 
 ### Compute (EC2)
 
